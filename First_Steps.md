@@ -31,7 +31,7 @@ sudo add-apt-repository ppa:kisak/kisak-mesa
 sudo add-apt-repository ppa:liujianfeng1994/rockchip-multimedia
 sudo apt full-upgrade
 sudo reboot
-sudo apt install clapper ffmpeg mpv chromium chrme-browser libv4l-rkmpp gstreamer1.0-rockchip1 kodi
+sudo apt install clapper ffmpeg mpv chromium chrome-browser libv4l-rkmpp gstreamer1.0-rockchip1 kodi
 ```
 ## Make workspaces only x2
 Use `dconf-editor`
@@ -39,5 +39,21 @@ Use `dconf-editor`
 ## Install PiApps
 `wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash` & the install in a queue form all applications required
 
-## LIbreoffice Icons
+## Libreoffice Icons
 `curl -s https://raw.githubusercontent.com/rizmut/libreoffice-style-sifr/master/install-sifr.sh | sh`
+
+## Compilation Environment
+### Linux based
+`sudo apt install build-essential cmake autoconf meson`
+### .Net8.x
+```
+cd ~/Downloads
+wget https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.408/dotnet-sdk-8.0.408-linux-arm64.tar.gz
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.408-linux-arm64.tar.gz -C $HOME/dotnet
+```
+Then `nano ~/.bashrc` at the end of file add x2 lines
+```
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+```
+
