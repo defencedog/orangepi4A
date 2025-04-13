@@ -39,9 +39,11 @@ Use `dconf-editor`
 ## Install PiApps
 `wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash` & the install in a queue form all applications required
 
-## Libreoffice Icons
-`curl -s https://raw.githubusercontent.com/rizmut/libreoffice-style-sifr/master/install-sifr.sh | sh`
-
+## Libreoffice Latest
+```
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt install libreoffice
+````
 ## Compilation Environment
 ### Linux based
 `sudo apt install build-essential cmake autoconf meson`
