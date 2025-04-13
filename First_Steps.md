@@ -12,7 +12,9 @@ reboot
 ```
 Look at these files `nano if there is any orangepi entry`
 > /etc/group
+> 
 > /etc/shadow
+> 
 > /etc/passwd
 
 Finally 
