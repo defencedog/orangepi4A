@@ -46,6 +46,36 @@ Use `dconf-editor`
 sudo add-apt-repository ppa:libreoffice/ppa
 sudo apt install libreoffice
 ````
+## Old chromium extensions
+The HW accelerate `chromium (126)` or `chrome-browser (114)` packages are in [ppa:rockchip-multimedia](https://launchpad.net/~liujianfeng1994/+archive/ubuntu/rockchip-multimedia/?field.series_filter=jammy)
+Extensions are hosted at https://www.crx4chrome.com/
+When the required `.crx` file is downloaded extract it using `mkdir <name> && 7zz x <name>.crx -o./<name>`
+Extensions can be loaded in unpacked mode by following the following steps:
+1. Visit chrome://extensions (via omnibox or menu -> Tools -> Extensions).
+2. Enable Developer mode by ticking the checkbox in the upper-right corner.
+3. Click on the "Load unpacked extension..." button.
+4. Select the directory containing your unpacked extension.
+
+## Python mu-editor Bug
+Application not launching under `wayland`
+```
+sudo apt install mu-editor #or better use PiApps
+sudo nano /usr/share/mu-editor/mu/interface/main.py
+```
+modification inside a function
+```python
+ 765     def autosize_window(self):
+ 766         """
+ 767         Makes the editor 80% of the width*height of the screen and centres it.
+ 768         """
+ 769         screen = QDesktopWidget().screenGeometry()
+ 770         w = int(screen.width() * 0.8)
+ 771         h = int(screen.height() * 0.8)
+ 772         self.resize(w, h)
+ 773         size = self.geometry()
+ 774         self.move((screen.width() - size.width()) // 2, #modify
+ 775                   (screen.height() - size.height()) // 2) #modify
+```
 ## Compilation Environment
 ### Linux based
 `sudo apt install build-essential cmake autoconf meson`
