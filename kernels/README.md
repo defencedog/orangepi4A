@@ -1,5 +1,5 @@
 # Custom Compiled from OrangePI Build Framework
-THese `.debs` can be installed as I have included multiple missing features. In the default kernel x2 important features (filesystem support) are missing
+These `.debs` can be installed as I have included multiple missing features. In the default kernel x3 important features (filesystem support) are missing
 
 1. `cifs` support is added; you cannot mount a samba shared directory!
 2. `nfs` support is added
