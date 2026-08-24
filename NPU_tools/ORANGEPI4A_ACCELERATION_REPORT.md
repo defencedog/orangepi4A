@@ -38,6 +38,8 @@ The **VeriSilicon VIP9000 NPU (2.0 TOPS)** on your Allwinner T527 is a dedicated
 
 ### 2.2 Dedicated NPU PDF OCR Utility (`npu-ocr`)
 
+Download from official release [board-demo.tar.gz](https://drive.google.com/file/d/1i0VTlf4dG8mgFpKm-bkRprPAz2MOaLaZ/view?usp=drive_link)
+
 An automated hardware-accelerated tool is installed at `/usr/local/bin/npu-ocr` to parse PDFs and images:
 
 ```bash
@@ -126,7 +128,7 @@ printf "<img>/path/to/diagram.jpg</img>Describe this diagram in detail.\n/exit\n
 
 ## 6. Live Hardware Monitor (`opi-monitor`)
 
-A dedicated terminal dashboard monitors CPU, GPU, NPU, Memory, and thermals in real time with dynamic utilization bars:
+A dedicated terminal dashboard monitors CPU, GPU, NPU, Memory, and thermals in real time with dynamic utilization bars (rename of symlink to hardware_monitor.sh): 
 
 ```bash
 # Live interactive dashboard:
