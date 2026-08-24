@@ -136,7 +136,4 @@ opi-monitor
 
 # Single snapshot:
 opi-monitor --once
-
-# Run NPU benchmark loop (observe live NPU utilization bar):
-~/Downloads/run_npu_benchmark.sh 200
 ```
