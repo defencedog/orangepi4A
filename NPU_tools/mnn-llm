@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export RUSTICL_ENABLE=panfrost
+export OCL_ICD_VENDORS=/opt/mesa/etc/OpenCL/vendors
+export LD_LIBRARY_PATH=/opt/mesa/lib:/opt/mnn/lib:$LD_LIBRARY_PATH
+exec /opt/mnn/bin/llm_demo "$@"
