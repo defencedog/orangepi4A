@@ -5,6 +5,7 @@
 **NPU Subsystem:** VeriSilicon VIP9000nano-di (`vivante,gc` rev 9003, 2.0 TOPS INT8)  
 **Driver & Runtime:** Mainline Linux `etnaviv` DRM (`/dev/dri/renderD129`) + Mesa Teflon (`libteflon.so`) + Google LiteRT  
 **Tested Python Runtime:** **Python 3.14.4** (ARM64 / aarch64, Linux `6.18.44-g61025ec85b88`)  
+**Tested on:** [aurealnix-opi4a-ubuntu2604-kubuntu-v0.4.1.img.xz](https://github.com/ut-slayer/orangepi-4a-mainline/releases/tag/v0.4.1)
 
 ---
 
