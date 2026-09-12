@@ -1,0 +1,7 @@
+# Face Clustering & Identity Indexing Requirements
+# Tested on Python 3.14.4 (ARM64 / aarch64, Linux 6.18.44)
+
+numpy>=1.26.0
+opencv-python-headless>=4.8.0
+onnxruntime>=1.16.0
+ai-edge-litert>=1.0.0

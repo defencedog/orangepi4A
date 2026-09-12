@@ -23,6 +23,7 @@ Unlike stock upstream configurations that suffered from DMA command stalls and r
 | :--- | :--- | :--- | :--- | :--- |
 | [`opi4a-npu-iapws/`](./opi4a-npu-iapws/) | **Thermodynamic Steam Tables (IAPWS-97)** | Quantized Fully-Connected Neural Surrogate (INT8) | LiteRT CPU XNNPACK & VIP9000 Silicon NPU | **0.0277 ms** latency (**58.5x faster** than analytical CPU, < 0.5% error) |
 | [`opi4a-npu-mobilenet/`](./opi4a-npu-mobilenet/) | **Vision AI (Classification & Detection)** | MobileNet V1 ($224 \times 224$) & SSD MobileNet ($300 \times 300$) INT8 | LiteRT CPU XNNPACK & VIP9000 Silicon NPU | **52.9 FPS** classification, **36.7 FPS** detection, rock-solid NPU telemetry |
+| [`opi4a-npu-face-clustering/`](./opi4a-npu-face-clustering/) | **Facial Intelligence & Identity Indexing** | SCRFD-500M Face Detection & MobileFaceNet (512-D) Embeddings | ONNX Runtime CPU + VIP9000 Silicon NPU + SQLite | **16 faces / 15 unique identities** indexed across scenes, 100% persistent SQLite database |
 
 ---
 
@@ -61,6 +62,9 @@ pip install -r opi4a-npu-mobilenet/requirements.txt
 
 # Install dependencies for Steam Tables project
 pip install -r opi4a-npu-iapws/requirements.txt
+
+# Install dependencies for Face Clustering project
+pip install -r opi4a-npu-face-clustering/requirements.txt
 ```
 
 ---
@@ -70,6 +74,18 @@ pip install -r opi4a-npu-iapws/requirements.txt
 ```text
 ~/NPU_proj_opi4a_6.18.44/
 ├── README.md                      # Master repository documentation (this file)
+├── opi4a-npu-face-clustering/     # Face Detection, 512-D Embedding & SQLite Clustering
+│   ├── README.md                  # Complete facial intelligence documentation
+│   ├── requirements.txt           # Python dependencies (onnxruntime, opencv, litert, numpy)
+│   ├── cluster_and_index.py       # Core end-to-end ingestion and clustering CLI
+│   ├── face_detector.py           # SCRFD-500M detector with VIP9000 NPU integration
+│   ├── face_embedder.py           # MobileFaceNet 512-D facial feature embedder
+│   ├── query_db.py                # Database query CLI (search by person, scene, thumbnail)
+│   ├── database/                  # Relational SQLite schema (people, images, face_instances)
+│   ├── faces.db                   # SQLite database indexed with 15 unique individuals
+│   ├── images/                    # Source test image scenes (01.jpg – 05.jpg)
+│   ├── crops/                     # 112×112 aligned face crops and thumbnails
+│   └── models/                    # SCRFD-500M & MobileFaceNet ONNX + NPU TFLite models
 ├── opi4a-npu-iapws/               # Sub-millisecond Neural Steam Tables (IAPWS-IF97)
 │   ├── README.md                  # Detailed thermodynamics documentation & benchmarks
 │   ├── requirements.txt           # Python dependencies (iapws, ai-edge-litert, numpy)
@@ -100,6 +116,10 @@ pip install -r opi4a-npu-iapws/requirements.txt
 | **MobileNet V1 (224x224)** | CPU XNNPACK | 8 Cores | **18.91 ms** | **52.9 FPS** | Full octa-core saturation |
 | **SSD Detection (300x300)** | CPU XNNPACK | 8 Cores | **27.28 ms** | **36.7 FPS** | Full octa-core saturation |
 | **SSD Detection (300x300)** | Hardware NPU | VIP9000 Silicon | Hardware Active | 10/10 Passed | Rock-solid (`+4,900 ms` active delta / run) |
+| **Face Detection (SCRFD)** | ONNX Runtime CPU | 8 Cores | **180 ms – 450 ms** | Variable | Fast multi-scale anchor pyramid |
+| **Face Embedding (512-D)** | ONNX Runtime CPU | 8 Cores | **~10 ms** | ~100 faces/sec | L2-normalized 512-D feature vector |
+| **NPU Silicon Duty Cycle** | VIP9000 Silicon | `/dev/dri/renderD129` | **33.1 ms / pass** | ~30 inferences/sec | 1,244 ms active execution registered |
+| **Scene Ingestion & Indexing** | Hybrid CPU + NPU | Full Pipeline | **394 ms – 885 ms** | 1.2–2.5 scenes/sec | Decode, detect, embed, cluster & DB write |
 
 ---
 
