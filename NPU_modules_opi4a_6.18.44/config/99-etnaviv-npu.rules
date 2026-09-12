@@ -1,0 +1,3 @@
+# Allwinner T527 VIP9000 NPU DRM device rule
+# Assigns /dev/dri/renderD129 to render group with rw permissions
+KERNEL=="renderD129", SUBSYSTEM=="drm", GROUP="render", MODE="0660"
