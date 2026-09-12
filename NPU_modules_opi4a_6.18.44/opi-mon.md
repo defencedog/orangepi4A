@@ -36,9 +36,13 @@ NPU activity is tracked directly by the kernel's Runtime Power Management (Runti
 ### 2.2 Mathematical Duty-Cycle Formula
 `opi-mon` measures dynamic NPU duty cycle by computing the active time delta over each refresh window:
 
-626213\Delta t_{\text{active}} = \text{runtime\_active\_time}_t - \text{runtime\_active\_time}_{t - \Delta t}626213
+$$
+\Delta t_{\text{active}} = \text{runtime\_active\_time}_t - \text{runtime\_active\_time}_{t - \Delta t}
+$$
 
-626213\text{NPU Load (\%)} = \min\left(100, \frac{\Delta t_{\text{active}} \times 100}{\text{REFRESH\_INTERVAL} \times 1000}\right)626213
+$$
+\text{NPU Load (\%)} = \min\left(100, \frac{\Delta t_{\text{active}} \times 100}{\text{REFRESH\_INTERVAL} \times 1000}\right)
+$$
 
 - **When Idle:** The NPU is autosuspended. $\Delta t_{\text{active}} = 0\text{ ms} \implies \text{NPU Load} = \mathbf{0\%}$.
 - **Under Partial Load:** (e.g. 50 ms of inference in a 1,000 ms window) $\implies \text{NPU Load} = \mathbf{5\%}$.
@@ -58,7 +62,7 @@ In earlier builds, users reported that `opi-mon` displayed `NPU 100%` continuous
    Early versions of `opi-mon` had a hardcoded override:
    ```bash
    # Flawed legacy fallback:
-   if [  -eq 0 ] && [  = active ]; then
+   if [ "$active_delta" -eq 0 ] && [ "$npu_status" = "active" ]; then
        npu_load=100
    fi
    ```
