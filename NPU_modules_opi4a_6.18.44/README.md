@@ -1,9 +1,14 @@
 # Allwinner T527 (Orange Pi 4A) VIP9000 NPU Activation & Optimization Suite
 
 **Target Board:** Orange Pi 4A / Radxa Cubie A5E (Allwinner T527 / sun55i-t527)  
+
 **NPU Silicon:** VeriSilicon VIP9000nano-di (`ChipID: 0x9000`, `Revision: 0x9003`, `ProductID: 0x5090009`, `CustomerID: 0x10000016`)  
+
 **Operating System:** Linux Kernel `6.18.44-g61025ec85b88` (ARM64 / aarch64)  
+
 **Inference Runtime:** Google LiteRT (`ai_edge_litert`) + Patched Mesa Teflon (`libteflon.so`)  
+
+**Tested on:** [aurealnix-opi4a-ubuntu2604-kubuntu-v0.4.1.img.xz](https://github.com/ut-slayer/orangepi-4a-mainline/releases/tag/v0.4.1)
 
 ---
 
