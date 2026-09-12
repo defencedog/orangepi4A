@@ -36,13 +36,14 @@ NPU activity is tracked directly by the kernel's Runtime Power Management (Runti
 ### 2.2 Mathematical Duty-Cycle Formula
 `opi-mon` measures dynamic NPU duty cycle by computing the active time delta over each refresh window:
 
-$$
-\Delta t_{\text{active}} = \text{runtime\_active\_time}_t - \text{runtime\_active\_time}_{t - \Delta t}
-$$
 
-$$
+```math
+\Delta t_{\text{active}} = \text{runtime\_active\_time}_t - \text{runtime\_active\_time}_{t - \Delta t}
+```
+
+```math
 \text{NPU Load (\%)} = \min\left(100, \frac{\Delta t_{\text{active}} \times 100}{\text{REFRESH\_INTERVAL} \times 1000}\right)
-$$
+```
 
 - **When Idle:** The NPU is autosuspended. $\Delta t_{\text{active}} = 0\text{ ms} \implies \text{NPU Load} = \mathbf{0\%}$.
 - **Under Partial Load:** (e.g. 50 ms of inference in a 1,000 ms window) $\implies \text{NPU Load} = \mathbf{5\%}$.
