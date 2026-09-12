@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-09-11T17:45:00",
+  "hardware": {
+    "host": "opi4a",
+    "soc": "Allwinner T527",
+    "cpu": "Octa-Core ARM Cortex-A55 @ 1.8 GHz",
+    "npu_chip": "VeriSilicon VIP9000nano-di",
+    "npu_id": "0x9000",
+    "npu_revision": "0x9003",
+    "kernel": "Linux 6.18.44-g61025ec85b88",
+    "driver": "etnaviv",
+    "device_node": "/dev/dri/renderD129"
+  },
+  "accuracy_metrics": {
+    "test_points": 195,
+    "operating_region": "Region 2 Superheated Steam (0.2 - 9.0 MPa, 450 - 800 K)",
+    "density": {
+      "mae": 0.1919,
+      "mape_percent": 2.12,
+      "max_error": 0.7282,
+      "unit": "kg/m3"
+    },
+    "enthalpy": {
+      "mae": 5.3626,
+      "mape_percent": 0.17,
+      "max_error": 14.5152,
+      "unit": "kJ/kg"
+    },
+    "entropy": {
+      "mae": 0.0334,
+      "mape_percent": 0.49,
+      "max_error": 0.0846,
+      "unit": "kJ/(kg*K)"
+    },
+    "cp": {
+      "mae": 0.0256,
+      "mape_percent": 0.84,
+      "max_error": 0.2628,
+      "unit": "kJ/(kg*K)"
+    }
+  },
+  "latency_and_throughput": {
+    "cpu_iapws97_baseline": {
+      "latency_ms": 1.6643,
+      "throughput_evals_per_sec": 600.8
+    },
+    "cpu_neural_surrogate": {
+      "latency_ms": 0.0262,
+      "throughput_evals_per_sec": 38112.6,
+      "speedup_vs_baseline": 63.5
+    },
+    "cpu_neural_surrogate_tight_loop": {
+      "latency_ms": 0.0057,
+      "throughput_evals_per_sec": 175512.7,
+      "speedup_vs_baseline": 293.8
+    },
+    "hardware_npu_teflon": {
+      "latency_ms": 550.0,
+      "throughput_evals_per_sec": 1.8,
+      "status": "hardware_woken_dma_stalled",
+      "kernel_recovery": "etnaviv-gpu 7122000.npu: recover hung GPU!"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# NPU IAPWS-97 Neural Surrogate Requirements
+# Tested on Python 3.14.4 (ARM64 / aarch64)
+
+# Core Runtime & Numerical Libraries
+numpy>=1.26.0
+ai-edge-litert>=1.0.0
+
+# Thermodynamic Baseline Validation
+iapws>=1.5.5
+tabulate>=0.9.0
+
+# Optional: Scientific analysis and dataset regeneration
+scipy>=1.11.0
+matplotlib>=3.8.0
