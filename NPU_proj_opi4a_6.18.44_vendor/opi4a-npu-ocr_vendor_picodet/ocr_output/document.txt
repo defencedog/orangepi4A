@@ -1,0 +1,127 @@
+==================================================
+--- Page 1 ---
+==================================================
+
+Engineering Practice
+Anti-surge Valves for
+Dynamic Compressors
+FIGURE 1. This
+Follow this guidance to
+picture shows an
+example of an anti-
+improve the selection
+surge valve
+and sizing of anti-surge
+valves for axial and
+centrifugal compressors
+Amin Almasi
+WorleyParsons Services Pty. Ltd.
+collapses, and a sudden backward flow
+of gas occurs from the discharge to the
+suction side of the compressor.
+This surge phenomenon can cause a
+reversal of the thrust loads (large dy-
+namic/transient forces on the rotor),
+which can result in damages to bear-
+ings (particularly thrust bearings),
+seals and other parts of the compres-
+sor. For these reasons a surge - and
+particularly high-energy surges
+should be avoided. Recent innovations
+in control technology, dynamic simula-
+tions, rotating machinery knowledge
+and control-valve design (the anti-
+surge valve) have made it possible to
+supply anti-surge systems that are
+capable of coping with rapid flow fluc--
+tuations and process gas variations.
+A dynamic compressor, also known
+as a "turbo-compressor", is generally
+provided with an anti-surge valve (Fig-
+ure 1) in order to keep the compres-
+sor in a stable operating range. This
+is achieved by assuring a suction flow
+that is higher than the corresponding
+flow at the surge. An anti-surge valve
+is placed in the anti-surge circuit (a
+The main purpose of this valve is to
+avoid a surge and surge-related dam-
+ages, particularly irreparable dam-
+ages (Figure 2). The anti-surge system
+and the controller, which comprise
+
+[FIGURE BBOX: [0.0, 1021.3, 699.4, 2186.1]]
+0
+ne of the most significant limi-
+tations on the operation of dy-
+namic compressors (axial and
+centrifugal compressors) is
+the low-flow limit known as "surge".
+A sudden valve closing, such as for
+emergency shutdowns or for a suc-
+tion/discharge valve, presents sig--
+nificant challenges to anti-surge
+valve sizing and selection. Anti-surge
+valve requirements depend to a large
+degree on the compressor type, the
+compression system arrangement,
+and particularly the volume of the
+discharge piping downstream of the
+compressor. Important aspects of
+anti-surge valve sizing and selection
+for plants in the chemical process in-
+dustries (CPI), as well as examples,
+are discussed in this article.
+The basics
+At low flows, the performance of a
+dynamic compressor - particularly
+centrifugal and axial compressors --
+is limited by the occurrence of aero-
+dynamic flow instabilities that could
+lead to a catastrophic failure of the
+compressor due to mechanical or ther-
+recycle circuit).
+mal loads. The surge is an unstable
+flow situation that occurs when the
+flow is too low. When a dynamic com-
+pressor reaches its surge limit, the
+flow pattern through the compressor
+[END FIGURE]
+
+[FIGURE BBOX: [1034.8, 940.6, 1699.6, 2136.7]]
+both hardware and software, should
+be based on a design algorithm that
+operates very quickly when opening
+the anti-surge (recycle) valve to avoid
+the surge. However, this anti-surge
+system should be designed and pro-
+grammed so as to not make the circuit
+(or the compression unit) unstable.
+Centrifugal and axial compressors
+experience a surge whenever they
+are suddenly tripped. Controlling the
+head and total energy of the surge
+event, particularly a surge at the trip,
+is the main objective of dynamic simu-
+lations and anti-surge valve sizing
+and selection. Meaningful gains can
+be made by a better understanding of
+the interactions between the compres-
+sor, the anti-surge valve(s) and the
+facility piping and layout (including
+coolers, scrubbers, check valves, vent
+valves and more). Key parameters for
+anti-surge valve selection and sizing
+include the following: fast response,
+optimum size, high integrity, accuracy
+and noise abatement.
+The anti-surge valve
+The size of an anti-surge valve influ-
+ences the amount of fluid that can be
+moved from the discharge side of the
+compressor to the suction side. Larger
+valves allow more flow. The speed
+with which an anti-surge valve opens
+CHEMICAL ENGINEERING WWW.CHE.COM NOVEMBER 201243
+[END FIGURE]
+

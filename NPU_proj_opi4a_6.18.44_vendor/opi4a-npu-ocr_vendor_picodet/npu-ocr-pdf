@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# npu-ocr-pdf: Two-Stage Hardware-Accelerated PDF OCR for Orange Pi 4A (Allwinner T527)
+#
+# Hardware: VeriSilicon VIP9000 2.0 TOPS NPU (/dev/vipcore) + 8x Cortex-A55
+# Pipeline:
+#   1. Stage 1: PicoDet-Layout (1600x1600 / 2048x2048) on VIP9000 NPU
+#               Macro document layout decomposition (Title, Text, List, Table, Figure)
+#   2. Stage 2: PP-OCRv6 DBNet (1600x1600 / 2048x2048) on VIP9000 NPU
+#               Full-page 1-shot micro text line detection
+#   3. Stage 3: Spatial Association & Multi-Column Reading Order Sorting
+#   4. Stage 4: English PP-OCRv4 Recognition (33ms/line on 8x Cortex-A55 FP16)
+# ==============================================================================
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+VENV_PYTHON="/home/ukhan/venv_npu/bin/python3"
+
+if [ ! -f "$VENV_PYTHON" ]; then
+    VENV_PYTHON="python3"
+fi
+
+# Verify VIPCore NPU device
+if [ ! -e "/dev/vipcore" ]; then
+    echo "[WARN] /dev/vipcore not found. VIP9000 NPU driver may be inactive."
+    echo "       Run 'sudo /usr/local/bin/npu activate' or 'sudo /usr/local/bin/npu-switch vipcore'"
+fi
+
+exec "$VENV_PYTHON" "$SCRIPT_DIR/pdf_ocr.py" "$@"

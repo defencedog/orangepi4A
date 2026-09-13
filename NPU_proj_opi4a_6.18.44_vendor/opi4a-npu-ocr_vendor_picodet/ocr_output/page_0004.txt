@@ -1,0 +1,239 @@
+Order#:984
+Pages in Order1 of 1
+Containers in Order: 1
+
+
+[TABLE BBOX: [0.0, 0.0, 598.6, 627.9]]
+[END TABLE]
+
+
+[FIGURE BBOX: [0.0, 0.0, 418.6, 1079.1]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [0.0, 0.0, 553.2, 615.2]]
+[END FIGURE]
+
+Requested Analyses/Tests
+
+
+[TABLE BBOX: [1.1, 0.0, 728.2, 1139.1]]
+Eenmnnl
+Collected Date:
+yyyy-mm-dd
+PWS Id:MO1010001
+MO#######
+Location:
+addres orname of samping o
+[END TABLE]
+
+PURT
+o
+
+
+[FIGURE BBOX: [1064.6, 0.0, 1697.0, 479.6]]
+[END FIGURE]
+
+
+### 82 MODEPRFRAR 1101 RIVERSIDE DRIVE JEFFERSON CITY,MO65102
+
+REPORT TO:
+ADRIAN
+16E 5TH ST
+ADRIANMO 64720
+
+
+[FIGURE BBOX: [0.0, 271.3, 591.7, 1230.6]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [0.0, 419.6, 413.6, 1494.3]]
+[END FIGURE]
+
+
+[TABLE BBOX: [0.0, 605.9, 298.7, 1617.6]]
+[END TABLE]
+
+Sample Type:
+Collector Phone:
+
+
+[FIGURE BBOX: [0.0, 778.7, 424.1, 1861.0]]
+[END FIGURE]
+
+
+[TABLE BBOX: [0.0, 934.0, 691.6, 2137.6]]
+000/111-2222
+Repeat Location:
+Free Chlorine:
+Received By:
+Date Printed:2015-11-06
+Bottles Received:
+[END TABLE]
+
+
+[TABLE BBOX: [1236.9, 0.0, 1700.0, 359.6]]
+[END TABLE]
+
+
+[FIGURE BBOX: [1322.6, 0.0, 1699.2, 945.8]]
+[END FIGURE]
+
+
+[TABLE BBOX: [1105.1, 1.2, 1700.0, 1080.0]]
+Collected Time:
+24 hour format hh.mm
+Facility ldDS
+Collector:
+last name frstname
+Sample CategoryBacterial
+Bottle Number:
+[END TABLE]
+
+
+[FIGURE BBOX: [1038.9, 1.8, 1699.6, 1079.7]]
+[END FIGURE]
+
+BILLTO:
+
+
+[TABLE BBOX: [1337.0, 107.8, 1697.8, 697.5]]
+[END TABLE]
+
+
+[TABLE BBOX: [1420.0, 161.5, 1700.0, 1019.8]]
+[END TABLE]
+
+
+[TABLE BBOX: [1324.0, 407.7, 1697.8, 1268.9]]
+[END TABLE]
+
+
+[FIGURE BBOX: [1425.1, 460.2, 1699.0, 1252.8]]
+[END FIGURE]
+
+
+[TABLE BBOX: [1029.5, 480.4, 1700.0, 1352.8]]
+Sample Collection Point
+[END TABLE]
+
+
+[TABLE BBOX: [1430.9, 626.8, 1700.0, 1447.2]]
+[END TABLE]
+
+
+[TABLE BBOX: [1233.7, 655.5, 1700.0, 1658.1]]
+[END TABLE]
+
+
+[FIGURE BBOX: [1434.6, 784.6, 1700.0, 1493.9]]
+[END FIGURE]
+
+
+[TABLE BBOX: [1438.9, 934.8, 1699.4, 1672.6]]
+[END TABLE]
+
+
+### Evidence of CoolingYes NO Temperature (Celsius)
+
+
+[FIGURE BBOX: [354.8, 948.0, 1131.8, 2124.3]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [1.4, 1022.1, 699.6, 2195.3]]
+[END FIGURE]
+
+
+[TABLE BBOX: [269.2, 1048.4, 1063.0, 2154.5]]
+[END TABLE]
+
+
+[TABLE BBOX: [0.0, 1115.8, 396.6, 2196.9]]
+[END TABLE]
+
+n9L
+Collector Signature:
+
+
+[FIGURE BBOX: [0.0, 1204.4, 404.5, 2200.0]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [275.6, 1401.1, 1057.7, 2200.0]]
+[END FIGURE]
+
+
+[TABLE BBOX: [3.3, 1491.3, 748.0, 2200.0]]
+[END TABLE]
+
+Evidence ofTamperingYes
+NO
+
+
+[FIGURE BBOX: [12.4, 1763.1, 677.8, 2200.0]]
+[END FIGURE]
+
+BUILDID
+SD062015
+
+BUILDID
+
+
+[FIGURE BBOX: [34.0, 2118.3, 393.9, 2200.0]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [692.4, 946.2, 1474.6, 2123.6]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [1038.7, 947.4, 1700.0, 2131.6]]
+[END FIGURE]
+
+
+[TABLE BBOX: [569.1, 1045.3, 1327.8, 2170.1]]
+[END TABLE]
+
+
+[TABLE BBOX: [946.8, 1048.8, 1700.0, 2174.3]]
+PH
+Thermometer ID:
+[END TABLE]
+
+Total Chlorine:
+County:BATES
+
+Missour County
+
+
+[TABLE BBOX: [1452.8, 1205.0, 1700.0, 1975.0]]
+[END TABLE]
+
+
+[FIGURE BBOX: [1445.4, 1231.9, 1700.0, 2012.8]]
+[END FIGURE]
+
+
+[TABLE BBOX: [1235.9, 1249.6, 1700.0, 2200.0]]
+[END TABLE]
+
+
+[FIGURE BBOX: [1229.3, 1326.9, 1700.0, 2200.0]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [763.7, 1407.4, 1535.4, 2200.0]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [1439.5, 1690.1, 1699.9, 1992.7]]
+[END FIGURE]
+
+
+[FIGURE BBOX: [1043.8, 1721.8, 1695.0, 2200.0]]
+[END FIGURE]
+
+PLACE THE ACCESSION
+LABEL WITHIN THIS BOX
+

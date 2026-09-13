@@ -1,0 +1,7 @@
+numpy>=1.24.0
+opencv-python-headless>=4.8.0
+MNN>=2.8.0
+shapely>=2.0.0
+pyclipper>=1.3.0
+pillow>=9.0.0
+six>=1.16.0

@@ -1,0 +1,2257 @@
+[
+  {
+    "page": 1,
+    "blocks": [
+      {
+        "category": "text",
+        "bbox": [
+          0.0,
+          0.0,
+          1700.0,
+          2200.0
+        ],
+        "score": 1.0,
+        "lines": [
+          {
+            "text": "Missouri Department of Health and Senior Services",
+            "score": 0.9787946343421936,
+            "box": [
+              [
+                343.0,
+                124.0
+              ],
+              [
+                965.0,
+                129.0
+              ],
+              [
+                965.0,
+                162.0
+              ],
+              [
+                343.0,
+                157.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "DHSS",
+            "score": 0.9173583984375,
+            "box": [
+              [
+                175.0,
+                143.0
+              ],
+              [
+                293.0,
+                143.0
+              ],
+              [
+                293.0,
+                190.0
+              ],
+              [
+                175.0,
+                190.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "P.O.Box 570Jefferson CityMO 65102-0570",
+            "score": 0.9295589923858643,
+            "box": [
+              [
+                342.0,
+                154.0
+              ],
+              [
+                809.0,
+                160.0
+              ],
+              [
+                808.0,
+                187.0
+              ],
+              [
+                342.0,
+                181.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Phone:573-751-6400",
+            "score": 0.9586724042892456,
+            "box": [
+              [
+                798.0,
+                159.0
+              ],
+              [
+                1013.0,
+                162.0
+              ],
+              [
+                1012.0,
+                190.0
+              ],
+              [
+                798.0,
+                187.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "FAX:573-751-6010",
+            "score": 0.968902587890625,
+            "box": [
+              [
+                1046.0,
+                161.0
+              ],
+              [
+                1237.0,
+                164.0
+              ],
+              [
+                1237.0,
+                191.0
+              ],
+              [
+                1045.0,
+                188.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "RELAY MISsOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466",
+            "score": 0.9290444254875183,
+            "box": [
+              [
+                341.0,
+                176.0
+              ],
+              [
+                1240.0,
+                187.0
+              ],
+              [
+                1240.0,
+                219.0
+              ],
+              [
+                341.0,
+                208.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Peter Lyskowski",
+            "score": 0.968945324420929,
+            "box": [
+              [
+                342.0,
+                210.0
+              ],
+              [
+                526.0,
+                213.0
+              ],
+              [
+                526.0,
+                241.0
+              ],
+              [
+                342.0,
+                238.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Jeremiah W.Jay)Nixon",
+            "score": 0.955981433391571,
+            "box": [
+              [
+                1306.0,
+                221.0
+              ],
+              [
+                1569.0,
+                226.0
+              ],
+              [
+                1569.0,
+                253.0
+              ],
+              [
+                1306.0,
+                249.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Acting Director",
+            "score": 0.9140950441360474,
+            "box": [
+              [
+                342.0,
+                235.0
+              ],
+              [
+                479.0,
+                238.0
+              ],
+              [
+                479.0,
+                266.0
+              ],
+              [
+                342.0,
+                262.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Governor",
+            "score": 0.95770263671875,
+            "box": [
+              [
+                1381.0,
+                250.0
+              ],
+              [
+                1467.0,
+                250.0
+              ],
+              [
+                1467.0,
+                274.0
+              ],
+              [
+                1381.0,
+                274.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Missouri Public Water Systems",
+            "score": 0.9699286222457886,
+            "box": [
+              [
+                147.0,
+                323.0
+              ],
+              [
+                578.0,
+                329.0
+              ],
+              [
+                578.0,
+                364.0
+              ],
+              [
+                147.0,
+                359.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "November 10,2015",
+            "score": 0.959075927734375,
+            "box": [
+              [
+                146.0,
+                399.0
+              ],
+              [
+                418.0,
+                402.0
+              ],
+              [
+                417.0,
+                439.0
+              ],
+              [
+                145.0,
+                436.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Dear Public Water System Owners/Operators:",
+            "score": 0.9772716760635376,
+            "box": [
+              [
+                146.0,
+                516.0
+              ],
+              [
+                775.0,
+                523.0
+              ],
+              [
+                774.0,
+                558.0
+              ],
+              [
+                145.0,
+                551.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "The Missouri State Public Health Laboratory (MSPHL) is in the process of implementing a new",
+            "score": 0.9703704714775085,
+            "box": [
+              [
+                146.0,
+                590.0
+              ],
+              [
+                1444.0,
+                604.0
+              ],
+              [
+                1444.0,
+                641.0
+              ],
+              [
+                145.0,
+                627.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Laboratory Information Management System (LIMS) in its drinking water bacteriology testing",
+            "score": 0.9832356572151184,
+            "box": [
+              [
+                145.0,
+                631.0
+              ],
+              [
+                1428.0,
+                642.0
+              ],
+              [
+                1428.0,
+                678.0
+              ],
+              [
+                144.0,
+                667.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "laboratory. The OpenELIS (OE) LIMS will provide the laboratory with improved sample management",
+            "score": 0.9775650501251221,
+            "box": [
+              [
+                145.0,
+                670.0
+              ],
+              [
+                1532.0,
+                682.0
+              ],
+              [
+                1532.0,
+                718.0
+              ],
+              [
+                144.0,
+                705.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "capability, improved data integrity and reduced potential for human data entry error. In addition, the",
+            "score": 0.9839680790901184,
+            "box": [
+              [
+                145.0,
+                708.0
+              ],
+              [
+                1499.0,
+                719.0
+              ],
+              [
+                1499.0,
+                756.0
+              ],
+              [
+                144.0,
+                745.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "system will provide improved reporting capabilities, including direct electronic data exchange with the",
+            "score": 0.991703987121582,
+            "box": [
+              [
+                145.0,
+                747.0
+              ],
+              [
+                1534.0,
+                758.0
+              ],
+              [
+                1534.0,
+                795.0
+              ],
+              [
+                144.0,
+                784.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Missouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System",
+            "score": 0.9665836095809937,
+            "box": [
+              [
+                145.0,
+                785.0
+              ],
+              [
+                1438.0,
+                796.0
+              ],
+              [
+                1437.0,
+                832.0
+              ],
+              [
+                144.0,
+                821.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "(SDWIS).SDwIS is the computer system MDNR uses to store regulatory water testing data and report",
+            "score": 0.9842427372932434,
+            "box": [
+              [
+                146.0,
+                822.0
+              ],
+              [
+                1539.0,
+                836.0
+              ],
+              [
+                1538.0,
+                873.0
+              ],
+              [
+                145.0,
+                859.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "testing results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will",
+            "score": 0.9619237184524536,
+            "box": [
+              [
+                145.0,
+                862.0
+              ],
+              [
+                1560.0,
+                875.0
+              ],
+              [
+                1560.0,
+                910.0
+              ],
+              [
+                144.0,
+                898.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "provide a web portal that MSPHL clients can use to access their own test results in real time.",
+            "score": 0.9852632284164429,
+            "box": [
+              [
+                145.0,
+                901.0
+              ],
+              [
+                1397.0,
+                910.0
+              ],
+              [
+                1397.0,
+                946.0
+              ],
+              [
+                144.0,
+                936.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "www.health.mo.gov",
+            "score": 0.9753561615943909,
+            "box": [
+              [
+                755.0,
+                1954.0
+              ],
+              [
+                945.0,
+                1954.0
+              ],
+              [
+                945.0,
+                1981.0
+              ],
+              [
+                755.0,
+                1981.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Healthy Missourians for life.",
+            "score": 0.9502626657485962,
+            "box": [
+              [
+                716.0,
+                1996.0
+              ],
+              [
+                982.0,
+                1999.0
+              ],
+              [
+                982.0,
+                2027.0
+              ],
+              [
+                716.0,
+                2024.0
+              ]
+            ],
+            "category": "text"
+          }
+        ]
+      },
+      {
+        "category": "figure",
+        "bbox": [
+          1.5,
+          934.9,
+          695.6,
+          2138.7
+        ],
+        "score": 0.4183,
+        "lines": [
+          {
+            "text": "As the MSPHL implements this new computer system, several changes will be made in the way you",
+            "score": 0.9928647875785828,
+            "box": [
+              [
+                145.0,
+                975.0
+              ],
+              [
+                1500.0,
+                989.0
+              ],
+              [
+                1500.0,
+                1029.0
+              ],
+              [
+                144.0,
+                1015.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "collect and submit water samples for testing. This letter and information packet will provide you with",
+            "score": 0.9935087561607361,
+            "box": [
+              [
+                145.0,
+                1013.0
+              ],
+              [
+                1514.0,
+                1029.0
+              ],
+              [
+                1514.0,
+                1066.0
+              ],
+              [
+                144.0,
+                1050.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "information to help educate you on these changes.",
+            "score": 0.9866968393325806,
+            "box": [
+              [
+                145.0,
+                1052.0
+              ],
+              [
+                824.0,
+                1062.0
+              ],
+              [
+                823.0,
+                1097.0
+              ],
+              [
+                144.0,
+                1087.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "NEW SAMPLE BOTTLES:",
+            "score": 0.9620425701141357,
+            "box": [
+              [
+                145.0,
+                1126.0
+              ],
+              [
+                557.0,
+                1130.0
+              ],
+              [
+                557.0,
+                1166.0
+              ],
+              [
+                144.0,
+                1162.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "Beginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing.",
+            "score": 0.9841678738594055,
+            "box": [
+              [
+                144.0,
+                1166.0
+              ],
+              [
+                1512.0,
+                1180.0
+              ],
+              [
+                1512.0,
+                1217.0
+              ],
+              [
+                143.0,
+                1203.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "This bottle has a shrink wrap seal and two lines to indicate the proper sample volume. Please read the",
+            "score": 0.9788698554039001,
+            "box": [
+              [
+                144.0,
+                1203.0
+              ],
+              [
+                1515.0,
+                1218.0
+              ],
+              [
+                1515.0,
+                1255.0
+              ],
+              [
+                143.0,
+                1240.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "attached \"SAMPLE COLLECTION INSTRUCTIONS\" for details on how to use these new bottles.",
+            "score": 0.9565855264663696,
+            "box": [
+              [
+                143.0,
+                1242.0
+              ],
+              [
+                1491.0,
+                1255.0
+              ],
+              [
+                1491.0,
+                1293.0
+              ],
+              [
+                142.0,
+                1279.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "Sample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for",
+            "score": 0.956944465637207,
+            "box": [
+              [
+                144.0,
+                1281.0
+              ],
+              [
+                1507.0,
+                1297.0
+              ],
+              [
+                1506.0,
+                1332.0
+              ],
+              [
+                143.0,
+                1317.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "testing. You may continue to use your old bottles until the MSPHL can ship you new ones. Once you",
+            "score": 0.9851099252700806,
+            "box": [
+              [
+                141.0,
+                1320.0
+              ],
+              [
+                1516.0,
+                1334.0
+              ],
+              [
+                1516.0,
+                1370.0
+              ],
+              [
+                141.0,
+                1356.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "have received the new bottles, please discard or recycle the old bottles.",
+            "score": 0.9714255332946777,
+            "box": [
+              [
+                140.0,
+                1356.0
+              ],
+              [
+                1101.0,
+                1367.0
+              ],
+              [
+                1101.0,
+                1404.0
+              ],
+              [
+                140.0,
+                1393.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "NEW SAMPLE INFORMATION FORMS:",
+            "score": 0.9740369319915771,
+            "box": [
+              [
+                141.0,
+                1431.0
+              ],
+              [
+                778.0,
+                1437.0
+              ],
+              [
+                778.0,
+                1474.0
+              ],
+              [
+                141.0,
+                1468.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "The traditional sample information \"card' that has been used for more than twenty years is being",
+            "score": 0.9764658808708191,
+            "box": [
+              [
+                141.0,
+                1468.0
+              ],
+              [
+                1454.0,
+                1484.0
+              ],
+              [
+                1453.0,
+                1524.0
+              ],
+              [
+                141.0,
+                1508.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "replaced by the Environmental Sample Collection Form. An example form is attached.Please read the",
+            "score": 0.9818732142448425,
+            "box": [
+              [
+                141.0,
+                1511.0
+              ],
+              [
+                1560.0,
+                1525.0
+              ],
+              [
+                1560.0,
+                1561.0
+              ],
+              [
+                141.0,
+                1547.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "attached instructions for information on properly completing the new form.",
+            "score": 0.9865062832832336,
+            "box": [
+              [
+                141.0,
+                1550.0
+              ],
+              [
+                1159.0,
+                1559.0
+              ],
+              [
+                1159.0,
+                1596.0
+              ],
+              [
+                141.0,
+                1587.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "Changes to the form include the following:",
+            "score": 0.9764229655265808,
+            "box": [
+              [
+                144.0,
+                1625.0
+              ],
+              [
+                727.0,
+                1631.0
+              ],
+              [
+                727.0,
+                1668.0
+              ],
+              [
+                143.0,
+                1662.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "1.Form size is expanded to a single 8 /2 x 11'sheet of paper. The form is no longer in a triplicate",
+            "score": 0.9629769325256348,
+            "box": [
+              [
+                192.0,
+                1665.0
+              ],
+              [
+                1545.0,
+                1678.0
+              ],
+              [
+                1545.0,
+                1715.0
+              ],
+              [
+                192.0,
+                1702.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "might utilize them for system inspections.",
+            "score": 0.9940360188484192,
+            "box": [
+              [
+                241.0,
+                1779.0
+              ],
+              [
+                813.0,
+                1788.0
+              ],
+              [
+                813.0,
+                1823.0
+              ],
+              [
+                241.0,
+                1815.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply",
+            "score": 0.9628201127052307,
+            "box": [
+              [
+                238.0,
+                1815.0
+              ],
+              [
+                1521.0,
+                1829.0
+              ],
+              [
+                1520.0,
+                1869.0
+              ],
+              [
+                238.0,
+                1855.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "2.",
+            "score": 0.992919921875,
+            "box": [
+              [
+                190.0,
+                1818.0
+              ],
+              [
+                223.0,
+                1818.0
+              ],
+              [
+                223.0,
+                1853.0
+              ],
+              [
+                190.0,
+                1853.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "ID number, PwS name, address and county.Forms should not be shared with other supplies.",
+            "score": 0.985542356967926,
+            "box": [
+              [
+                240.0,
+                1855.0
+              ],
+              [
+                1495.0,
+                1867.0
+              ],
+              [
+                1495.0,
+                1904.0
+              ],
+              [
+                240.0,
+                1892.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "The Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health.",
+            "score": 0.8940747380256653,
+            "box": [
+              [
+                269.0,
+                2013.0
+              ],
+              [
+                1426.0,
+                2024.0
+              ],
+              [
+                1426.0,
+                2056.0
+              ],
+              [
+                269.0,
+                2045.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "AN EQUAL OPPORTUNITY /AFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis.",
+            "score": 0.9489771127700806,
+            "box": [
+              [
+                301.0,
+                2065.0
+              ],
+              [
+                1392.0,
+                2078.0
+              ],
+              [
+                1392.0,
+                2109.0
+              ],
+              [
+                301.0,
+                2097.0
+              ]
+            ],
+            "category": "figure"
+          }
+        ]
+      },
+      {
+        "category": "figure",
+        "bbox": [
+          1091.3,
+          948.3,
+          1699.5,
+          2136.6
+        ],
+        "score": 0.2529,
+        "lines": [
+          {
+            "text": "carbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR",
+            "score": 0.972498893737793,
+            "box": [
+              [
+                241.0,
+                1704.0
+              ],
+              [
+                1549.0,
+                1715.0
+              ],
+              [
+                1549.0,
+                1755.0
+              ],
+              [
+                241.0,
+                1743.0
+              ]
+            ],
+            "category": "figure"
+          },
+          {
+            "text": "does not require a public water system to retain copies of sample collection forms; however, you",
+            "score": 0.9810333251953125,
+            "box": [
+              [
+                242.0,
+                1742.0
+              ],
+              [
+                1547.0,
+                1756.0
+              ],
+              [
+                1547.0,
+                1792.0
+              ],
+              [
+                242.0,
+                1778.0
+              ]
+            ],
+            "category": "figure"
+          }
+        ]
+      }
+    ],
+    "lines": [
+      {
+        "text": "Missouri Department of Health and Senior Services",
+        "score": 0.9787946343421936,
+        "box": [
+          [
+            343.0,
+            124.0
+          ],
+          [
+            965.0,
+            129.0
+          ],
+          [
+            965.0,
+            162.0
+          ],
+          [
+            343.0,
+            157.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "DHSS",
+        "score": 0.9173583984375,
+        "box": [
+          [
+            175.0,
+            143.0
+          ],
+          [
+            293.0,
+            143.0
+          ],
+          [
+            293.0,
+            190.0
+          ],
+          [
+            175.0,
+            190.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "P.O.Box 570Jefferson CityMO 65102-0570",
+        "score": 0.9295589923858643,
+        "box": [
+          [
+            342.0,
+            154.0
+          ],
+          [
+            809.0,
+            160.0
+          ],
+          [
+            808.0,
+            187.0
+          ],
+          [
+            342.0,
+            181.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Phone:573-751-6400",
+        "score": 0.9586724042892456,
+        "box": [
+          [
+            798.0,
+            159.0
+          ],
+          [
+            1013.0,
+            162.0
+          ],
+          [
+            1012.0,
+            190.0
+          ],
+          [
+            798.0,
+            187.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "FAX:573-751-6010",
+        "score": 0.968902587890625,
+        "box": [
+          [
+            1046.0,
+            161.0
+          ],
+          [
+            1237.0,
+            164.0
+          ],
+          [
+            1237.0,
+            191.0
+          ],
+          [
+            1045.0,
+            188.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "RELAY MISsOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466",
+        "score": 0.9290444254875183,
+        "box": [
+          [
+            341.0,
+            176.0
+          ],
+          [
+            1240.0,
+            187.0
+          ],
+          [
+            1240.0,
+            219.0
+          ],
+          [
+            341.0,
+            208.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Peter Lyskowski",
+        "score": 0.968945324420929,
+        "box": [
+          [
+            342.0,
+            210.0
+          ],
+          [
+            526.0,
+            213.0
+          ],
+          [
+            526.0,
+            241.0
+          ],
+          [
+            342.0,
+            238.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Jeremiah W.Jay)Nixon",
+        "score": 0.955981433391571,
+        "box": [
+          [
+            1306.0,
+            221.0
+          ],
+          [
+            1569.0,
+            226.0
+          ],
+          [
+            1569.0,
+            253.0
+          ],
+          [
+            1306.0,
+            249.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Acting Director",
+        "score": 0.9140950441360474,
+        "box": [
+          [
+            342.0,
+            235.0
+          ],
+          [
+            479.0,
+            238.0
+          ],
+          [
+            479.0,
+            266.0
+          ],
+          [
+            342.0,
+            262.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Governor",
+        "score": 0.95770263671875,
+        "box": [
+          [
+            1381.0,
+            250.0
+          ],
+          [
+            1467.0,
+            250.0
+          ],
+          [
+            1467.0,
+            274.0
+          ],
+          [
+            1381.0,
+            274.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Missouri Public Water Systems",
+        "score": 0.9699286222457886,
+        "box": [
+          [
+            147.0,
+            323.0
+          ],
+          [
+            578.0,
+            329.0
+          ],
+          [
+            578.0,
+            364.0
+          ],
+          [
+            147.0,
+            359.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "November 10,2015",
+        "score": 0.959075927734375,
+        "box": [
+          [
+            146.0,
+            399.0
+          ],
+          [
+            418.0,
+            402.0
+          ],
+          [
+            417.0,
+            439.0
+          ],
+          [
+            145.0,
+            436.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Dear Public Water System Owners/Operators:",
+        "score": 0.9772716760635376,
+        "box": [
+          [
+            146.0,
+            516.0
+          ],
+          [
+            775.0,
+            523.0
+          ],
+          [
+            774.0,
+            558.0
+          ],
+          [
+            145.0,
+            551.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "The Missouri State Public Health Laboratory (MSPHL) is in the process of implementing a new",
+        "score": 0.9703704714775085,
+        "box": [
+          [
+            146.0,
+            590.0
+          ],
+          [
+            1444.0,
+            604.0
+          ],
+          [
+            1444.0,
+            641.0
+          ],
+          [
+            145.0,
+            627.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Laboratory Information Management System (LIMS) in its drinking water bacteriology testing",
+        "score": 0.9832356572151184,
+        "box": [
+          [
+            145.0,
+            631.0
+          ],
+          [
+            1428.0,
+            642.0
+          ],
+          [
+            1428.0,
+            678.0
+          ],
+          [
+            144.0,
+            667.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "laboratory. The OpenELIS (OE) LIMS will provide the laboratory with improved sample management",
+        "score": 0.9775650501251221,
+        "box": [
+          [
+            145.0,
+            670.0
+          ],
+          [
+            1532.0,
+            682.0
+          ],
+          [
+            1532.0,
+            718.0
+          ],
+          [
+            144.0,
+            705.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "capability, improved data integrity and reduced potential for human data entry error. In addition, the",
+        "score": 0.9839680790901184,
+        "box": [
+          [
+            145.0,
+            708.0
+          ],
+          [
+            1499.0,
+            719.0
+          ],
+          [
+            1499.0,
+            756.0
+          ],
+          [
+            144.0,
+            745.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "system will provide improved reporting capabilities, including direct electronic data exchange with the",
+        "score": 0.991703987121582,
+        "box": [
+          [
+            145.0,
+            747.0
+          ],
+          [
+            1534.0,
+            758.0
+          ],
+          [
+            1534.0,
+            795.0
+          ],
+          [
+            144.0,
+            784.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Missouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System",
+        "score": 0.9665836095809937,
+        "box": [
+          [
+            145.0,
+            785.0
+          ],
+          [
+            1438.0,
+            796.0
+          ],
+          [
+            1437.0,
+            832.0
+          ],
+          [
+            144.0,
+            821.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "(SDWIS).SDwIS is the computer system MDNR uses to store regulatory water testing data and report",
+        "score": 0.9842427372932434,
+        "box": [
+          [
+            146.0,
+            822.0
+          ],
+          [
+            1539.0,
+            836.0
+          ],
+          [
+            1538.0,
+            873.0
+          ],
+          [
+            145.0,
+            859.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "testing results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will",
+        "score": 0.9619237184524536,
+        "box": [
+          [
+            145.0,
+            862.0
+          ],
+          [
+            1560.0,
+            875.0
+          ],
+          [
+            1560.0,
+            910.0
+          ],
+          [
+            144.0,
+            898.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "provide a web portal that MSPHL clients can use to access their own test results in real time.",
+        "score": 0.9852632284164429,
+        "box": [
+          [
+            145.0,
+            901.0
+          ],
+          [
+            1397.0,
+            910.0
+          ],
+          [
+            1397.0,
+            946.0
+          ],
+          [
+            144.0,
+            936.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "www.health.mo.gov",
+        "score": 0.9753561615943909,
+        "box": [
+          [
+            755.0,
+            1954.0
+          ],
+          [
+            945.0,
+            1954.0
+          ],
+          [
+            945.0,
+            1981.0
+          ],
+          [
+            755.0,
+            1981.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Healthy Missourians for life.",
+        "score": 0.9502626657485962,
+        "box": [
+          [
+            716.0,
+            1996.0
+          ],
+          [
+            982.0,
+            1999.0
+          ],
+          [
+            982.0,
+            2027.0
+          ],
+          [
+            716.0,
+            2024.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "As the MSPHL implements this new computer system, several changes will be made in the way you",
+        "score": 0.9928647875785828,
+        "box": [
+          [
+            145.0,
+            975.0
+          ],
+          [
+            1500.0,
+            989.0
+          ],
+          [
+            1500.0,
+            1029.0
+          ],
+          [
+            144.0,
+            1015.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "collect and submit water samples for testing. This letter and information packet will provide you with",
+        "score": 0.9935087561607361,
+        "box": [
+          [
+            145.0,
+            1013.0
+          ],
+          [
+            1514.0,
+            1029.0
+          ],
+          [
+            1514.0,
+            1066.0
+          ],
+          [
+            144.0,
+            1050.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "information to help educate you on these changes.",
+        "score": 0.9866968393325806,
+        "box": [
+          [
+            145.0,
+            1052.0
+          ],
+          [
+            824.0,
+            1062.0
+          ],
+          [
+            823.0,
+            1097.0
+          ],
+          [
+            144.0,
+            1087.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "NEW SAMPLE BOTTLES:",
+        "score": 0.9620425701141357,
+        "box": [
+          [
+            145.0,
+            1126.0
+          ],
+          [
+            557.0,
+            1130.0
+          ],
+          [
+            557.0,
+            1166.0
+          ],
+          [
+            144.0,
+            1162.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "Beginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing.",
+        "score": 0.9841678738594055,
+        "box": [
+          [
+            144.0,
+            1166.0
+          ],
+          [
+            1512.0,
+            1180.0
+          ],
+          [
+            1512.0,
+            1217.0
+          ],
+          [
+            143.0,
+            1203.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "This bottle has a shrink wrap seal and two lines to indicate the proper sample volume. Please read the",
+        "score": 0.9788698554039001,
+        "box": [
+          [
+            144.0,
+            1203.0
+          ],
+          [
+            1515.0,
+            1218.0
+          ],
+          [
+            1515.0,
+            1255.0
+          ],
+          [
+            143.0,
+            1240.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "attached \"SAMPLE COLLECTION INSTRUCTIONS\" for details on how to use these new bottles.",
+        "score": 0.9565855264663696,
+        "box": [
+          [
+            143.0,
+            1242.0
+          ],
+          [
+            1491.0,
+            1255.0
+          ],
+          [
+            1491.0,
+            1293.0
+          ],
+          [
+            142.0,
+            1279.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "Sample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for",
+        "score": 0.956944465637207,
+        "box": [
+          [
+            144.0,
+            1281.0
+          ],
+          [
+            1507.0,
+            1297.0
+          ],
+          [
+            1506.0,
+            1332.0
+          ],
+          [
+            143.0,
+            1317.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "testing. You may continue to use your old bottles until the MSPHL can ship you new ones. Once you",
+        "score": 0.9851099252700806,
+        "box": [
+          [
+            141.0,
+            1320.0
+          ],
+          [
+            1516.0,
+            1334.0
+          ],
+          [
+            1516.0,
+            1370.0
+          ],
+          [
+            141.0,
+            1356.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "have received the new bottles, please discard or recycle the old bottles.",
+        "score": 0.9714255332946777,
+        "box": [
+          [
+            140.0,
+            1356.0
+          ],
+          [
+            1101.0,
+            1367.0
+          ],
+          [
+            1101.0,
+            1404.0
+          ],
+          [
+            140.0,
+            1393.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "NEW SAMPLE INFORMATION FORMS:",
+        "score": 0.9740369319915771,
+        "box": [
+          [
+            141.0,
+            1431.0
+          ],
+          [
+            778.0,
+            1437.0
+          ],
+          [
+            778.0,
+            1474.0
+          ],
+          [
+            141.0,
+            1468.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "The traditional sample information \"card' that has been used for more than twenty years is being",
+        "score": 0.9764658808708191,
+        "box": [
+          [
+            141.0,
+            1468.0
+          ],
+          [
+            1454.0,
+            1484.0
+          ],
+          [
+            1453.0,
+            1524.0
+          ],
+          [
+            141.0,
+            1508.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "replaced by the Environmental Sample Collection Form. An example form is attached.Please read the",
+        "score": 0.9818732142448425,
+        "box": [
+          [
+            141.0,
+            1511.0
+          ],
+          [
+            1560.0,
+            1525.0
+          ],
+          [
+            1560.0,
+            1561.0
+          ],
+          [
+            141.0,
+            1547.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "attached instructions for information on properly completing the new form.",
+        "score": 0.9865062832832336,
+        "box": [
+          [
+            141.0,
+            1550.0
+          ],
+          [
+            1159.0,
+            1559.0
+          ],
+          [
+            1159.0,
+            1596.0
+          ],
+          [
+            141.0,
+            1587.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "Changes to the form include the following:",
+        "score": 0.9764229655265808,
+        "box": [
+          [
+            144.0,
+            1625.0
+          ],
+          [
+            727.0,
+            1631.0
+          ],
+          [
+            727.0,
+            1668.0
+          ],
+          [
+            143.0,
+            1662.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "1.Form size is expanded to a single 8 /2 x 11'sheet of paper. The form is no longer in a triplicate",
+        "score": 0.9629769325256348,
+        "box": [
+          [
+            192.0,
+            1665.0
+          ],
+          [
+            1545.0,
+            1678.0
+          ],
+          [
+            1545.0,
+            1715.0
+          ],
+          [
+            192.0,
+            1702.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "might utilize them for system inspections.",
+        "score": 0.9940360188484192,
+        "box": [
+          [
+            241.0,
+            1779.0
+          ],
+          [
+            813.0,
+            1788.0
+          ],
+          [
+            813.0,
+            1823.0
+          ],
+          [
+            241.0,
+            1815.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply",
+        "score": 0.9628201127052307,
+        "box": [
+          [
+            238.0,
+            1815.0
+          ],
+          [
+            1521.0,
+            1829.0
+          ],
+          [
+            1520.0,
+            1869.0
+          ],
+          [
+            238.0,
+            1855.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "2.",
+        "score": 0.992919921875,
+        "box": [
+          [
+            190.0,
+            1818.0
+          ],
+          [
+            223.0,
+            1818.0
+          ],
+          [
+            223.0,
+            1853.0
+          ],
+          [
+            190.0,
+            1853.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "ID number, PwS name, address and county.Forms should not be shared with other supplies.",
+        "score": 0.985542356967926,
+        "box": [
+          [
+            240.0,
+            1855.0
+          ],
+          [
+            1495.0,
+            1867.0
+          ],
+          [
+            1495.0,
+            1904.0
+          ],
+          [
+            240.0,
+            1892.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "The Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health.",
+        "score": 0.8940747380256653,
+        "box": [
+          [
+            269.0,
+            2013.0
+          ],
+          [
+            1426.0,
+            2024.0
+          ],
+          [
+            1426.0,
+            2056.0
+          ],
+          [
+            269.0,
+            2045.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "AN EQUAL OPPORTUNITY /AFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis.",
+        "score": 0.9489771127700806,
+        "box": [
+          [
+            301.0,
+            2065.0
+          ],
+          [
+            1392.0,
+            2078.0
+          ],
+          [
+            1392.0,
+            2109.0
+          ],
+          [
+            301.0,
+            2097.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "carbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR",
+        "score": 0.972498893737793,
+        "box": [
+          [
+            241.0,
+            1704.0
+          ],
+          [
+            1549.0,
+            1715.0
+          ],
+          [
+            1549.0,
+            1755.0
+          ],
+          [
+            241.0,
+            1743.0
+          ]
+        ],
+        "category": "figure"
+      },
+      {
+        "text": "does not require a public water system to retain copies of sample collection forms; however, you",
+        "score": 0.9810333251953125,
+        "box": [
+          [
+            242.0,
+            1742.0
+          ],
+          [
+            1547.0,
+            1756.0
+          ],
+          [
+            1547.0,
+            1792.0
+          ],
+          [
+            242.0,
+            1778.0
+          ]
+        ],
+        "category": "figure"
+      }
+    ],
+    "layout_time_ms": 5910.172700881958,
+    "det_time_ms": 2368.4206008911133,
+    "rec_time_ms": 8763.864755630493,
+    "total_time_ms": 17042.458057403564
+  }
+]

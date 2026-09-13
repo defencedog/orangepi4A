@@ -1,0 +1,64 @@
+
+## Page 1
+
+Back to Basics Steam Trap Management: Do Something; Anything. Please! A robust steam trap management program JAMES R. RISKO Tlv Corp. will help you maintain steam system reliability and avoid water hammer damage. Supply dry steam. Steam is the primary heat source for production. Supplying less-than-optimal steam can reduce production by slowing heat transfer and/or lowering the quality, dry steam: its design capacity Steam Generation
+
+> **Figure Region** `(bbox: [0.0, 1012.7, 617.4, 2170.8])`
+>
+> plant's steam trap population can have a significant
+> and direct impact on the heating capability of its
+> steam system. In turn, the steam system can directly
+> impact the plant's production and profit. If a site fails to
+> implement a steam trap maintenance regimen, it may expe-
+> rience steam quality deterioration, expensive steam leak-
+> ages, or even water hammer in its steam supply lines, which
+> has the potential to cause severe damage to equipment and
+> piping and unscheduled plant shutdown.
+> Even so, many sites do not have a regular steam trap
+> maintenance program in place. However, the investment
+> needed to maintain a high-quality steam system through
+> a proactive and sustainable trap management program is
+> easily justified.
+> This article, inspired by a presentation given at the
+> Industrial Energy Technology Conference (IETC, New
+> Orleans, LA, June 2015) (1), describes how a more pro-
+> active steam trap management regimen can be economically
+> justified. The article first reviews the destructive effects of
+> condensate buildup and water hammer, and then explains
+> why steam trap management is critical.
+> Consider an optimized steam system
+> A steam system (Figure 1) has four main sections that:
+> generate heat
+> distribute heat
+> use heat
+>  recover heat (condensate return).
+> For the steam system to function optimally, it must sup-
+> ply dry steam, drain condensate fast, and return condensate.
+> www.aiche.org/cepOctober 2017CEP
+> 64
+
+> **Figure Region** `(bbox: [1003.2, 1102.4, 1626.0, 2171.4])`
+>
+> steam temperature, and can cause dangerous safety or reli-
+> ability events. A few practices will help you produce high-
+> : properly operate the boiler, and do not operate it above
+> : maintain insulation
+> : maintain steam traps.
+> Drain condensate fast. Steam equipment generally pro-
+> vides the highest heat transfer when steam is the only fluid
+> supplying heat. Condensate pooling (or backup), which can
+> occur when condensate is not drained quickly, often causes
+> serious equipment issues, such as leaks caused by water
+> hammer, corrosion, or erosion.
+> Supply Dry Steam
+> Steam Distribution
+> Equipment
+> Tracing
+> Drain Condensate Fast
+> Condensate
+> Return Condensate
+> Return
+> Figure 1. A steam system provides process heat and power. Optimizing
+> it can have significant performance benefits.
+> Copyright @ 2017 American Institute of Chemical Engineers (AIChE)
+

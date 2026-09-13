@@ -1,0 +1,3315 @@
+[
+  {
+    "page": 1,
+    "blocks": [
+      {
+        "category": "text",
+        "bbox": [
+          0.0,
+          0.0,
+          1626.0,
+          2176.0
+        ],
+        "score": 1.0,
+        "lines": [
+          {
+            "text": "Back to Basics",
+            "score": 0.9972795844078064,
+            "box": [
+              [
+                126.0,
+                125.0
+              ],
+              [
+                394.0,
+                125.0
+              ],
+              [
+                394.0,
+                165.0
+              ],
+              [
+                126.0,
+                165.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Steam",
+            "score": 0.9447265863418579,
+            "box": [
+              [
+                126.0,
+                265.0
+              ],
+              [
+                484.0,
+                268.0
+              ],
+              [
+                483.0,
+                394.0
+              ],
+              [
+                125.0,
+                392.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Trap",
+            "score": 0.991943359375,
+            "box": [
+              [
+                468.0,
+                269.0
+              ],
+              [
+                745.0,
+                269.0
+              ],
+              [
+                745.0,
+                410.0
+              ],
+              [
+                468.0,
+                410.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Management:",
+            "score": 0.9993341565132141,
+            "box": [
+              [
+                731.0,
+                269.0
+              ],
+              [
+                1497.0,
+                272.0
+              ],
+              [
+                1496.0,
+                410.0
+              ],
+              [
+                730.0,
+                407.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Do Something;",
+            "score": 0.9869290590286255,
+            "box": [
+              [
+                411.0,
+                369.0
+              ],
+              [
+                1221.0,
+                389.0
+              ],
+              [
+                1219.0,
+                533.0
+              ],
+              [
+                409.0,
+                513.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Anything. Please!",
+            "score": 0.9861845374107361,
+            "box": [
+              [
+                331.0,
+                493.0
+              ],
+              [
+                1290.0,
+                493.0
+              ],
+              [
+                1290.0,
+                651.0
+              ],
+              [
+                331.0,
+                651.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "A robust steam trap management program",
+            "score": 0.9969032406806946,
+            "box": [
+              [
+                655.0,
+                726.0
+              ],
+              [
+                1399.0,
+                726.0
+              ],
+              [
+                1399.0,
+                771.0
+              ],
+              [
+                655.0,
+                771.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "JAMES R. RISKO",
+            "score": 0.8443428874015808,
+            "box": [
+              [
+                122.0,
+                727.0
+              ],
+              [
+                307.0,
+                727.0
+              ],
+              [
+                307.0,
+                754.0
+              ],
+              [
+                122.0,
+                754.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Tlv Corp.",
+            "score": 0.8580729365348816,
+            "box": [
+              [
+                122.0,
+                757.0
+              ],
+              [
+                238.0,
+                760.0
+              ],
+              [
+                238.0,
+                789.0
+              ],
+              [
+                121.0,
+                786.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "will help you maintain steam system reliability",
+            "score": 0.9878448843955994,
+            "box": [
+              [
+                624.0,
+                777.0
+              ],
+              [
+                1433.0,
+                777.0
+              ],
+              [
+                1433.0,
+                821.0
+              ],
+              [
+                624.0,
+                821.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "and avoid water hammer damage.",
+            "score": 0.9984537959098816,
+            "box": [
+              [
+                730.0,
+                828.0
+              ],
+              [
+                1324.0,
+                828.0
+              ],
+              [
+                1324.0,
+                869.0
+              ],
+              [
+                730.0,
+                869.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "plant's steam trap population can have a significant",
+            "score": 0.9872389435768127,
+            "box": [
+              [
+                213.0,
+                1010.0
+              ],
+              [
+                780.0,
+                1010.0
+              ],
+              [
+                780.0,
+                1041.0
+              ],
+              [
+                213.0,
+                1041.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Supply dry steam. Steam is the primary heat source for",
+            "score": 0.9983814358711243,
+            "box": [
+              [
+                877.0,
+                1010.0
+              ],
+              [
+                1474.0,
+                1010.0
+              ],
+              [
+                1474.0,
+                1041.0
+              ],
+              [
+                877.0,
+                1041.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "and direct impact on the heating capability of its",
+            "score": 0.9973828196525574,
+            "box": [
+              [
+                213.0,
+                1042.0
+              ],
+              [
+                747.0,
+                1043.0
+              ],
+              [
+                747.0,
+                1074.0
+              ],
+              [
+                213.0,
+                1073.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "production. Supplying less-than-optimal steam can reduce",
+            "score": 0.9988926649093628,
+            "box": [
+              [
+                836.0,
+                1044.0
+              ],
+              [
+                1472.0,
+                1044.0
+              ],
+              [
+                1472.0,
+                1075.0
+              ],
+              [
+                836.0,
+                1075.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "production by slowing heat transfer and/or lowering the",
+            "score": 0.9966530799865723,
+            "box": [
+              [
+                834.0,
+                1077.0
+              ],
+              [
+                1445.0,
+                1076.0
+              ],
+              [
+                1445.0,
+                1107.0
+              ],
+              [
+                834.0,
+                1108.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "steam system. In turn, the steam system can directly",
+            "score": 0.9942345023155212,
+            "box": [
+              [
+                213.0,
+                1077.0
+              ],
+              [
+                788.0,
+                1077.0
+              ],
+              [
+                788.0,
+                1108.0
+              ],
+              [
+                213.0,
+                1108.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "impact the plant's production and profit. If a site fails to",
+            "score": 0.9882730841636658,
+            "box": [
+              [
+                122.0,
+                1109.0
+              ],
+              [
+                738.0,
+                1109.0
+              ],
+              [
+                738.0,
+                1140.0
+              ],
+              [
+                122.0,
+                1140.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "steam temperature, and can cause dangerous safety or reli-",
+            "score": 0.9992591738700867,
+            "box": [
+              [
+                835.0,
+                1110.0
+              ],
+              [
+                1474.0,
+                1109.0
+              ],
+              [
+                1474.0,
+                1140.0
+              ],
+              [
+                835.0,
+                1141.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "implement a steam trap maintenance regimen, it may expe-",
+            "score": 0.9935302734375,
+            "box": [
+              [
+                122.0,
+                1144.0
+              ],
+              [
+                776.0,
+                1145.0
+              ],
+              [
+                776.0,
+                1174.0
+              ],
+              [
+                122.0,
+                1173.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "ability events. A few practices will help you produce high-",
+            "score": 0.9909295439720154,
+            "box": [
+              [
+                836.0,
+                1144.0
+              ],
+              [
+                1473.0,
+                1144.0
+              ],
+              [
+                1473.0,
+                1175.0
+              ],
+              [
+                836.0,
+                1175.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "rience steam quality deterioration, expensive steam leak-",
+            "score": 0.9953827261924744,
+            "box": [
+              [
+                122.0,
+                1177.0
+              ],
+              [
+                751.0,
+                1177.0
+              ],
+              [
+                751.0,
+                1208.0
+              ],
+              [
+                122.0,
+                1208.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "quality, dry steam:",
+            "score": 0.9998201131820679,
+            "box": [
+              [
+                837.0,
+                1178.0
+              ],
+              [
+                1039.0,
+                1178.0
+              ],
+              [
+                1039.0,
+                1207.0
+              ],
+              [
+                837.0,
+                1207.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "its design capacity",
+            "score": 0.9939864277839661,
+            "box": [
+              [
+                836.0,
+                1243.0
+              ],
+              [
+                1039.0,
+                1245.0
+              ],
+              [
+                1039.0,
+                1274.0
+              ],
+              [
+                836.0,
+                1272.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": ": maintain insulation",
+            "score": 0.9807477593421936,
+            "box": [
+              [
+                876.0,
+                1277.0
+              ],
+              [
+                1104.0,
+                1277.0
+              ],
+              [
+                1104.0,
+                1305.0
+              ],
+              [
+                876.0,
+                1305.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": ": maintain steam traps.",
+            "score": 0.9231700301170349,
+            "box": [
+              [
+                877.0,
+                1312.0
+              ],
+              [
+                1126.0,
+                1312.0
+              ],
+              [
+                1126.0,
+                1340.0
+              ],
+              [
+                877.0,
+                1340.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "hammer, corrosion, or erosion.",
+            "score": 0.9999023675918579,
+            "box": [
+              [
+                837.0,
+                1512.0
+              ],
+              [
+                1171.0,
+                1512.0
+              ],
+              [
+                1171.0,
+                1540.0
+              ],
+              [
+                837.0,
+                1540.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Steam Distribution",
+            "score": 0.990478515625,
+            "box": [
+              [
+                896.0,
+                1568.0
+              ],
+              [
+                1062.0,
+                1568.0
+              ],
+              [
+                1062.0,
+                1593.0
+              ],
+              [
+                896.0,
+                1593.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Steam",
+            "score": 0.8890625238418579,
+            "box": [
+              [
+                906.0,
+                1835.0
+              ],
+              [
+                966.0,
+                1835.0
+              ],
+              [
+                966.0,
+                1857.0
+              ],
+              [
+                906.0,
+                1857.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Generation",
+            "score": 0.9759277105331421,
+            "box": [
+              [
+                885.0,
+                1857.0
+              ],
+              [
+                987.0,
+                1857.0
+              ],
+              [
+                987.0,
+                1882.0
+              ],
+              [
+                885.0,
+                1882.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "Return Condensate",
+            "score": 0.9671989679336548,
+            "box": [
+              [
+                900.0,
+                1906.0
+              ],
+              [
+                1103.0,
+                1906.0
+              ],
+              [
+                1103.0,
+                1931.0
+              ],
+              [
+                900.0,
+                1931.0
+              ]
+            ],
+            "category": "text"
+          },
+          {
+            "text": "it can have significant performance benefits.",
+            "score": 0.9898003339767456,
+            "box": [
+              [
+                836.0,
+                1979.0
+              ],
+              [
+                1227.0,
+                1982.0
+              ],
+              [
+                1227.0,
+                2006.0
+              ],
+              [
+                836.0,
+                2004.0
+              ]
+            ],
+            "category": "text"
+          }
+        ]
+      },
+      {
+        "category": "table",
+        "bbox": [
+          1.8,
+          1197.5,
+          517.0,
+          2131.2
+        ],
+        "score": 0.5373,
+        "lines": [
+          {
+            "text": "ages, or even water hammer in its steam supply lines, which",
+            "score": 0.9993296265602112,
+            "box": [
+              [
+                121.0,
+                1211.0
+              ],
+              [
+                786.0,
+                1209.0
+              ],
+              [
+                786.0,
+                1240.0
+              ],
+              [
+                122.0,
+                1242.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "has the potential to cause severe damage to equipment and",
+            "score": 0.9984152317047119,
+            "box": [
+              [
+                121.0,
+                1243.0
+              ],
+              [
+                771.0,
+                1244.0
+              ],
+              [
+                771.0,
+                1275.0
+              ],
+              [
+                121.0,
+                1274.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "piping and unscheduled plant shutdown.",
+            "score": 0.9923160076141357,
+            "box": [
+              [
+                122.0,
+                1278.0
+              ],
+              [
+                570.0,
+                1278.0
+              ],
+              [
+                570.0,
+                1309.0
+              ],
+              [
+                122.0,
+                1309.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Even so, many sites do not have a regular steam trap",
+            "score": 0.9837834239006042,
+            "box": [
+              [
+                163.0,
+                1310.0
+              ],
+              [
+                737.0,
+                1310.0
+              ],
+              [
+                737.0,
+                1341.0
+              ],
+              [
+                163.0,
+                1341.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "maintenance program in place. However, the investment",
+            "score": 0.9901975393295288,
+            "box": [
+              [
+                123.0,
+                1345.0
+              ],
+              [
+                739.0,
+                1345.0
+              ],
+              [
+                739.0,
+                1373.0
+              ],
+              [
+                123.0,
+                1373.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "needed to maintain a high-quality steam system through",
+            "score": 0.9978298544883728,
+            "box": [
+              [
+                122.0,
+                1377.0
+              ],
+              [
+                734.0,
+                1378.0
+              ],
+              [
+                734.0,
+                1407.0
+              ],
+              [
+                122.0,
+                1406.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "a proactive and sustainable trap management program is",
+            "score": 0.9993941783905029,
+            "box": [
+              [
+                122.0,
+                1411.0
+              ],
+              [
+                738.0,
+                1411.0
+              ],
+              [
+                738.0,
+                1442.0
+              ],
+              [
+                122.0,
+                1442.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "easily justified.",
+            "score": 0.9846909642219543,
+            "box": [
+              [
+                123.0,
+                1444.0
+              ],
+              [
+                289.0,
+                1444.0
+              ],
+              [
+                289.0,
+                1473.0
+              ],
+              [
+                123.0,
+                1473.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "This article, inspired by a presentation given at the",
+            "score": 0.9965727925300598,
+            "box": [
+              [
+                164.0,
+                1477.0
+              ],
+              [
+                716.0,
+                1477.0
+              ],
+              [
+                716.0,
+                1508.0
+              ],
+              [
+                164.0,
+                1508.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Industrial Energy Technology Conference (IETC, New",
+            "score": 0.9990038871765137,
+            "box": [
+              [
+                123.0,
+                1512.0
+              ],
+              [
+                723.0,
+                1512.0
+              ],
+              [
+                723.0,
+                1540.0
+              ],
+              [
+                123.0,
+                1540.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Orleans, LA, June 2015) (1), describes how a more pro-",
+            "score": 0.9741030335426331,
+            "box": [
+              [
+                124.0,
+                1546.0
+              ],
+              [
+                733.0,
+                1546.0
+              ],
+              [
+                733.0,
+                1574.0
+              ],
+              [
+                124.0,
+                1574.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "active steam trap management regimen can be economically",
+            "score": 0.9885515570640564,
+            "box": [
+              [
+                124.0,
+                1579.0
+              ],
+              [
+                780.0,
+                1579.0
+              ],
+              [
+                780.0,
+                1606.0
+              ],
+              [
+                124.0,
+                1606.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "justified. The article first reviews the destructive effects of",
+            "score": 0.986630380153656,
+            "box": [
+              [
+                121.0,
+                1612.0
+              ],
+              [
+                759.0,
+                1611.0
+              ],
+              [
+                759.0,
+                1638.0
+              ],
+              [
+                121.0,
+                1639.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "condensate buildup and water hammer, and then explains",
+            "score": 0.9887966513633728,
+            "box": [
+              [
+                124.0,
+                1646.0
+              ],
+              [
+                748.0,
+                1646.0
+              ],
+              [
+                748.0,
+                1673.0
+              ],
+              [
+                124.0,
+                1673.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "why steam trap management is critical.",
+            "score": 0.9903371930122375,
+            "box": [
+              [
+                124.0,
+                1680.0
+              ],
+              [
+                550.0,
+                1680.0
+              ],
+              [
+                550.0,
+                1707.0
+              ],
+              [
+                124.0,
+                1707.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Consider an optimized steam system",
+            "score": 0.9971421360969543,
+            "box": [
+              [
+                125.0,
+                1738.0
+              ],
+              [
+                584.0,
+                1738.0
+              ],
+              [
+                584.0,
+                1770.0
+              ],
+              [
+                125.0,
+                1770.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "A steam system (Figure 1) has four main sections that:",
+            "score": 0.9942581653594971,
+            "box": [
+              [
+                164.0,
+                1779.0
+              ],
+              [
+                756.0,
+                1778.0
+              ],
+              [
+                756.0,
+                1806.0
+              ],
+              [
+                164.0,
+                1807.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": " generate heat",
+            "score": 0.9609026312828064,
+            "box": [
+              [
+                168.0,
+                1813.0
+              ],
+              [
+                328.0,
+                1813.0
+              ],
+              [
+                328.0,
+                1840.0
+              ],
+              [
+                168.0,
+                1840.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "distribute heat",
+            "score": 0.9880208373069763,
+            "box": [
+              [
+                175.0,
+                1844.0
+              ],
+              [
+                337.0,
+                1844.0
+              ],
+              [
+                337.0,
+                1873.0
+              ],
+              [
+                175.0,
+                1873.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": " use heat",
+            "score": 0.8997395634651184,
+            "box": [
+              [
+                165.0,
+                1878.0
+              ],
+              [
+                272.0,
+                1878.0
+              ],
+              [
+                272.0,
+                1907.0
+              ],
+              [
+                165.0,
+                1907.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": ": recover heat (condensate return).",
+            "score": 0.9684919118881226,
+            "box": [
+              [
+                165.0,
+                1912.0
+              ],
+              [
+                537.0,
+                1912.0
+              ],
+              [
+                537.0,
+                1940.0
+              ],
+              [
+                165.0,
+                1940.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "For the steam system to function optimally, it must sup-",
+            "score": 0.9935389757156372,
+            "box": [
+              [
+                163.0,
+                1942.0
+              ],
+              [
+                770.0,
+                1944.0
+              ],
+              [
+                770.0,
+                1975.0
+              ],
+              [
+                163.0,
+                1973.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "ply dry steam, drain condensate fast, and return condensate.",
+            "score": 0.9937499761581421,
+            "box": [
+              [
+                122.0,
+                1978.0
+              ],
+              [
+                774.0,
+                1978.0
+              ],
+              [
+                774.0,
+                2009.0
+              ],
+              [
+                122.0,
+                2009.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "www.aiche.org/cepOctober 2017CEP",
+            "score": 0.9974212646484375,
+            "box": [
+              [
+                201.0,
+                2067.0
+              ],
+              [
+                581.0,
+                2065.0
+              ],
+              [
+                581.0,
+                2093.0
+              ],
+              [
+                201.0,
+                2094.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "64",
+            "score": 0.998779296875,
+            "box": [
+              [
+                127.0,
+                2066.0
+              ],
+              [
+                183.0,
+                2066.0
+              ],
+              [
+                183.0,
+                2091.0
+              ],
+              [
+                127.0,
+                2091.0
+              ]
+            ],
+            "category": "table"
+          }
+        ]
+      },
+      {
+        "category": "table",
+        "bbox": [
+          1127.3,
+          1204.0,
+          1625.6,
+          2125.6
+        ],
+        "score": 0.3911,
+        "lines": [
+          {
+            "text": ": properly operate the boiler, and do not operate it above",
+            "score": 0.984711766242981,
+            "box": [
+              [
+                876.0,
+                1210.0
+              ],
+              [
+                1490.0,
+                1209.0
+              ],
+              [
+                1490.0,
+                1241.0
+              ],
+              [
+                876.0,
+                1242.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Drain condensate fast. Steam equipment generally pro-",
+            "score": 0.9994564652442932,
+            "box": [
+              [
+                875.0,
+                1342.0
+              ],
+              [
+                1482.0,
+                1344.0
+              ],
+              [
+                1481.0,
+                1375.0
+              ],
+              [
+                875.0,
+                1373.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "vides the highest heat transfer when steam is the only fluid",
+            "score": 0.9904703497886658,
+            "box": [
+              [
+                838.0,
+                1378.0
+              ],
+              [
+                1475.0,
+                1378.0
+              ],
+              [
+                1475.0,
+                1406.0
+              ],
+              [
+                838.0,
+                1406.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "supplying heat. Condensate pooling (or backup), which can",
+            "score": 0.9922046065330505,
+            "box": [
+              [
+                836.0,
+                1412.0
+              ],
+              [
+                1485.0,
+                1411.0
+              ],
+              [
+                1485.0,
+                1440.0
+              ],
+              [
+                836.0,
+                1441.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "occur when condensate is not drained quickly, often causes",
+            "score": 0.999149739742279,
+            "box": [
+              [
+                837.0,
+                1446.0
+              ],
+              [
+                1480.0,
+                1446.0
+              ],
+              [
+                1480.0,
+                1474.0
+              ],
+              [
+                837.0,
+                1474.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "serious equipment issues, such as leaks caused by water",
+            "score": 0.9952769875526428,
+            "box": [
+              [
+                837.0,
+                1479.0
+              ],
+              [
+                1447.0,
+                1479.0
+              ],
+              [
+                1447.0,
+                1507.0
+              ],
+              [
+                837.0,
+                1507.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Supply Dry Steam",
+            "score": 0.999847412109375,
+            "box": [
+              [
+                1181.0,
+                1559.0
+              ],
+              [
+                1369.0,
+                1559.0
+              ],
+              [
+                1369.0,
+                1587.0
+              ],
+              [
+                1181.0,
+                1587.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Equipment",
+            "score": 0.9753146767616272,
+            "box": [
+              [
+                1216.0,
+                1666.0
+              ],
+              [
+                1320.0,
+                1666.0
+              ],
+              [
+                1320.0,
+                1695.0
+              ],
+              [
+                1216.0,
+                1695.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Tracing",
+            "score": 0.92041015625,
+            "box": [
+              [
+                1403.0,
+                1688.0
+              ],
+              [
+                1476.0,
+                1691.0
+              ],
+              [
+                1476.0,
+                1719.0
+              ],
+              [
+                1403.0,
+                1717.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Drain Condensate Fast",
+            "score": 0.9893507957458496,
+            "box": [
+              [
+                1178.0,
+                1844.0
+              ],
+              [
+                1418.0,
+                1847.0
+              ],
+              [
+                1418.0,
+                1871.0
+              ],
+              [
+                1178.0,
+                1869.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Condensate",
+            "score": 0.9925781488418579,
+            "box": [
+              [
+                1180.0,
+                1892.0
+              ],
+              [
+                1288.0,
+                1892.0
+              ],
+              [
+                1288.0,
+                1910.0
+              ],
+              [
+                1180.0,
+                1910.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Return",
+            "score": 0.8688151240348816,
+            "box": [
+              [
+                1202.0,
+                1911.0
+              ],
+              [
+                1264.0,
+                1914.0
+              ],
+              [
+                1264.0,
+                1936.0
+              ],
+              [
+                1201.0,
+                1934.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Figure 1. A steam system provides process heat and power. Optimizing",
+            "score": 0.9821920990943909,
+            "box": [
+              [
+                864.0,
+                1951.0
+              ],
+              [
+                1490.0,
+                1952.0
+              ],
+              [
+                1490.0,
+                1979.0
+              ],
+              [
+                864.0,
+                1978.0
+              ]
+            ],
+            "category": "table"
+          },
+          {
+            "text": "Copyright @ 2017 American Institute of Chemical Engineers (AIChE)",
+            "score": 0.98876953125,
+            "box": [
+              [
+                937.0,
+                2062.0
+              ],
+              [
+                1505.0,
+                2062.0
+              ],
+              [
+                1505.0,
+                2090.0
+              ],
+              [
+                937.0,
+                2090.0
+              ]
+            ],
+            "category": "table"
+          }
+        ]
+      }
+    ],
+    "lines": [
+      {
+        "text": "Back to Basics",
+        "score": 0.9972795844078064,
+        "box": [
+          [
+            126.0,
+            125.0
+          ],
+          [
+            394.0,
+            125.0
+          ],
+          [
+            394.0,
+            165.0
+          ],
+          [
+            126.0,
+            165.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Steam",
+        "score": 0.9447265863418579,
+        "box": [
+          [
+            126.0,
+            265.0
+          ],
+          [
+            484.0,
+            268.0
+          ],
+          [
+            483.0,
+            394.0
+          ],
+          [
+            125.0,
+            392.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Trap",
+        "score": 0.991943359375,
+        "box": [
+          [
+            468.0,
+            269.0
+          ],
+          [
+            745.0,
+            269.0
+          ],
+          [
+            745.0,
+            410.0
+          ],
+          [
+            468.0,
+            410.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Management:",
+        "score": 0.9993341565132141,
+        "box": [
+          [
+            731.0,
+            269.0
+          ],
+          [
+            1497.0,
+            272.0
+          ],
+          [
+            1496.0,
+            410.0
+          ],
+          [
+            730.0,
+            407.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Do Something;",
+        "score": 0.9869290590286255,
+        "box": [
+          [
+            411.0,
+            369.0
+          ],
+          [
+            1221.0,
+            389.0
+          ],
+          [
+            1219.0,
+            533.0
+          ],
+          [
+            409.0,
+            513.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Anything. Please!",
+        "score": 0.9861845374107361,
+        "box": [
+          [
+            331.0,
+            493.0
+          ],
+          [
+            1290.0,
+            493.0
+          ],
+          [
+            1290.0,
+            651.0
+          ],
+          [
+            331.0,
+            651.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "A robust steam trap management program",
+        "score": 0.9969032406806946,
+        "box": [
+          [
+            655.0,
+            726.0
+          ],
+          [
+            1399.0,
+            726.0
+          ],
+          [
+            1399.0,
+            771.0
+          ],
+          [
+            655.0,
+            771.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "JAMES R. RISKO",
+        "score": 0.8443428874015808,
+        "box": [
+          [
+            122.0,
+            727.0
+          ],
+          [
+            307.0,
+            727.0
+          ],
+          [
+            307.0,
+            754.0
+          ],
+          [
+            122.0,
+            754.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Tlv Corp.",
+        "score": 0.8580729365348816,
+        "box": [
+          [
+            122.0,
+            757.0
+          ],
+          [
+            238.0,
+            760.0
+          ],
+          [
+            238.0,
+            789.0
+          ],
+          [
+            121.0,
+            786.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "will help you maintain steam system reliability",
+        "score": 0.9878448843955994,
+        "box": [
+          [
+            624.0,
+            777.0
+          ],
+          [
+            1433.0,
+            777.0
+          ],
+          [
+            1433.0,
+            821.0
+          ],
+          [
+            624.0,
+            821.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "and avoid water hammer damage.",
+        "score": 0.9984537959098816,
+        "box": [
+          [
+            730.0,
+            828.0
+          ],
+          [
+            1324.0,
+            828.0
+          ],
+          [
+            1324.0,
+            869.0
+          ],
+          [
+            730.0,
+            869.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "plant's steam trap population can have a significant",
+        "score": 0.9872389435768127,
+        "box": [
+          [
+            213.0,
+            1010.0
+          ],
+          [
+            780.0,
+            1010.0
+          ],
+          [
+            780.0,
+            1041.0
+          ],
+          [
+            213.0,
+            1041.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Supply dry steam. Steam is the primary heat source for",
+        "score": 0.9983814358711243,
+        "box": [
+          [
+            877.0,
+            1010.0
+          ],
+          [
+            1474.0,
+            1010.0
+          ],
+          [
+            1474.0,
+            1041.0
+          ],
+          [
+            877.0,
+            1041.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "and direct impact on the heating capability of its",
+        "score": 0.9973828196525574,
+        "box": [
+          [
+            213.0,
+            1042.0
+          ],
+          [
+            747.0,
+            1043.0
+          ],
+          [
+            747.0,
+            1074.0
+          ],
+          [
+            213.0,
+            1073.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "production. Supplying less-than-optimal steam can reduce",
+        "score": 0.9988926649093628,
+        "box": [
+          [
+            836.0,
+            1044.0
+          ],
+          [
+            1472.0,
+            1044.0
+          ],
+          [
+            1472.0,
+            1075.0
+          ],
+          [
+            836.0,
+            1075.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "production by slowing heat transfer and/or lowering the",
+        "score": 0.9966530799865723,
+        "box": [
+          [
+            834.0,
+            1077.0
+          ],
+          [
+            1445.0,
+            1076.0
+          ],
+          [
+            1445.0,
+            1107.0
+          ],
+          [
+            834.0,
+            1108.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "steam system. In turn, the steam system can directly",
+        "score": 0.9942345023155212,
+        "box": [
+          [
+            213.0,
+            1077.0
+          ],
+          [
+            788.0,
+            1077.0
+          ],
+          [
+            788.0,
+            1108.0
+          ],
+          [
+            213.0,
+            1108.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "impact the plant's production and profit. If a site fails to",
+        "score": 0.9882730841636658,
+        "box": [
+          [
+            122.0,
+            1109.0
+          ],
+          [
+            738.0,
+            1109.0
+          ],
+          [
+            738.0,
+            1140.0
+          ],
+          [
+            122.0,
+            1140.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "steam temperature, and can cause dangerous safety or reli-",
+        "score": 0.9992591738700867,
+        "box": [
+          [
+            835.0,
+            1110.0
+          ],
+          [
+            1474.0,
+            1109.0
+          ],
+          [
+            1474.0,
+            1140.0
+          ],
+          [
+            835.0,
+            1141.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "implement a steam trap maintenance regimen, it may expe-",
+        "score": 0.9935302734375,
+        "box": [
+          [
+            122.0,
+            1144.0
+          ],
+          [
+            776.0,
+            1145.0
+          ],
+          [
+            776.0,
+            1174.0
+          ],
+          [
+            122.0,
+            1173.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "ability events. A few practices will help you produce high-",
+        "score": 0.9909295439720154,
+        "box": [
+          [
+            836.0,
+            1144.0
+          ],
+          [
+            1473.0,
+            1144.0
+          ],
+          [
+            1473.0,
+            1175.0
+          ],
+          [
+            836.0,
+            1175.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "rience steam quality deterioration, expensive steam leak-",
+        "score": 0.9953827261924744,
+        "box": [
+          [
+            122.0,
+            1177.0
+          ],
+          [
+            751.0,
+            1177.0
+          ],
+          [
+            751.0,
+            1208.0
+          ],
+          [
+            122.0,
+            1208.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "quality, dry steam:",
+        "score": 0.9998201131820679,
+        "box": [
+          [
+            837.0,
+            1178.0
+          ],
+          [
+            1039.0,
+            1178.0
+          ],
+          [
+            1039.0,
+            1207.0
+          ],
+          [
+            837.0,
+            1207.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "its design capacity",
+        "score": 0.9939864277839661,
+        "box": [
+          [
+            836.0,
+            1243.0
+          ],
+          [
+            1039.0,
+            1245.0
+          ],
+          [
+            1039.0,
+            1274.0
+          ],
+          [
+            836.0,
+            1272.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": ": maintain insulation",
+        "score": 0.9807477593421936,
+        "box": [
+          [
+            876.0,
+            1277.0
+          ],
+          [
+            1104.0,
+            1277.0
+          ],
+          [
+            1104.0,
+            1305.0
+          ],
+          [
+            876.0,
+            1305.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": ": maintain steam traps.",
+        "score": 0.9231700301170349,
+        "box": [
+          [
+            877.0,
+            1312.0
+          ],
+          [
+            1126.0,
+            1312.0
+          ],
+          [
+            1126.0,
+            1340.0
+          ],
+          [
+            877.0,
+            1340.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "hammer, corrosion, or erosion.",
+        "score": 0.9999023675918579,
+        "box": [
+          [
+            837.0,
+            1512.0
+          ],
+          [
+            1171.0,
+            1512.0
+          ],
+          [
+            1171.0,
+            1540.0
+          ],
+          [
+            837.0,
+            1540.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Steam Distribution",
+        "score": 0.990478515625,
+        "box": [
+          [
+            896.0,
+            1568.0
+          ],
+          [
+            1062.0,
+            1568.0
+          ],
+          [
+            1062.0,
+            1593.0
+          ],
+          [
+            896.0,
+            1593.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Steam",
+        "score": 0.8890625238418579,
+        "box": [
+          [
+            906.0,
+            1835.0
+          ],
+          [
+            966.0,
+            1835.0
+          ],
+          [
+            966.0,
+            1857.0
+          ],
+          [
+            906.0,
+            1857.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Generation",
+        "score": 0.9759277105331421,
+        "box": [
+          [
+            885.0,
+            1857.0
+          ],
+          [
+            987.0,
+            1857.0
+          ],
+          [
+            987.0,
+            1882.0
+          ],
+          [
+            885.0,
+            1882.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "Return Condensate",
+        "score": 0.9671989679336548,
+        "box": [
+          [
+            900.0,
+            1906.0
+          ],
+          [
+            1103.0,
+            1906.0
+          ],
+          [
+            1103.0,
+            1931.0
+          ],
+          [
+            900.0,
+            1931.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "it can have significant performance benefits.",
+        "score": 0.9898003339767456,
+        "box": [
+          [
+            836.0,
+            1979.0
+          ],
+          [
+            1227.0,
+            1982.0
+          ],
+          [
+            1227.0,
+            2006.0
+          ],
+          [
+            836.0,
+            2004.0
+          ]
+        ],
+        "category": "text"
+      },
+      {
+        "text": "ages, or even water hammer in its steam supply lines, which",
+        "score": 0.9993296265602112,
+        "box": [
+          [
+            121.0,
+            1211.0
+          ],
+          [
+            786.0,
+            1209.0
+          ],
+          [
+            786.0,
+            1240.0
+          ],
+          [
+            122.0,
+            1242.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "has the potential to cause severe damage to equipment and",
+        "score": 0.9984152317047119,
+        "box": [
+          [
+            121.0,
+            1243.0
+          ],
+          [
+            771.0,
+            1244.0
+          ],
+          [
+            771.0,
+            1275.0
+          ],
+          [
+            121.0,
+            1274.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "piping and unscheduled plant shutdown.",
+        "score": 0.9923160076141357,
+        "box": [
+          [
+            122.0,
+            1278.0
+          ],
+          [
+            570.0,
+            1278.0
+          ],
+          [
+            570.0,
+            1309.0
+          ],
+          [
+            122.0,
+            1309.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Even so, many sites do not have a regular steam trap",
+        "score": 0.9837834239006042,
+        "box": [
+          [
+            163.0,
+            1310.0
+          ],
+          [
+            737.0,
+            1310.0
+          ],
+          [
+            737.0,
+            1341.0
+          ],
+          [
+            163.0,
+            1341.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "maintenance program in place. However, the investment",
+        "score": 0.9901975393295288,
+        "box": [
+          [
+            123.0,
+            1345.0
+          ],
+          [
+            739.0,
+            1345.0
+          ],
+          [
+            739.0,
+            1373.0
+          ],
+          [
+            123.0,
+            1373.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "needed to maintain a high-quality steam system through",
+        "score": 0.9978298544883728,
+        "box": [
+          [
+            122.0,
+            1377.0
+          ],
+          [
+            734.0,
+            1378.0
+          ],
+          [
+            734.0,
+            1407.0
+          ],
+          [
+            122.0,
+            1406.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "a proactive and sustainable trap management program is",
+        "score": 0.9993941783905029,
+        "box": [
+          [
+            122.0,
+            1411.0
+          ],
+          [
+            738.0,
+            1411.0
+          ],
+          [
+            738.0,
+            1442.0
+          ],
+          [
+            122.0,
+            1442.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "easily justified.",
+        "score": 0.9846909642219543,
+        "box": [
+          [
+            123.0,
+            1444.0
+          ],
+          [
+            289.0,
+            1444.0
+          ],
+          [
+            289.0,
+            1473.0
+          ],
+          [
+            123.0,
+            1473.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "This article, inspired by a presentation given at the",
+        "score": 0.9965727925300598,
+        "box": [
+          [
+            164.0,
+            1477.0
+          ],
+          [
+            716.0,
+            1477.0
+          ],
+          [
+            716.0,
+            1508.0
+          ],
+          [
+            164.0,
+            1508.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Industrial Energy Technology Conference (IETC, New",
+        "score": 0.9990038871765137,
+        "box": [
+          [
+            123.0,
+            1512.0
+          ],
+          [
+            723.0,
+            1512.0
+          ],
+          [
+            723.0,
+            1540.0
+          ],
+          [
+            123.0,
+            1540.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Orleans, LA, June 2015) (1), describes how a more pro-",
+        "score": 0.9741030335426331,
+        "box": [
+          [
+            124.0,
+            1546.0
+          ],
+          [
+            733.0,
+            1546.0
+          ],
+          [
+            733.0,
+            1574.0
+          ],
+          [
+            124.0,
+            1574.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "active steam trap management regimen can be economically",
+        "score": 0.9885515570640564,
+        "box": [
+          [
+            124.0,
+            1579.0
+          ],
+          [
+            780.0,
+            1579.0
+          ],
+          [
+            780.0,
+            1606.0
+          ],
+          [
+            124.0,
+            1606.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "justified. The article first reviews the destructive effects of",
+        "score": 0.986630380153656,
+        "box": [
+          [
+            121.0,
+            1612.0
+          ],
+          [
+            759.0,
+            1611.0
+          ],
+          [
+            759.0,
+            1638.0
+          ],
+          [
+            121.0,
+            1639.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "condensate buildup and water hammer, and then explains",
+        "score": 0.9887966513633728,
+        "box": [
+          [
+            124.0,
+            1646.0
+          ],
+          [
+            748.0,
+            1646.0
+          ],
+          [
+            748.0,
+            1673.0
+          ],
+          [
+            124.0,
+            1673.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "why steam trap management is critical.",
+        "score": 0.9903371930122375,
+        "box": [
+          [
+            124.0,
+            1680.0
+          ],
+          [
+            550.0,
+            1680.0
+          ],
+          [
+            550.0,
+            1707.0
+          ],
+          [
+            124.0,
+            1707.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Consider an optimized steam system",
+        "score": 0.9971421360969543,
+        "box": [
+          [
+            125.0,
+            1738.0
+          ],
+          [
+            584.0,
+            1738.0
+          ],
+          [
+            584.0,
+            1770.0
+          ],
+          [
+            125.0,
+            1770.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "A steam system (Figure 1) has four main sections that:",
+        "score": 0.9942581653594971,
+        "box": [
+          [
+            164.0,
+            1779.0
+          ],
+          [
+            756.0,
+            1778.0
+          ],
+          [
+            756.0,
+            1806.0
+          ],
+          [
+            164.0,
+            1807.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": " generate heat",
+        "score": 0.9609026312828064,
+        "box": [
+          [
+            168.0,
+            1813.0
+          ],
+          [
+            328.0,
+            1813.0
+          ],
+          [
+            328.0,
+            1840.0
+          ],
+          [
+            168.0,
+            1840.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "distribute heat",
+        "score": 0.9880208373069763,
+        "box": [
+          [
+            175.0,
+            1844.0
+          ],
+          [
+            337.0,
+            1844.0
+          ],
+          [
+            337.0,
+            1873.0
+          ],
+          [
+            175.0,
+            1873.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": " use heat",
+        "score": 0.8997395634651184,
+        "box": [
+          [
+            165.0,
+            1878.0
+          ],
+          [
+            272.0,
+            1878.0
+          ],
+          [
+            272.0,
+            1907.0
+          ],
+          [
+            165.0,
+            1907.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": ": recover heat (condensate return).",
+        "score": 0.9684919118881226,
+        "box": [
+          [
+            165.0,
+            1912.0
+          ],
+          [
+            537.0,
+            1912.0
+          ],
+          [
+            537.0,
+            1940.0
+          ],
+          [
+            165.0,
+            1940.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "For the steam system to function optimally, it must sup-",
+        "score": 0.9935389757156372,
+        "box": [
+          [
+            163.0,
+            1942.0
+          ],
+          [
+            770.0,
+            1944.0
+          ],
+          [
+            770.0,
+            1975.0
+          ],
+          [
+            163.0,
+            1973.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "ply dry steam, drain condensate fast, and return condensate.",
+        "score": 0.9937499761581421,
+        "box": [
+          [
+            122.0,
+            1978.0
+          ],
+          [
+            774.0,
+            1978.0
+          ],
+          [
+            774.0,
+            2009.0
+          ],
+          [
+            122.0,
+            2009.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "www.aiche.org/cepOctober 2017CEP",
+        "score": 0.9974212646484375,
+        "box": [
+          [
+            201.0,
+            2067.0
+          ],
+          [
+            581.0,
+            2065.0
+          ],
+          [
+            581.0,
+            2093.0
+          ],
+          [
+            201.0,
+            2094.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "64",
+        "score": 0.998779296875,
+        "box": [
+          [
+            127.0,
+            2066.0
+          ],
+          [
+            183.0,
+            2066.0
+          ],
+          [
+            183.0,
+            2091.0
+          ],
+          [
+            127.0,
+            2091.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": ": properly operate the boiler, and do not operate it above",
+        "score": 0.984711766242981,
+        "box": [
+          [
+            876.0,
+            1210.0
+          ],
+          [
+            1490.0,
+            1209.0
+          ],
+          [
+            1490.0,
+            1241.0
+          ],
+          [
+            876.0,
+            1242.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Drain condensate fast. Steam equipment generally pro-",
+        "score": 0.9994564652442932,
+        "box": [
+          [
+            875.0,
+            1342.0
+          ],
+          [
+            1482.0,
+            1344.0
+          ],
+          [
+            1481.0,
+            1375.0
+          ],
+          [
+            875.0,
+            1373.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "vides the highest heat transfer when steam is the only fluid",
+        "score": 0.9904703497886658,
+        "box": [
+          [
+            838.0,
+            1378.0
+          ],
+          [
+            1475.0,
+            1378.0
+          ],
+          [
+            1475.0,
+            1406.0
+          ],
+          [
+            838.0,
+            1406.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "supplying heat. Condensate pooling (or backup), which can",
+        "score": 0.9922046065330505,
+        "box": [
+          [
+            836.0,
+            1412.0
+          ],
+          [
+            1485.0,
+            1411.0
+          ],
+          [
+            1485.0,
+            1440.0
+          ],
+          [
+            836.0,
+            1441.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "occur when condensate is not drained quickly, often causes",
+        "score": 0.999149739742279,
+        "box": [
+          [
+            837.0,
+            1446.0
+          ],
+          [
+            1480.0,
+            1446.0
+          ],
+          [
+            1480.0,
+            1474.0
+          ],
+          [
+            837.0,
+            1474.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "serious equipment issues, such as leaks caused by water",
+        "score": 0.9952769875526428,
+        "box": [
+          [
+            837.0,
+            1479.0
+          ],
+          [
+            1447.0,
+            1479.0
+          ],
+          [
+            1447.0,
+            1507.0
+          ],
+          [
+            837.0,
+            1507.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Supply Dry Steam",
+        "score": 0.999847412109375,
+        "box": [
+          [
+            1181.0,
+            1559.0
+          ],
+          [
+            1369.0,
+            1559.0
+          ],
+          [
+            1369.0,
+            1587.0
+          ],
+          [
+            1181.0,
+            1587.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Equipment",
+        "score": 0.9753146767616272,
+        "box": [
+          [
+            1216.0,
+            1666.0
+          ],
+          [
+            1320.0,
+            1666.0
+          ],
+          [
+            1320.0,
+            1695.0
+          ],
+          [
+            1216.0,
+            1695.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Tracing",
+        "score": 0.92041015625,
+        "box": [
+          [
+            1403.0,
+            1688.0
+          ],
+          [
+            1476.0,
+            1691.0
+          ],
+          [
+            1476.0,
+            1719.0
+          ],
+          [
+            1403.0,
+            1717.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Drain Condensate Fast",
+        "score": 0.9893507957458496,
+        "box": [
+          [
+            1178.0,
+            1844.0
+          ],
+          [
+            1418.0,
+            1847.0
+          ],
+          [
+            1418.0,
+            1871.0
+          ],
+          [
+            1178.0,
+            1869.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Condensate",
+        "score": 0.9925781488418579,
+        "box": [
+          [
+            1180.0,
+            1892.0
+          ],
+          [
+            1288.0,
+            1892.0
+          ],
+          [
+            1288.0,
+            1910.0
+          ],
+          [
+            1180.0,
+            1910.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Return",
+        "score": 0.8688151240348816,
+        "box": [
+          [
+            1202.0,
+            1911.0
+          ],
+          [
+            1264.0,
+            1914.0
+          ],
+          [
+            1264.0,
+            1936.0
+          ],
+          [
+            1201.0,
+            1934.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Figure 1. A steam system provides process heat and power. Optimizing",
+        "score": 0.9821920990943909,
+        "box": [
+          [
+            864.0,
+            1951.0
+          ],
+          [
+            1490.0,
+            1952.0
+          ],
+          [
+            1490.0,
+            1979.0
+          ],
+          [
+            864.0,
+            1978.0
+          ]
+        ],
+        "category": "table"
+      },
+      {
+        "text": "Copyright @ 2017 American Institute of Chemical Engineers (AIChE)",
+        "score": 0.98876953125,
+        "box": [
+          [
+            937.0,
+            2062.0
+          ],
+          [
+            1505.0,
+            2062.0
+          ],
+          [
+            1505.0,
+            2090.0
+          ],
+          [
+            937.0,
+            2090.0
+          ]
+        ],
+        "category": "table"
+      }
+    ],
+    "layout_time_ms": 3725.2519130706787,
+    "det_time_ms": 3570.655345916748,
+    "rec_time_ms": 7966.379404067993,
+    "total_time_ms": 15262.28666305542
+  }
+]

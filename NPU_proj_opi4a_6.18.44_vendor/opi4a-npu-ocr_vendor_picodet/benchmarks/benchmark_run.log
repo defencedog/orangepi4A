@@ -1,0 +1,204 @@
+==============================================================================
+ Starting Two-Stage Layout-Guided Hardware OCR Benchmarks (VIP9000 NPU)
+==============================================================================
+
+>>> [1/6] Running sample-compressor.pdf (1600x1600 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_1600.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_1600.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_1600.nb (input: [3, 1600, 1600], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_1600.nb (input: [3, 1600, 1600], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 4012.7 ms
+  Page 01/01 [1700x2200]: 2 layout regions | 116 lines | Layout: 5463.2ms | Det: 2408.6ms | Rec: 12334.2ms | Total: 20206.1ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 5463.2 ms / page
+  Avg Det Latency:    2408.6 ms / page
+  Avg Rec Latency:    12334.2 ms / page
+  Avg Total Time:     20206.1 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/compressor_1600_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+
+>>> [2/6] Running sample-compressor.pdf (2048x2048 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_2048.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_2048.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_2048.nb (input: [3, 2048, 2048], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_2048.nb (input: [3, 2048, 2048], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 4038.6 ms
+  Page 01/01 [1700x2200]: 2 layout regions | 116 lines | Layout: 3666.5ms | Det: 3658.8ms | Rec: 12466.0ms | Total: 19791.3ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 3666.5 ms / page
+  Avg Det Latency:    3658.8 ms / page
+  Avg Rec Latency:    12466.0 ms / page
+  Avg Total Time:     19791.3 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/compressor_2048_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+
+>>> [3/6] Running sample-steam.pdf (1600x1600 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_1600.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_1600.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_1600.nb (input: [3, 1600, 1600], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_1600.nb (input: [3, 1600, 1600], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 3813.6 ms
+  Page 01/01 [1626x2176]: 2 layout regions | 70 lines | Layout: 5607.8ms | Det: 2440.2ms | Rec: 7884.7ms | Total: 15932.8ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 5607.8 ms / page
+  Avg Det Latency:    2440.2 ms / page
+  Avg Rec Latency:    7884.7 ms / page
+  Avg Total Time:     15932.8 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/steam_1600_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+
+>>> [4/6] Running sample-steam.pdf (2048x2048 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_2048.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_2048.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_2048.nb (input: [3, 2048, 2048], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_2048.nb (input: [3, 2048, 2048], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 3799.1 ms
+  Page 01/01 [1626x2176]: 2 layout regions | 71 lines | Layout: 3725.3ms | Det: 3570.7ms | Rec: 7966.4ms | Total: 15262.3ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 3725.3 ms / page
+  Avg Det Latency:    3570.7 ms / page
+  Avg Rec Latency:    7966.4 ms / page
+  Avg Total Time:     15262.3 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/steam_2048_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+
+>>> [5/6] Running PublicWaterMassMailing.pdf (1600x1600 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_1600.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_1600.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_1600.nb (input: [3, 1600, 1600], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_1600.nb (input: [3, 1600, 1600], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 6059.0 ms
+  Page 01/01 [1700x2200]: 2 layout regions | 48 lines | Layout: 5910.2ms | Det: 2368.4ms | Rec: 8763.9ms | Total: 17042.5ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 5910.2 ms / page
+  Avg Det Latency:    2368.4 ms / page
+  Avg Rec Latency:    8763.9 ms / page
+  Avg Total Time:     17042.5 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/water_1600_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+
+>>> [6/6] Running PublicWaterMassMailing.pdf (2048x2048 @ 200 DPI)...
+==================================================
+Orange Pi 4A (Allwinner T527) - Two-Stage OCR Engine
+==================================================
+  Target Hardware: VeriSilicon VIP9000 2.0 TOPS NPU + 8x Cortex-A55
+  Rasterization:   200 DPI
+  Layout Model:    /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/picodet_layout_2048.nb
+  Det Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/ppocrv6_det_2048.nb
+  Rec Model:       /home/ukhan/opi4a-npu-ocr_vendor_picodet/models/en_pp_ocrv4_rec_dynamic.mnn
+  Backend:         vipcore_npu
+  Threads:         4
+[VIPCoreContainer] VIP9000 NPU loaded: picodet_layout_2048.nb (input: [3, 2048, 2048], outputs: 8)
+[VIPCoreContainer] VIP9000 NPU loaded: ppocrv6_det_2048.nb (input: [3, 2048, 2048], outputs: 1)
+Rasterized 1 page(s) at 200 DPI in 6145.2 ms
+  Page 01/01 [1700x2200]: 2 layout regions | 47 lines | Layout: 4690.9ms | Det: 5282.0ms | Rec: 9097.2ms | Total: 19070.1ms
+
+==================================================
+Two-Stage OCR Complete:
+  Total Pages:        1
+  Avg Layout Latency: 4690.9 ms / page
+  Avg Det Latency:    5282.0 ms / page
+  Avg Rec Latency:    9097.2 ms / page
+  Avg Total Time:     19070.1 ms / page
+  Results saved:      /home/ukhan/opi4a-npu-ocr_vendor_picodet/benchmarks/water_2048_200dpi
+==================================================
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+VIPLite driver software version 1.13.0.0-AW-2023-10-19
+Can't open file:/sys/devices/system/cpu/cpufreq/schedutil/affected_cpus
+CPU Group: [ 0  1  2  3 ], 480000 - 1416000
+CPU Group: [ 4  5  6  7 ], 480000 - 1800000
+The device supports: i8sdot:1, fp16:1, i8mm: 0, sve2: 0, sme2: 0
+MNN use low precision
+==============================================================================
+ All Two-Stage OCR Benchmarks Finished Successfully!
+==============================================================================

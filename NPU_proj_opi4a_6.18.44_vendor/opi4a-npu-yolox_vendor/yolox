@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# yolox: Hardware-Accelerated YOLOX-S Object Detection CLI for Orange Pi 4A (T527)
+#
+# Hardware: VeriSilicon VIP9000 2.0 TOPS NPU (/dev/vipcore)
+# Runtime:  VIPLite v1.13 (/usr/local/lib/libVIPlite.so)
+# ==============================================================================
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+VENV_PYTHON="/home/ukhan/venv_npu/bin/python3"
+
+if [ ! -f "$VENV_PYTHON" ]; then
+    VENV_PYTHON="python3"
+fi
+
+# Verify VIPCore NPU hardware device driver
+if [ ! -e "/dev/vipcore" ]; then
+    echo "[!] /dev/vipcore not found. Attempting to activate VIPCore driver..."
+    if command -v npu >/dev/null 2>&1; then
+        echo asad | sudo -S npu vipcore 2>/dev/null || true
+    elif [ -x "/usr/local/bin/npu-switch" ]; then
+        echo asad | sudo -S /usr/local/bin/npu-switch vipcore 2>/dev/null || true
+    fi
+    if [ ! -e "/dev/vipcore" ]; then
+        echo "[ERROR] /dev/vipcore is inactive. Please run 'sudo npu vipcore' to activate the NPU driver."
+        exit 1
+    fi
+fi
+
+export PYTHONPATH="${SCRIPT_DIR}:${PYTHONPATH}"
+
+exec "$VENV_PYTHON" "$SCRIPT_DIR/yolox_infer.py" "$@"
