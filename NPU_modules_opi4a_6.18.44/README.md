@@ -97,6 +97,9 @@ By contrast, the Etnaviv + Mesa Teflon pathway provides a 100% open-source, stan
 | **Power Management**  | ⚠️ Incomplete devfreq OPP / voltage regulation | ✅ Clean runtime autosuspend (`suspended` ↔ `active`) |
 | **Verdict** | **Abandoned due to missing userspace stack** | **Selected Production Architecture** |
 
+> [!NOTE]
+> **Vendor VIPCore Companion Suite:** While the mainline open-source Teflon stack remains the foundational installation for standard LiteRT/TFLite models, the Vendor VIPCore pathway (featuring the VIPLite v1.13 ABI port, CCU power domain integration, and proprietary NBG inference runner) is fully supported and maintained in the companion repository module [`NPU_modules_opi4a_6.18.44_vendor`](../NPU_modules_opi4a_6.18.44_vendor) and application suite [`NPU_proj_opi4a_6.18.44_vendor`](../NPU_proj_opi4a_6.18.44_vendor).
+
 ---
 
 ## 4. Operating System Dependencies
@@ -285,8 +288,6 @@ sudo ./NPU_enable.sh enable
 ├── kernel/
 │   ├── etnaviv.ko                 # Precompiled module for 6.18.44-g61025ec85b88
 │   ├── install_kmod.sh            # Kernel module installation script
-│   ├── opt/                       # Optional alternative vendor artifacts
-│   │   └── vipcore.ko             # Patched VeriSilicon VIPLite 2.0.3 module (1.5 MB)
 │   └── src/                       # Complete patched out-of-tree kernel C source
 │       ├── Makefile, Kconfig
 │       ├── etnaviv_buffer.c       # Patched buffer & ring management

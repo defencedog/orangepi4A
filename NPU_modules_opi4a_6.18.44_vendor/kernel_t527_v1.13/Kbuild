@@ -1,0 +1,16 @@
+# License-Identifier: GPL-2.0
+MODULE_NAME ?= vipcore
+
+EXTRA_CFLAGS += -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable -Wno-pointer-to-int-cast -Wno-format
+EXTRA_CFLAGS += -I$(M) 				-I$(M)/inc 				-I$(M)/linux 				-I$(M)/linux/allwinner
+
+EXTRA_CFLAGS += -DCONFIG_ARCH_SUN60IW2=1 -DCONFIG_AW_PM_DOMAINS=1
+EXTRA_CFLAGS += -include $(M)/compat618.h
+EXTRA_CFLAGS += -DLINUX -DDRIVER -DUSE_LINUX_PLATFORM_DEVICE -DvpmdAUTO_CORRECT_CONFLICTS=1
+EXTRA_CFLAGS += -DDBG=0
+
+OBJS := gc_vip_kernel.o         gc_vip_hardware.o         gc_vip_kernel_command.o         gc_vip_kernel_debug.o         gc_vip_kernel_heap.o         gc_vip_kernel_mmu.o         gc_vip_video_memory.o         gc_vip_kernel_util.o         gc_vip_kernel_pm.o         linux/gc_vip_kernel_drv.o         linux/gc_vip_kernel_os.o         linux/gc_vip_kernel_allocator.o         linux/gc_vip_kernel_os_debug.o         linux/allwinner/gc_vip_kernel_drv_platform.o
+
+obj-m = $(MODULE_NAME).o
+$(MODULE_NAME)-y = $(OBJS)
+ccflags-y += $(EXTRA_CFLAGS)
