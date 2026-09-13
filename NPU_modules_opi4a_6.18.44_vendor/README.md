@@ -90,7 +90,7 @@ During the initial bringup of the Allwinner T527 VIPCore driver on mainline Linu
 
 ```text
 ~/NPU_modules_opi4a_6.18.44_vendor/
-├── NPU_enable.sh               # Canonical dual-stack driver & lifecycle manager (symlinked to /usr/local/bin/npu)
+├── NPU_enable.sh               # Canonical dual-stack driver manager (symlinked to /usr/local/bin/npu and /usr/local/bin/npu-switch)
 ├── NPU_enable.md               # Operations manual for dual-stack switching & telemetry
 ├── opi-mon                     # 37-col terminal monitoring dashboard (tracks NPU load)
 ├── opi-mon.md                  # Hardware telemetry guide for dual etnaviv & vipcore monitoring
@@ -150,20 +150,32 @@ Ported from genuine Allwinner T527 vendor driver (`drivers/npu/aw_nna_vip` in `r
 
 The suite provides both a high-level canonical CLI (`npu` / `npu-switch`) installed to `/usr/local/bin/` and standalone modular scripts in `scripts/`.
 
-### 4.1 The Canonical `npu` Management Utility
-The canonical management tool [`NPU_enable.sh`](file:///home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh) is accessible system-wide via `npu` (and `npu-switch`):
+### 4.1 System-Wide CLI Symlinks & Canonical `npu` Management Utility
 
+The canonical management tool [`NPU_enable.sh`](file:///home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh) is exposed system-wide via two symlinks in `/usr/local/bin`:
+- `/usr/local/bin/npu` $\rightarrow$ `/home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh`
+- `/usr/local/bin/npu-switch` $\rightarrow$ `/home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh`
+- `~/NPU_enable.sh` $\rightarrow$ `/home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh`
+
+#### Creating / Verifying the System Symlinks
+```bash
+sudo ln -sf /home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh /usr/local/bin/npu
+sudo ln -sf /home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh /usr/local/bin/npu-switch
+ln -sf /home/ukhan/NPU_modules_opi4a_6.18.44_vendor/NPU_enable.sh ~/NPU_enable.sh
+```
+
+#### Commands Supported:
 ```bash
 # 1. Query current NPU driver state, device nodes, permissions & telemetry
 npu status
 
 # 2. Switch to Vendor VIPCore Stack (/dev/vipcore)
 sudo npu vipcore
-# (or: sudo npu switch vipcore)
+# (or: sudo npu-switch vipcore)
 
 # 3. Switch back to Mainline Teflon Stack (/dev/dri/renderD129)
 sudo npu teflon
-# (or: sudo npu switch teflon)
+# (or: sudo npu-switch teflon)
 
 # 4. Power-gate / disable all NPU drivers (clean idle 0W state)
 sudo npu disable
