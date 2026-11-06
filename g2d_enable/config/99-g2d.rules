@@ -1,0 +1,3 @@
+# Allwinner T527 G2D 2D Accelerator & DMA-BUF Heap permissions
+KERNEL=="g2d", MODE="0666", GROUP="video"
+SUBSYSTEM=="dma_heap", KERNEL=="system", MODE="0666", GROUP="video"

@@ -1,0 +1,26 @@
+/*
+ * Allwinner T527 (sun55iw3) G2D 2D Hardware Accelerator Device Tree Node
+ * Target DTB: /boot/dtb/allwinner/sun55i-t527-orangepi-4a-audio.dtb
+ * Parent node: /soc
+ *
+ * Important Hardware Notes for Mainline Linux 6.18.44:
+ * 1. iommus = <0x03 0x04>: Binds G2D to sun50i-iommu (0x02010000) Master ID 4.
+ *    Required to translate scatter-gather DMA-BUFs from /dev/dma_heap/system.
+ * 2. Do NOT add `power-domains = <0x18 0x03>` (VO0): On mainline 6.18.44, active
+ *    display nodes in VO0 (5500000.tcon-top, 5503000.lcd-controller, 5520000.hdmi)
+ *    do not register with pm_runtime. Attaching G2D to VO0 causes genpd to power
+ *    off VO0 when G2D is idle, hanging the HDMI display bus.
+ */
+
+g2d@5440000 {
+	compatible = "allwinner,sunxi-g2d";
+	reg = <0x05440000 0x0003ffff>;
+	interrupts = <0x00 0x8f 0x04>;        /* GIC SPI 143 (IRQ_LEVEL_HIGH) */
+	clocks = <0x17 0x32 0x17 0x31>;       /* <&ccu CLK_BUS_G2D>, <&ccu CLK_G2D> */
+	clock-names = "bus", "g2d";
+	resets = <0x17 0x04>;                 /* <&ccu RST_BUS_G2D> */
+	iommus = <0x03 0x04>;                 /* <&iommu 4> (Master ID 4) */
+	assigned-clocks = <0x17 0x31>;        /* <&ccu CLK_G2D> */
+	assigned-clock-rates = <0x11e1a300>;  /* 300 MHz */
+	status = "okay";
+};

@@ -1,0 +1,6 @@
+obj-m += sunxi_g2d.o
+
+sunxi_g2d-y := g2d_legacy/g2d_driver.o \
+               g2d_legacy/g2d_bsp_v2.o
+
+ccflags-y := -I$(src)/include -I$(src)/g2d_legacy -DCONFIG_G2D_LEGACY -DG2D_V2X_SUPPORT -Wno-error
