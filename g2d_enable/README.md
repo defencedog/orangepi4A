@@ -18,6 +18,7 @@ This directory contains everything required to enable, build, install, and bench
   - Four 1080p/4K C throughput benchmarks (`g2d_rotation`, `g2d_color_fill`, `g2d_format_conversion`, `g2d_scaler_or_down_sampling`) matching the Radxa G2D guide.
   - A real-image C processing pipeline (`g2d_image_demo`) operating on a test image (`samples/assets/dummy_input.jpg` / `dummy_input.ppm`) and producing verified visual outputs in `samples/assets/output/`.
   - **Pure-Python Zero-Copy G2D SDK & Samples (`samples/python/`)**: `sunxi_g2d.py` (`ctypes` + `fcntl.ioctl` + `mmap` + zero-copy `numpy.ndarray` views over `/dev/dma_heap/system` DMA-BUFs) plus 5 Python benchmark & image-pipeline scripts (`g2d_rotation_or_mirror.py`, `g2d_color_fill.py`, `g2d_format_conversion.py`, `g2d_scaler_or_down_sampling.py`, `g2d_image_demo.py`) configured for `~/venv_npu`.
+- **Real-Time Hardware Telemetry Dashboard (`opi-mon`)**: Built-in monitoring of `/dev/g2d` execution, tracking hardware interrupts (`IRQ 487` on `5440000.g2d`), ops/sec, and active engine status in the compact 37-column mobile dashboard.
 
 ---
 
@@ -361,6 +362,46 @@ For the **G2D hardware/driver operation itself (`ioctl` on `/dev/g2d`)**, there 
 | **DMA-BUF Memory Access** | **0 ms copy** (`mmap` pointer) | **0 ms copy** (`np.frombuffer(mmap)`) | Both access the exact same physical DMA-BUF pages directly with zero CPU copy. |
 
 > **Summary:** Once Python is running (for example, inside a video/camera/NPU inference loop where `DmaBuffer` objects are allocated once and reused across frames), **Python achieves ~99% of C's throughput** because the per-frame `ctypes` + `ioctl` overhead is only **~25 microseconds (`0.025 ms`)**.
+
+### 4.6 Real-Time Hardware Telemetry in `opi-mon`
+
+The Orange Pi 4A system telemetry dashboard (`opi-mon`, installed at `/usr/local/bin/opi-mon`) includes native real-time hardware telemetry for the G2D 2D accelerator:
+
+```bash
+# Run continuous live mobile dashboard (1s refresh)
+opi-mon
+
+# Or capture a single-shot telemetry snapshot
+opi-mon --once
+```
+
+#### Live Telemetry Dashboard Display
+
+```text
+ Orange Pi 4A (T527)
+ 00:02:32 · Up: 13m   · Load: 0.79
+─────────────────────────────────────
+ CPU  21% [██░░░░░░░░] 34.6°C  1.48GHz
+ NPU OFF  [░░░░░░░░░░] 33.2°C  OFFLINE
+ GPU   0% [░░░░░░░░░░] 33.2°C   150MHz
+ VPU   0% [░░░░░░░░░░]     0/s  cedar
+ G2D  24% [██░░░░░░░░]    29/s  sunxi
+ RAM  58% [█████░░░░░] 2.1/3.7G 1602M free
+ SWP   0% [░░░░░░░░░░] 0.0/1.9G
+─────────────────────────────────────
+ [Ctrl+C] Exit  ·  Refresh: 1s
+```
+
+#### How G2D Telemetry is Measured
+
+- **Hardware Interrupt Rate (`29/s`):**  
+  Directly polls `/proc/interrupts` for GIC SPI 143 (`IRQ 487`, labeled `5440000.g2d`). Each hardware-accelerated rotation, flip, or blit completed by the G2D engine increments this hardware interrupt counter.
+- **Dynamic Load Percentage & Progress Bar (`24% [██░░░░░░░░]`):**  
+  Calculates real-time utilization by scaling the current hardware interrupt completion rate against peak single-pipeline 1080p hardware rotation capacity (~120 ops/sec).
+- **Driver Status Tag (`sunxi` / `OFFLINE`):**  
+  Displays `sunxi` when `/dev/g2d` is populated and active, or `OFFLINE` if the module is unloaded.
+- **CPU Offload Verification:**  
+  During heavy G2D benchmarks, the `CPU` line remains at ~0–5%, proving in real time that heavy 1080p/4K graphics operations are offloaded to hardware rather than burdening the CPU cores.
 
 ---
 
