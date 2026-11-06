@@ -25,6 +25,7 @@ BLUE="\033[34m"
 MAGENTA="\033[35m"
 WHITE="\033[37m"
 GRAY="\033[90m"
+BR_CYAN="\033[96m"
 
 # Render colored progress bar (10 blocks = 12 chars [█████░░░░░])
 draw_bar() {
@@ -117,6 +118,23 @@ if grep -q 'vipcore' /proc/interrupts 2>/dev/null; then
     prev_vip_irqs=5
 fi
 
+# VPU (Allwinner cedar video engine) baseline: runtime PM + cedar_dev IRQs
+VPU_POWER_DIR="/sys/devices/platform/soc/1c0e000.video-engine/power"
+prev_vpu_active=0
+if [ -f "$VPU_POWER_DIR/runtime_active_time" ]; then
+    read -r prev_vpu_active < "$VPU_POWER_DIR/runtime_active_time"
+fi
+prev_vpu_irqs=0
+if grep -q 'cedar_dev' /proc/interrupts 2>/dev/null; then
+    prev_vpu_irqs=$(awk '/cedar_dev/{for(i=2;i<=NF;i++){if($i~/^[0-9]+$/){s+=$i}else break};print s+0}' /proc/interrupts)
+fi
+
+# G2D (Allwinner 2D graphics engine) baseline: 5440000.g2d IRQs
+prev_g2d_irqs=0
+if grep -qE '5440000\.g2d|g2d' /proc/interrupts 2>/dev/null; then
+    prev_g2d_irqs=$(awk '/5440000\.g2d|g2d/{for(i=2;i<=NF;i++){if($i~/^[0-9]+$/){s+=$i}else break};print s+0}' /proc/interrupts)
+fi
+
 # Hide cursor during run, restore on exit
 trap 'printf "\033[?25h\n"; exit 0' INT TERM EXIT
 printf "\033[?25l\033[2J\033[H"
@@ -206,6 +224,59 @@ while true; do
     raw_gpu_temp=0
     [ -f "$GPU_TEMP_FILE" ] && read -r raw_gpu_temp < "$GPU_TEMP_FILE"
 
+    # 4b. VPU (Allwinner cedar video engine - omxh264dec / libcedarc)
+    #     Load from Runtime-PM active time; cedar_dev IRQ rate is the decode
+    #     throughput proxy (device has no devfreq/thermal zone of its own).
+    vpu_online=false
+    vpu_load=0
+    vpu_irqs_rate=0
+    if [ -d "$VPU_POWER_DIR" ] || [ -c /dev/cedar_dev ]; then
+        vpu_online=true
+        if [ -f "$VPU_POWER_DIR/runtime_active_time" ]; then
+            read -r curr_vpu_active < "$VPU_POWER_DIR/runtime_active_time"
+            diff_vpu=$((curr_vpu_active - prev_vpu_active))
+            prev_vpu_active=$curr_vpu_active
+            if [ "$diff_vpu" -gt 0 ]; then
+                vpu_load=$(( (diff_vpu * 100) / 1000 ))
+                [ "$vpu_load" -gt 100 ] && vpu_load=100
+                [ "$vpu_load" -eq 0 ] && vpu_load=1
+            fi
+        fi
+        curr_vpu_irqs=$(awk '/cedar_dev/{for(i=2;i<=NF;i++){if($i~/^[0-9]+$/){s+=$i}else break};print s+0}' /proc/interrupts)
+        diff_vpu_irqs=$((curr_vpu_irqs - prev_vpu_irqs))
+        prev_vpu_irqs=$curr_vpu_irqs
+        if [ "$REFRESH_INTERVAL" -gt 0 ]; then
+            vpu_irqs_rate=$(( diff_vpu_irqs / REFRESH_INTERVAL ))
+        else
+            vpu_irqs_rate=$diff_vpu_irqs
+        fi
+        [ "$vpu_irqs_rate" -lt 0 ] && vpu_irqs_rate=0
+    fi
+
+    # 4c. G2D (Allwinner 2D hardware graphics engine - sunxi_g2d)
+    #     Tracks hardware rotation/blit completion via 5440000.g2d IRQs
+    g2d_online=false
+    g2d_load=0
+    g2d_irqs_rate=0
+    if [ -c /dev/g2d ] || [ -d /sys/devices/platform/soc/5440000.g2d/driver ]; then
+        g2d_online=true
+        curr_g2d_irqs=$(awk '/5440000\.g2d|g2d/{for(i=2;i<=NF;i++){if($i~/^[0-9]+$/){s+=$i}else break};print s+0}' /proc/interrupts)
+        diff_g2d_irqs=$((curr_g2d_irqs - prev_g2d_irqs))
+        prev_g2d_irqs=$curr_g2d_irqs
+        if [ "$REFRESH_INTERVAL" -gt 0 ]; then
+            g2d_irqs_rate=$(( diff_g2d_irqs / REFRESH_INTERVAL ))
+        else
+            g2d_irqs_rate=$diff_g2d_irqs
+        fi
+        [ "$g2d_irqs_rate" -lt 0 ] && g2d_irqs_rate=0
+        if [ "$g2d_irqs_rate" -gt 0 ]; then
+            # Map up to 120 ops/sec (peak 1080p hardware rotation capacity) to 100%
+            g2d_load=$(( (g2d_irqs_rate * 100) / 120 ))
+            [ "$g2d_load" -gt 100 ] && g2d_load=100
+            [ "$g2d_load" -eq 0 ] && g2d_load=1
+        fi
+    fi
+
     # 5. Memory (RAM & Swap)
     mem_total_kb=0
     mem_avail_kb=0
@@ -273,6 +344,28 @@ while true; do
     printf " ${BOLD}${GREEN}GPU${RESET} %3d%% " "$gpu_load"
     draw_bar "$gpu_load"
     printf " %b  %4dMHz\n" "$(format_temp "$raw_gpu_temp")" "$freq_gpu"
+
+    # VPU Line: Name(4) %(5) Bar(12) IRQ/s(7) Engine(5) = 37 cols
+    if [ "$vpu_online" = true ]; then
+        printf " ${BOLD}${BR_CYAN}VPU${RESET} %3d%% " "$vpu_load"
+        draw_bar "$vpu_load"
+        printf " ${DIM}%5s/s${RESET}  ${DIM}cedar${RESET}\n" "$vpu_irqs_rate"
+    else
+        printf " ${BOLD}${BR_CYAN}VPU${RESET} ${DIM}OFF ${RESET} "
+        draw_bar 0
+        printf " ${DIM}OFFLINE${RESET}\n"
+    fi
+
+    # G2D Line: Name(4) %(5) Bar(12) IRQ/s(7) Engine(5) = 37 cols
+    if [ "$g2d_online" = true ]; then
+        printf " ${BOLD}${CYAN}G2D${RESET} %3d%% " "$g2d_load"
+        draw_bar "$g2d_load"
+        printf " ${DIM}%5s/s${RESET}  ${DIM}sunxi${RESET}\n" "$g2d_irqs_rate"
+    else
+        printf " ${BOLD}${CYAN}G2D${RESET} ${DIM}OFF ${RESET} "
+        draw_bar 0
+        printf " ${DIM}OFFLINE${RESET}\n"
+    fi
 
     # RAM Line: Name(4) %(5) Bar(12) Used/Tot(9) Free(6) = 36 cols
     printf " ${BOLD}${BLUE}RAM${RESET} %3d%% " "$mem_pct"
