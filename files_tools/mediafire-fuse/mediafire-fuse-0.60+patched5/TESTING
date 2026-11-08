@@ -1,0 +1,35 @@
+This software has been tested in a limited capacity.  Below is a list of
+various platforms and scenarios that have been tested.
+
+
+Platforms
+---------
+
+* Xubuntu 14.04.1 LTS (amd64)
+* FreeBSD 10.0 (amd64)
+* Debian 8 Jessie (amd64, i386)
+
+Automated Test Cases
+--------------------
+
+The following tests are run when executing `make test`:
+
+* create a new directory (mkdir)
+* pipe content into a file (echo foo > file)
+* obtaining a directory tree (tree)
+* show difference between files (diff)
+* recursively delete a directory and its contents (rm -rf dir)
+
+Test Cases
+----------
+
+* Move folder from local disk to MediaFire sub-folder
+* Copy folder form local disk to MediaFire sub-folder
+* Transcode file from mpeg2 to mpeg4 within the FUSE fs (ffmpeg 2.5.3)
+* Play a mpeg4 video file from the FUSE fs using VLC (vlc 2.2.0-rc1)
+* Unpack a zip file within the FUSE fs (using Archive Manager 3.10.2.1)
+* Browse the fs with PCManFM (PCManFM 1.2.0)
+* Browse the fs with Thunar (Thunar 1.6.3)
+* Mount to two different MediaFire Acounts simultaneously
+* Copy a file to FUSE fs causing "instant upload" to be invoked 
+* View a PDF file in the FUSE fs with Evince (evince 3.10.3)

@@ -1,0 +1,16 @@
+0.60
+
+* [Bryan Christ] added the get command for single file download
+
+0.51
+
+* [Bryan Christ] added mkdir command to create new cloud folders
+* [Bryan Christ] removed some vestigial debug code
+
+0.50
+
+* [Bryan Christ] disabled SSL_LAX flag which was enabled for debugging
+
+0.49
+
+* [Bryan Christ] initial release

@@ -1,0 +1,38 @@
+ - add an --insecure option as by default, SSL should always be used
+ - add debug printing using better means than stderr printfs
+ - fuse can log to syslog
+ - write documentation
+ - create read-only offline mode
+ - allow to control disk cache size
+ - replace atol and atoi with strtol with proper error checking
+ - find permanent solution for --no-as-needed on Ubuntu
+ - make buckets ordered so that queries and insertions can be done using
+   bisection
+ - make array of children of h_entry ordered for quicker member search
+ - use __attribute__ ((warn_unused_result));
+ - replace sizeof for key, name and hash with #define-ed values
+ - use less realloc but instead only realloc to double the size when array
+   gets full
+ - store more efficient structure on disk (for example by making filenames
+   zero terminated)
+ - make h_entry more efficient in memory (for example by making filenames
+   zero terminated)
+ - when handling device/get_changes, make sure to only use the latest
+   revision of the same file-/folderkey
+ - allow different cache directory (useful for running test suite)
+ - delete patches in cache that have been applied
+ - after uploading a file it is immediately downloaded - instead, the existing
+   local file should be used by checking the remote hash
+ - add an option to only call device/get_status in configurable intervals
+ - add an option to make file cache size configurable
+ - write man pages
+ - implement truncate (problem: zero byte files are not allowed at the remote)
+ - move uploading of files from release() to flush() because the return
+   value of release is ignored and because the calling close() returns
+   before release() finishes (problem: zero byte files are not allowed at
+   the remote)
+ - create a Debian package
+ - call folder/get_content in a loop until more_chunks=no because it currently
+   stops at 1000 (max value for chunk_size param)
+ - proper versioning of the directory cache
+ - call user/get_info to populate statvfs struct for returning free space

@@ -1,0 +1,126 @@
+{
+   glibc #1
+   Memcheck:Value8
+   ...
+   fun:dl_main
+   fun:_dl_sysdep_start
+   fun:_dl_start
+   obj:*/ld-2.*.so
+   ...
+}
+{
+   glibc #2
+   Memcheck:Cond
+   ...
+   fun:dl_main
+   fun:_dl_sysdep_start
+   fun:_dl_start
+   obj:*/ld-2.*.so
+   ...
+}
+{
+   glibc #3
+   Memcheck:Param
+   sendmsg(mmsg[0].msg_hdr)
+   fun:sendmmsg
+   fun:__libc_res_nsend
+   fun:__libc_res_nquery
+   fun:__libc_res_nquerydomain
+   fun:__libc_res_nsearch
+   fun:_nss_dns_gethostbyname4_r
+   fun:gaih_inet
+   fun:getaddrinfo
+   ...
+   fun:start_thread
+   fun:clone
+}
+{
+   Since we can never safely uninitialize SSL, allow this
+   Memcheck:Leak
+   ...
+   fun:SSL_library_init
+   fun:main
+}
+{
+   gnutls #1
+   Memcheck:Leak
+   ...
+   fun:gnutls_global_init
+   obj:*
+   fun:call_init.part.0
+   fun:_dl_init
+   ...
+}
+{
+   gnutls #2
+   Memcheck:Cond
+   fun:gnutls_session_get_data
+   ...
+   fun:curl_multi_perform
+   fun:curl_easy_perform
+   ...
+}
+{
+   libcurl #1
+   Memcheck:Leak
+   ...
+   fun:curl_global_init
+   fun:curl_easy_init
+   ...
+}
+{
+   libcurl #2
+   Memcheck:Cond
+   ...
+   fun:curl_multi_perform
+   fun:curl_easy_perform
+   ...
+}
+{
+   libcurl #3
+   Memcheck:Value8
+   fun:Curl_raw_toupper
+   ...
+}
+{
+   libcrypto
+   Memcheck:Leak
+   ...
+   fun:curl_multi_perform
+   fun:curl_easy_perform
+   ...
+}
+{
+   openssl
+   Memcheck:Leak
+   fun:malloc
+   fun:CRYPTO_malloc
+   ...
+   fun:ssl_verify_cert_chain
+   ...
+}
+{
+   jansson #1
+   Memcheck:Cond
+   ...
+   obj:*/libjansson.so*
+   ...
+}
+{
+   jansson #2
+   Memcheck:Value8
+   ...
+   obj:*/libjansson.so*
+   ...
+}
+{
+   fuse_opt_parse
+   Memcheck:Leak
+   fun:malloc
+   fun:strdup
+   obj:*libfuse.so*
+   obj:*libfuse.so*
+   fun:fuse_opt_parse
+   fun:parse_arguments
+   fun:main
+}

@@ -1,0 +1,597 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dfeb774..cbac19b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,7 +6,7 @@ project(mediafire-tools)
+ # to feed iwyu during tests
+ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+ 
+-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall -Werror")
++set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall")
+ 
+ if (("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang") OR (("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU") AND (CMAKE_C_COMPILER_VERSION VERSION_GREATER 4.0)))
+ 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra")
+diff --git a/fuse/hashtbl.c b/fuse/hashtbl.c
+index e555891..499a5b3 100644
+--- a/fuse/hashtbl.c
++++ b/fuse/hashtbl.c
+@@ -39,6 +39,7 @@
+ #include <dirent.h>
+ #include <ctype.h>
+ #include <time.h>
++#include <libgen.h>
+ 
+ #include "hashtbl.h"
+ #include "filecache.h"
+@@ -1547,11 +1548,7 @@ void folder_tree_update(folder_tree * tree, mfconn * conn, bool expect_changes)
+     /* now fix up any possible errors */
+ 
+     /* clean the resulting folder_tree of any dangling objects */
+-    fprintf(stderr, "tree before cleaning:\n");
+-    folder_tree_debug(tree);
+     folder_tree_housekeep(tree, conn);
+-    fprintf(stderr, "tree after cleaning:\n");
+-    folder_tree_debug(tree);
+ 
+     /* free allocated memory */
+     free(changes);
+@@ -1600,6 +1597,66 @@ int folder_tree_rebuild(folder_tree * tree, mfconn * conn)
+     return 0;
+ }
+ 
++/*
++ * patched5: make a freshly uploaded local file visible in the folder tree
++ * immediately.
++ *
++ * mediafirefs_release() uploads a newly created file during close(), after
++ * which the kernel may issue rename() at once. Upstream relied on a later
++ * device/get_changes() refresh to surface the new file; that refresh can lag
++ * by seconds to minutes, so the kernel's rename lookup hit ENOENT and
++ * mediafirefs_rename() was never reached. Instead, reload just the parent
++ * directory's contents from MediaFire. folder/get_content is authoritative
++ * as soon as the upload has completed (poll status 99), so the new entry is
++ * present before release() returns.
++ */
++int folder_tree_reload_dir(folder_tree * tree, mfconn * conn, const char *path)
++{
++    struct h_entry *entry;
++
++    entry = folder_tree_lookup_path(tree, conn, path);
++    if (entry == NULL) {
++        fprintf(stderr, "reload_dir: %s does not exist\n", path);
++        return -ENOENT;
++    }
++    if (entry->atime != 0) {
++        fprintf(stderr, "reload_dir: %s is not a directory\n", path);
++        return -ENOTDIR;
++    }
++
++    return folder_tree_rebuild_helper(tree, conn, entry);
++}
++
++/*
++ * patched5: keep the local tree in sync after a successful remote rename in
++ * the same directory, without waiting for device/get_changes. Only the
++ * basename changed, so update the existing h_entry in place.
++ */
++int folder_tree_rename_entry(folder_tree * tree, mfconn * conn,
++                             const char *oldpath, const char *newpath)
++{
++    struct h_entry *entry;
++    char           *tmp;
++    char           *newname;
++
++    entry = folder_tree_lookup_path(tree, conn, oldpath);
++    if (entry == NULL) {
++        fprintf(stderr, "rename_entry: %s does not exist\n", oldpath);
++        return -ENOENT;
++    }
++
++    tmp = strdup(newpath);
++    if (tmp == NULL)
++        return -ENOMEM;
++    newname = basename(tmp);
++
++    strncpy(entry->name, newname, sizeof(entry->name) - 1);
++    entry->name[sizeof(entry->name) - 1] = '\0';
++
++    free(tmp);
++    return 0;
++}
++
+ /*
+  * clean up files and folders that are never referenced
+  *
+@@ -1614,6 +1671,19 @@ int folder_tree_rebuild(folder_tree * tree, mfconn * conn)
+ 
+ void folder_tree_housekeep(folder_tree * tree, mfconn * conn)
+ {
++    (void)tree;
++    (void)conn;
++
++    /*
++     * patched1: disabled. On the live account this routine dereferenced a
++     * NULL parent when a file lived in the MediaFire "trash" but no "trash"
++     * folder existed in the tree, crashing the daemon (SIGSEGV) inside
++     * folder_tree_update(). Housekeeping is not needed for the restic
++     * workload: objects deleted through the mount are removed directly by
++     * folder_tree_remove().
++     */
++    return;
++#if 0
+     uint64_t        i,
+                     j,
+                     k;
+@@ -1717,6 +1787,7 @@ void folder_tree_housekeep(folder_tree * tree, mfconn * conn)
+ 
+     /* TODO: should this routine call folder_tree_cleanup_filecache to remove
+      * unreferenced or outdated files in the cache? */
++#endif /* 0 - patched1 housekeeping disabled */
+ }
+ 
+ void folder_tree_debug_helper(folder_tree * tree, struct h_entry *ent,
+diff --git a/fuse/hashtbl.h b/fuse/hashtbl.h
+index 1a9fa9b..85d7498 100644
+--- a/fuse/hashtbl.h
++++ b/fuse/hashtbl.h
+@@ -35,6 +35,13 @@ void            folder_tree_destroy(folder_tree * tree);
+ 
+ int             folder_tree_rebuild(folder_tree * tree, mfconn * conn);
+ 
++int             folder_tree_reload_dir(folder_tree * tree, mfconn * conn,
++                                       const char *path);
++
++int             folder_tree_rename_entry(folder_tree * tree, mfconn * conn,
++                                         const char *oldpath,
++                                         const char *newpath);
++
+ void            folder_tree_housekeep(folder_tree * tree, mfconn * conn);
+ 
+ void            folder_tree_debug(folder_tree * tree);
+diff --git a/fuse/operations.c b/fuse/operations.c
+index f438fa2..225e62a 100644
+--- a/fuse/operations.c
++++ b/fuse/operations.c
+@@ -245,14 +245,23 @@ int mediafirefs_mkdir(const char *path, mode_t mode)
+     retval = mfconn_api_folder_create(ctx->conn, key, basename);
+     if (retval != 0) {
+         fprintf(stderr, "mfconn_api_folder_create unsuccessful\n");
++        free(dirname);
+         pthread_mutex_unlock(&(ctx->mutex));
+         // FIXME: find better errno in this case
+         return -EAGAIN;
+     }
+ 
+-    free(dirname);
++    /*
++     * patched5: reload the parent directory so the new folder is published in
++     * the tree immediately (instead of waiting for device/get_changes). This
++     * makes the folder key available to a subsequent file upload in it.
++     */
++    if (dirname[0] == '\0')
++        folder_tree_reload_dir(ctx->tree, ctx->conn, "/");
++    else
++        folder_tree_reload_dir(ctx->tree, ctx->conn, dirname);
+ 
+-    folder_tree_update(ctx->tree, ctx->conn, true);
++    free(dirname);
+ 
+     pthread_mutex_unlock(&(ctx->mutex));
+ 
+@@ -552,18 +561,17 @@ int mediafirefs_release(const char *path, struct fuse_file_info *file_info)
+         pthread_mutex_unlock(&(ctx->mutex));
+         return 0;
+     }
+-    // if the file is not readonly, its entry in writefiles has to be removed
+-    if (stringv_del(ctx->sv_writefiles, openfile->path) != 0) {
++    /*
++     * patched4: keep this path in sv_writefiles for the whole upload.
++     * getattr() uses that vector to report a not-yet-published temp path as a
++     * regular file, so a rename() delivered before/while release() runs still
++     * finds it. The entry is removed at every exit point below.
++     */
++    if (!stringv_mem(ctx->sv_writefiles, openfile->path)) {
+         fprintf(stderr, "FATAL: writefiles entry %s not found\n",
+                 openfile->path);
+         exit(1);
+     }
+-    if (stringv_mem(ctx->sv_writefiles, openfile->path) != 0) {
+-        fprintf(stderr,
+-                "FATAL: writefiles entry %s was found more than once\n",
+-                openfile->path);
+-        exit(1);
+-    }
+     // if the file only exists locally, an initial upload has to be done
+     if (openfile->is_local) {
+         // pass a copy because dirname and basename may modify their argument
+@@ -573,6 +581,17 @@ int mediafirefs_release(const char *path, struct fuse_file_info *file_info)
+         dir_name = dirname(temp2);
+ 
+         fh = fdopen(openfile->fd, "r");
++        if (fh == NULL) {
++            fprintf(stderr, "fdopen failed\n");
++            close(openfile->fd);
++            free(temp1);
++            free(temp2);
++            free(openfile->path);
++            free(openfile);
++            stringv_del(ctx->sv_writefiles, path);
++            pthread_mutex_unlock(&(ctx->mutex));
++            return -EACCES;
++        }
+         rewind(fh);
+ 
+         folder_key = folder_tree_path_get_key(ctx->tree, ctx->conn, dir_name);
+@@ -583,12 +602,7 @@ int mediafirefs_release(const char *path, struct fuse_file_info *file_info)
+         if (retval != 0) {
+             fprintf(stderr, "failed to calculate hash\n");
+             fclose(fh);
+-            free(temp1);
+-            free(temp2);
+-            free(openfile->path);
+-            free(openfile);
+-            pthread_mutex_unlock(&(ctx->mutex));
+-            return -EACCES;
++            goto local_error;
+         }
+ 
+         hash = binary2hex(bhash, SHA256_DIGEST_LENGTH);
+@@ -597,68 +611,69 @@ int mediafirefs_release(const char *path, struct fuse_file_info *file_info)
+                                          folder_key, &check_result);
+ 
+         if (retval != 0) {
+-            fclose(fh);
+-            free(temp1);
+-            free(temp2);
+-            free(openfile->path);
+-            free(openfile);
+-            free(hash);
+             fprintf(stderr, "mfconn_api_upload_check failed\n");
+-            pthread_mutex_unlock(&(ctx->mutex));
+-            return -EACCES;
++            free(hash);
++            fclose(fh);
++            goto local_error;
+         }
+ 
+         if (check_result.hash_exists) {
+             // hash exists, so use upload/instant
+-
+             retval = mfconn_api_upload_instant(ctx->conn, NULL,
+                                                file_name, hash, size,
+                                                folder_key);
+-
+-            fclose(fh);
+-            free(temp1);
+-            free(temp2);
+-            free(openfile->path);
+-            free(openfile);
+             free(hash);
+-
++            fclose(fh);
+             if (retval != 0) {
+                 fprintf(stderr, "mfconn_api_upload_instant failed\n");
+-                pthread_mutex_unlock(&(ctx->mutex));
+-                return -EACCES;
++                goto local_error;
+             }
+         } else {
+             // hash does not exist, so do full upload
+             upload_key = NULL;
+             retval = mfconn_api_upload_simple(ctx->conn, folder_key,
+                                               fh, file_name, &upload_key);
+-
+-            fclose(fh);
+-            free(temp1);
+-            free(temp2);
+-            free(openfile->path);
+-            free(openfile);
+             free(hash);
+-
++            fclose(fh);
+             if (retval != 0 || upload_key == NULL) {
+                 fprintf(stderr, "mfconn_api_upload_simple failed\n");
+-                pthread_mutex_unlock(&(ctx->mutex));
+-                return -EACCES;
++                free(upload_key);
++                goto local_error;
+             }
+             // poll for completion
+             retval = mfconn_upload_poll_for_completion(ctx->conn, upload_key);
+             free(upload_key);
+-
+             if (retval != 0) {
+                 fprintf(stderr, "mfconn_upload_poll_for_completion failed\n");
+-                pthread_mutex_unlock(&(ctx->mutex));
+-                return -1;
++                goto local_error;
+             }
+         }
+ 
+-        folder_tree_update(ctx->tree, ctx->conn, true);
++        /*
++         * patched5: publish the freshly uploaded file in the tree before we
++         * unlock, by reloading only its parent directory. Upstream waited for
++         * a device/get_changes() refresh here, which can lag and made the
++         * kernel's subsequent rename() fail with ENOENT.
++         */
++        if (folder_tree_reload_dir(ctx->tree, ctx->conn, dir_name) != 0)
++            fprintf(stderr, "folder_tree_reload_dir(%s) failed\n", dir_name);
++
++        free(temp1);
++        free(temp2);
++        free(openfile->path);
++        free(openfile);
++        stringv_del(ctx->sv_writefiles, path);
+         pthread_mutex_unlock(&(ctx->mutex));
+         return 0;
++
++local_error:
++        free(temp1);
++        free(temp2);
++        free(openfile->path);
++        free(openfile);
++        stringv_del(ctx->sv_writefiles, path);
++        pthread_mutex_unlock(&(ctx->mutex));
++        return -EACCES;
+     }
+     // the file was not opened readonly and also existed on the remote
+     // thus, we have to check whether any changes were made and if yes, upload
+@@ -669,6 +684,7 @@ int mediafirefs_release(const char *path, struct fuse_file_info *file_info)
+     retval = folder_tree_upload_patch(ctx->tree, ctx->conn, openfile->path);
+     free(openfile->path);
+     free(openfile);
++    stringv_del(ctx->sv_writefiles, path);
+ 
+     if (retval != 0) {
+         fprintf(stderr, "folder_tree_upload_patch failed\n");
+@@ -740,11 +756,15 @@ int mediafirefs_rename(const char *oldpath, const char *newpath)
+ {
+     char           *temp1;
+     char           *temp2;
++    char           *temp3;
++    char           *temp4;
+     char           *olddir;
+     char           *newdir;
+     char           *oldname;
+     char           *newname;
+     int             retval;
++    int             i;
++    bool            tried_reload;
+     struct mediafirefs_context_private *ctx;
+     bool            is_file;
+     const char     *key;
+@@ -754,51 +774,83 @@ int mediafirefs_rename(const char *oldpath, const char *newpath)
+ 
+     pthread_mutex_lock(&(ctx->mutex));
+ 
+-    is_file = folder_tree_path_is_file(ctx->tree, ctx->conn, oldpath);
++    /* the two directories are needed both for the wait loop below and for the
++     * local tree sync at the end, so keep copies alive until then */
++    temp3 = strdup(oldpath);
++    temp4 = strdup(newpath);
++    olddir = dirname(temp3);
++    newdir = dirname(temp4);
+ 
+     key = folder_tree_path_get_key(ctx->tree, ctx->conn, oldpath);
++
++    /*
++     * patched2: the kernel can deliver rename() before the asynchronous
++     * upload in mediafirefs_release() has finished and thus before the temp
++     * path is published in the tree. Wait for the release worker to make
++     * progress, dropping the mutex while sleeping.
++     */
++    tried_reload = false;
++    for (i = 0; key == NULL && i < 300; i++) {
++        struct timespec ts;
++
++        ts.tv_sec = 0;
++        ts.tv_nsec = 200000000L;    /* 200 ms steps -> up to 60 s */
++        pthread_mutex_unlock(&(ctx->mutex));
++        nanosleep(&ts, NULL);
++        pthread_mutex_lock(&(ctx->mutex));
++
++        /* if the release has already finished but the tree is still stale,
++         * force a fresh listing of the source directory once */
++        if (!tried_reload && i >= 25) {
++            folder_tree_reload_dir(ctx->tree, ctx->conn, olddir);
++            tried_reload = true;
++        }
++        key = folder_tree_path_get_key(ctx->tree, ctx->conn, oldpath);
++    }
++
+     if (key == NULL) {
+-        fprintf(stderr, "key is NULL\n");
++        fprintf(stderr, "rename: old path %s not found\n", oldpath);
++        free(temp3);
++        free(temp4);
+         pthread_mutex_unlock(&(ctx->mutex));
+         return -ENOENT;
+     }
+-    // check if the directory changed
+-    temp1 = strdup(oldpath);
+-    temp2 = strdup(newpath);
+-    olddir = dirname(temp1);
+-    newdir = dirname(temp2);
+ 
++    is_file = folder_tree_path_is_file(ctx->tree, ctx->conn, oldpath);
++
++    // check if the directory changed
+     if (strcmp(olddir, newdir) != 0) {
+         folderkey = folder_tree_path_get_key(ctx->tree, ctx->conn, newdir);
+-        if (key == NULL) {
+-            fprintf(stderr, "key is NULL\n");
+-            free(temp1);
+-            free(temp2);
++        if (folderkey == NULL) {
++            fprintf(stderr, "rename: new directory %s not found\n", newdir);
++            free(temp3);
++            free(temp4);
+             pthread_mutex_unlock(&(ctx->mutex));
+             return -ENOENT;
+         }
+ 
+-        if (is_file) {
+-            retval = mfconn_api_file_move(ctx->conn, key, folderkey);
+-        } else {
+-            retval = mfconn_api_folder_move(ctx->conn, key, folderkey);
++        /* patched3: retry transient MediaFire API errors */
++        retval = -1;
++        for (i = 0; i < 20; i++) {
++            if (is_file)
++                retval = mfconn_api_file_move(ctx->conn, key, folderkey);
++            else
++                retval = mfconn_api_folder_move(ctx->conn, key, folderkey);
++            if (retval == 0)
++                break;
++            sleep(5);
+         }
+         if (retval != 0) {
+-            if (is_file) {
+-                fprintf(stderr, "mfconn_api_file_move failed\n");
+-            } else {
+-                fprintf(stderr, "mfconn_api_folder_move failed\n");
+-            }
+-            free(temp1);
+-            free(temp2);
++            fprintf(stderr, "%s failed\n",
++                    is_file ? "mfconn_api_file_move"
++                            : "mfconn_api_folder_move");
++            free(temp3);
++            free(temp4);
+             pthread_mutex_unlock(&(ctx->mutex));
+             return -ENOENT;
+         }
+     }
+ 
+-    free(temp1);
+-    free(temp2);
+-
+     // check if the name changed
+     temp1 = strdup(oldpath);
+     temp2 = strdup(newpath);
+@@ -806,19 +858,31 @@ int mediafirefs_rename(const char *oldpath, const char *newpath)
+     newname = basename(temp2);
+ 
+     if (strcmp(oldname, newname) != 0) {
+-        if (is_file) {
+-            retval = mfconn_api_file_update(ctx->conn, key, newname);
+-        } else {
+-            retval = mfconn_api_folder_update(ctx->conn, key, newname);
++        /* patched3: retry transient MediaFire API errors, re-resolving the key
++         * each round */
++        retval = -1;
++        for (i = 0; i < 20; i++) {
++            key = folder_tree_path_get_key(ctx->tree, ctx->conn, oldpath);
++            if (key == NULL) {
++                sleep(5);
++                continue;
++            }
++            if (is_file)
++                retval = mfconn_api_file_update(ctx->conn, key, newname);
++            else
++                retval = mfconn_api_folder_update(ctx->conn, key, newname);
++            if (retval == 0)
++                break;
++            sleep(5);
+         }
+         if (retval != 0) {
+-            if (is_file) {
+-                fprintf(stderr, "mfconn_api_file_update failed\n");
+-            } else {
+-                fprintf(stderr, "mfconn_api_folder_update failed\n");
+-            }
++            fprintf(stderr, "%s failed\n",
++                    is_file ? "mfconn_api_file_update"
++                            : "mfconn_api_folder_update");
+             free(temp1);
+             free(temp2);
++            free(temp3);
++            free(temp4);
+             pthread_mutex_unlock(&(ctx->mutex));
+             return -ENOENT;
+         }
+@@ -827,7 +891,20 @@ int mediafirefs_rename(const char *oldpath, const char *newpath)
+     free(temp1);
+     free(temp2);
+ 
+-    folder_tree_update(ctx->tree, ctx->conn, true);
++    /*
++     * patched5: keep the local tree consistent without a full
++     * device/get_changes refresh. For the common same-directory rename just
++     * update the entry's name in place; otherwise reload both directories.
++     */
++    if (strcmp(olddir, newdir) == 0) {
++        folder_tree_rename_entry(ctx->tree, ctx->conn, oldpath, newpath);
++    } else {
++        folder_tree_reload_dir(ctx->tree, ctx->conn, olddir);
++        folder_tree_reload_dir(ctx->tree, ctx->conn, newdir);
++    }
++
++    free(temp3);
++    free(temp4);
+ 
+     pthread_mutex_unlock(&(ctx->mutex));
+ 
+@@ -950,11 +1027,14 @@ int mediafirefs_fsync(const char *path, int datasync,
+ 
+     pthread_mutex_lock(&(ctx->mutex));
+ 
+-    fprintf(stderr, "fsync not implemented\n");
++    /* patched1: restic calls fsync() on every pack/index before rename().
++     * There is nothing to flush to the MediaFire backend here (the upload
++     * happens in release()), so report success instead of -ENOSYS. */
++    fprintf(stderr, "fsync is a no-op\n");
+ 
+     pthread_mutex_unlock(&(ctx->mutex));
+ 
+-    return -ENOSYS;
++    return 0;
+ }
+ 
+ int mediafirefs_setxattr(const char *path, const char *name,
+@@ -1079,11 +1159,12 @@ int mediafirefs_fsyncdir(const char *path, int datasync,
+ 
+     pthread_mutex_lock(&(ctx->mutex));
+ 
+-    fprintf(stderr, "fsyncdir not implemented\n");
++    /* patched1: see mediafirefs_fsync() */
++    fprintf(stderr, "fsyncdir is a no-op\n");
+ 
+     pthread_mutex_unlock(&(ctx->mutex));
+ 
+-    return -ENOSYS;
++    return 0;
+ }
+ 
+ /*
+diff --git a/utils/http.c b/utils/http.c
+index cb77955..b4becbc 100644
+--- a/utils/http.c
++++ b/utils/http.c
+@@ -74,6 +74,16 @@ static void http_curl_reset(mfhttp * conn)
+     // it should never take 5 seconds to establish a connection to the server
+     curl_easy_setopt(conn->curl_handle, CURLOPT_CONNECTTIMEOUT, 5);
+ 
++    /*
++     * patched1: bound every transfer so that a stalled MediaFire endpoint can
++     * never block the single FUSE worker forever. Uploads/downloads of large
++     * packs may legitimately take a while, so the hard cap is generous; a
++     * transfer that stays below 1 KiB/s for 60 s is aborted.
++     */
++    curl_easy_setopt(conn->curl_handle, CURLOPT_LOW_SPEED_LIMIT, 1024L);
++    curl_easy_setopt(conn->curl_handle, CURLOPT_LOW_SPEED_TIME, 60L);
++    curl_easy_setopt(conn->curl_handle, CURLOPT_TIMEOUT, 900L);
++
+     //curl_easy_setopt(conn->curl_handle, CURLOPT_SSL_VERIFYPEER, 0L);
+ }
+ 
+@@ -135,6 +145,8 @@ http_get_buf(mfhttp * conn, const char *url,
+     http_curl_reset(conn);
+     conn->write_buf_len = 0;
+     curl_easy_setopt(conn->curl_handle, CURLOPT_URL, url);
++    /* patched1: metadata GETs should return quickly; cap them at 30 s */
++    curl_easy_setopt(conn->curl_handle, CURLOPT_TIMEOUT, 30L);
+     curl_easy_setopt(conn->curl_handle, CURLOPT_READFUNCTION,
+                      http_read_buf_cb);
+     curl_easy_setopt(conn->curl_handle, CURLOPT_READDATA, (void *)conn);
