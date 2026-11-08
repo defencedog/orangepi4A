@@ -32,7 +32,16 @@ Feature-rich, private desktop YouTube player (Electron 44 / ARM64) configured to
 
 ---
 
-## 5. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
+## 5. Restic / Rustic MediaFire Cloud Backup Suite (`restic`)
+Automated, client-side encrypted, deduplicated cloud backup suite using `restic` (or `rustic`) to backup local directories directly to MediaFire cloud storage mounted via `mediafire-fuse` at `/media/mediafire/backup`.
+- **Directory:** [`./restic/`](./restic/) (also symlinked as [`./rustic/`](./rustic/))
+- **Features:** Automated mount-aware backup script (`restic-mediafire-backup.sh`), integrity verification (`--verify-data`), retention policy & pruning (`--prune`), full restore instructions, and deep technical plan (`restic-mediafire-plan.json`).
+- **Engine Support:** Uses standard `restic` from Ubuntu default repos (`sudo apt install restic`), with full drop-in compatibility for `rustic-rs`.
+- **Documentation:** See [`restic/README.md`](./restic/README.md).
+
+---
+
+## 6. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
 Desktop database manager for SQLite on Ubuntu ARM64:
 - Main repository: [john-black-3k/sqlitestudio-linux-arm64](https://github.com/john-black-3k/sqlitestudio-linux-arm64)
 
