@@ -9,4 +9,4 @@
 - [**Vendor NPU & Hardware Acceleration Tools (NPU_tools_vendor)**](./NPU_tools_vendor): Legacy vendor kernel acceleration stack, hardware monitoring utilities, and acceleration reports for the vendor Allwinner BSP.
 
 ## Utilities & Prebuilt Packages
-- [**Files & Tools Suite (files_tools)**](./files_tools): Prebuilt packages and productivity utilities for ARM64 / Ubuntu. Includes the patched [MediaFire FUSE & Shell Suite](./files_tools/mediafire-fuse) (`mediafire-tools_0.60+patched5_arm64.deb` with upload/rename fixes for `restic` backups) and [SQLiteStudio](./files_tools) 3.4.17.
+- [**Files & Tools Suite (files_tools)**](./files_tools): Prebuilt packages and productivity utilities for ARM64 / Ubuntu. Includes the VPU hardware-accelerated [Glide Media Player](./files_tools/glide) (`glide_0.6.9_arm64.deb` with H.264/HEVC/VP9 Cedar support and real-time `opi-mon` telemetry), the patched [MediaFire FUSE & Shell Suite](./files_tools/mediafire-fuse) (`mediafire-tools_0.60+patched5_arm64.deb` with upload/rename fixes for `restic` backups), and [SQLiteStudio](./files_tools) 3.4.17.

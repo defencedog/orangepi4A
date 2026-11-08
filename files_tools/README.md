@@ -8,7 +8,15 @@ Production FUSE filesystem driver and interactive shell for MediaFire cloud stor
 
 ---
 
-## 2. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
+## 2. Glide Hardware-Accelerated Media Player (`glide`)
+Modern GStreamer + GTK4 + Rust media player featuring Cedar VPU hardware decoding for H.264, HEVC / H.265, and VP9.
+- **Directory:** [`./glide/`](./glide/)
+- **Features:** Prebuilt aarch64 deb package (`glide_0.6.9_arm64.deb`), real-time VPU telemetry support in `opi-mon`, and patch resolving Wayland window-sizing behavior (`glide_bug/`).
+- **Documentation:** See [`glide/README.md`](./glide/README.md) and [`glide/GLIDE-VPU.md`](./glide/GLIDE-VPU.md).
+
+---
+
+## 3. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
 Desktop database manager for SQLite on Ubuntu ARM64:
 - Main repository: [john-black-3k/sqlitestudio-linux-arm64](https://github.com/john-black-3k/sqlitestudio-linux-arm64)
 
