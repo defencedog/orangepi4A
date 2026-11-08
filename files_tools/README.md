@@ -35,7 +35,7 @@ Feature-rich, private desktop YouTube player (Electron 44 / ARM64) configured to
 ## 5. Restic / Rustic MediaFire Cloud Backup Suite (`restic`)
 Automated, client-side encrypted, deduplicated cloud backup suite using `restic` (or `rustic`) to backup local directories directly to MediaFire cloud storage mounted via `mediafire-fuse` at `/media/mediafire/backup`.
 - **Directory:** [`./restic/`](./restic/) (also symlinked as [`./rustic/`](./rustic/))
-- **Features:** Automated mount-aware backup script (`restic-mediafire-backup.sh`), integrity verification (`--verify-data`), retention policy & pruning (`--prune`), full restore instructions, and deep technical plan (`restic-mediafire-plan.json`).
+- **Features:** Automated mount-aware backup script (`restic-mediafire-backup.sh`), integrity verification (`--verify-data`), retention policy & pruning (`--prune`), and full restore instructions.
 - **Engine Support:** Uses standard `restic` from Ubuntu default repos (`sudo apt install restic`), with full drop-in compatibility for `rustic-rs`.
 - **Documentation:** See [`restic/README.md`](./restic/README.md).
 
