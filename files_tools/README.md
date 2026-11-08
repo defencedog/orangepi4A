@@ -16,7 +16,23 @@ Modern GStreamer + GTK4 + Rust media player featuring Cedar VPU hardware decodin
 
 ---
 
-## 3. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
+## 3. Flow-Desktop YouTube Player with Clapper VPU Integration (`flow`)
+Privacy-first desktop client for YouTube (Tauri 2 + React) patched to delegate video playback to Clapper for Cedar VPU hardware acceleration (`Flow_0.1.0-beta3_arm64.deb`).
+- **Directory:** [`./flow/`](./flow/)
+- **Features:** Prebuilt arm64 deb, Rust Tauri backend patch (`patch-flow-clapper.py`), React settings schema, and test automation scripts.
+- **Documentation:** See [`flow/README.md`](./flow/README.md) and [`flow/FLOW-VPU-CLAPPER-INTEGRATION.md`](./flow/FLOW-VPU-CLAPPER-INTEGRATION.md).
+
+---
+
+## 4. FreeTube YouTube Player with Clapper VPU Integration (`freetube`)
+Feature-rich, private desktop YouTube player (Electron 44 / ARM64) configured to launch Clapper for Cedar hardware VPU decoding (`freetube_0.26.0_beta_arm64.deb`).
+- **Directory:** [`./freetube/`](./freetube/)
+- **Features:** Prebuilt arm64 deb package, single-representation DASH stream optimization scripts (`clapper_yt_dlp_dash.py`, `clapper_yt_dlp_overrides.py`), and setup guide.
+- **Documentation:** See [`freetube/README.md`](./freetube/README.md) and [`freetube/freetube-patch.md`](./freetube/freetube-patch.md).
+
+---
+
+## 5. SQLiteStudio for ARM64 (`SQLiteStudio-3.4.17`)
 Desktop database manager for SQLite on Ubuntu ARM64:
 - Main repository: [john-black-3k/sqlitestudio-linux-arm64](https://github.com/john-black-3k/sqlitestudio-linux-arm64)
 
