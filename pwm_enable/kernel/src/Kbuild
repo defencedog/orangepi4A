@@ -1,0 +1,1 @@
+obj-m += pwm-sun55i-t527.o

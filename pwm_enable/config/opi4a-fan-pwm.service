@@ -1,0 +1,13 @@
+[Unit]
+Description=Orange Pi 4A Hardware PWM Fan Controller (Pin 7 / PB4 / PWM8)
+After=systemd-modules-load.service multi-user.target
+Wants=systemd-modules-load.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/opi4a-fan-pwm.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
