@@ -1,0 +1,104 @@
+{
+  "bundle": "mesa_patches",
+  "created": "2026-11-25",
+  "baseline": "Mesa 26.0.8 (mesa_26.0.8.orig.tar.xz)",
+  "target": "Allwinner T527 (Orange Pi 4A) VeriSilicon VIP9000 NPU (ChipID 0x9000, ProductID 0x5090009)",
+  "repo_path": "NPU_modules_opi4a_6.18.44/mesa_patches",
+  "upstream_context": "Mesa MR 45078",
+  "files": [
+    {
+      "path": "PLAN.json",
+      "size": 8578,
+      "sha256": "4038e7c761f025c95a25d5a7682cf9ff775a4ce2ab1f0bd318ad810238560397"
+    },
+    {
+      "path": "README.md",
+      "size": 6956,
+      "sha256": "f82d1d09d19acb514ab5fb3bdef780808ba2d6318f5366a60cfac5451dd1a867"
+    },
+    {
+      "path": "build/build.sh",
+      "size": 3074,
+      "sha256": "5fc3c5bb4dc22b93e9152edc948ddfe9ff8705d2f10476f22416dc01b0de52c3"
+    },
+    {
+      "path": "build/cross_aarch64.txt",
+      "size": 584,
+      "sha256": "869ae05b3d043b73e229c1a173860f2710ffa691f03594e52acfdbf8642eca64"
+    },
+    {
+      "path": "patches/STAT.txt",
+      "size": 691,
+      "sha256": "3cb1bc096c6da1ed167a47811d3fdbe03af30535cfd3acceeef4ef5d67b0f1ff"
+    },
+    {
+      "path": "patches/mesa-26.0.8-vip9000-teflon.patch",
+      "size": 141580,
+      "sha256": "cacbd76e26c9e573d4f2b07378ae2784e6593fe22733306f38fc41175a936531"
+    },
+    {
+      "path": "scripts/make_allwinner_hwdb.py",
+      "size": 1409,
+      "sha256": "f8ccf7c564b586a5f65e5b9d5d3e239bdd9ee0f31fda8e46f377a4b5d7b3569a"
+    },
+    {
+      "path": "scripts/patch_tfl_device.py",
+      "size": 2161,
+      "sha256": "4dc3145cacab87730dc30af20a46a37bc6fa4b17c10d867c51a0a42b6ee40d49"
+    },
+    {
+      "path": "validation/EXPECTED_SHA256SUMS",
+      "size": 1407,
+      "sha256": "24df875a8e3c670ff3c60af8936decbe36634be74c5b1b94a5d4909c627fe028"
+    },
+    {
+      "path": "validation/VALIDATION.md",
+      "size": 5792,
+      "sha256": "5361972a4a8e18882c44d7f56c7752bb4fb42e83c59511a84af1ca54cd6172e6"
+    }
+  ],
+  "reference_artifacts": {
+    "lib/libteflon.so": {
+      "sha256": "10bd3eae0d08427fecd47527fed8e796aaed2ae75c6d5fa21ad8c8574b009576",
+      "size": 11804760,
+      "note": "shipped, unstripped; identical to proxmox build tree artifact"
+    },
+    "libteflon.so.rebuilt": {
+      "sha256": "10bd3eae0d08427fecd47527fed8e796aaed2ae75c6d5fa21ad8c8574b009576",
+      "size": 11804760,
+      "note": "byte-identical rebuild from pristine Mesa 26.0.8 + patch"
+    },
+    "libteflon.so.strip --strip-all": {
+      "sha256": "66436c5010c9612b137afdcf5b318d54baa5be865a0902bbcce3d7daed82fe15",
+      "size": 11111128
+    }
+  },
+  "build": {
+    "meson_options": [
+      "-Dbuildtype=release",
+      "-Dgallium-drivers=etnaviv",
+      "-Dteflon=true",
+      "-Dvulkan-drivers=",
+      "-Dplatforms=",
+      "-Dglx=disabled",
+      "-Dgbm=disabled",
+      "-Degl=disabled",
+      "-Dgles1=disabled",
+      "-Dgles2=disabled",
+      "-Dopengl=false",
+      "-Dshared-glapi=disabled",
+      "-Dllvm=disabled"
+    ],
+    "target": "src/gallium/targets/teflon/libteflon.so",
+    "toolchain": "aarch64-linux-gnu-gcc 11.4.0 (Ubuntu 22.04 cross), Meson 1.12.0",
+    "cross_file": "build/cross_aarch64.txt"
+  },
+  "validation": {
+    "patch_apply": "pass",
+    "patch_reproduces_reference_files": "10/10 byte-identical",
+    "rebuild": "byte-identical",
+    "rebuild_sha256": "10bd3eae0d08427fecd47527fed8e796aaed2ae75c6d5fa21ad8c8574b009576",
+    "hardware_smoke_test": "not rerun in this session; rebuilt artifact is byte-identical to the previously validated shipped artifact",
+    "notes": "Exact reproduction required a non-git tree (empty MESA_GIT_SHA1) and no libudev detection; Mesa generated src/etnaviv/isa/encode.h is ordered nondeterministically, and reusing the original generated header yields the identical binary."
+  }
+}

@@ -50,6 +50,22 @@ The VIP9000 (`vip9000nano-di`) is a dedicated neural accelerator consisting of:
 | **Kernel MMU** | `drivers/gpu/drm/etnaviv/etnaviv_buffer.c` | Removed forced MMU flush on consecutive submits; added `CMD_WAIT(buffer, 64)` settling delay during context invalidations. |
 | **Kernel Power** | `drivers/gpu/drm/etnaviv/etnaviv_gpu.c` | Excluded absent bits (`SH` 0x8, `TP` 0x40000, `FE` 0x1) from `gpu->idle_mask` before HWDB early return, restoring clean autosuspend. |
 
+### 2.4 Mesa Teflon Source Patch Bundle (`mesa_patches/`)
+
+The prebuilt `lib/libteflon.so` is accompanied by the source-level Mesa 26.0.8
+changes in [`mesa_patches/`](mesa_patches/README.md). The bundle contains a
+single patch against upstream Mesa 26.0.8, the Allwinner T527 HWDB generator,
+the original cross file, and a reproducible build script:
+
+```bash
+cd mesa_patches
+tar -xf /path/to/mesa_26.0.8.orig.tar.xz
+./build/build.sh ../mesa-26.0.8 --cross ./build/cross_aarch64.txt
+```
+
+The patch is the source reference for upstream Mesa MR 45078. Kernel-side
+changes remain in [`kernel/src/`](kernel/src/).
+
 ---
 
 ## 3. Architectural Decision: Why the Vendor VIPCore Pathway Was Not Selected
@@ -297,6 +313,12 @@ sudo ./NPU_enable.sh enable
 ├── lib/
 │   ├── libteflon.so               # Patched Mesa Teflon delegate (12 MB)
 │   └── install_lib.sh             # Library deployment & ldconfig script
+├── mesa_patches/                  # Mesa 26.0.8 Teflon/VIP9000 source patch bundle
+│   ├── README.md
+│   ├── patches/                   # Single combined patch + diffstat
+│   ├── scripts/                   # HWDB generator + tfl_device helper
+│   ├── build/                     # build.sh + cross_aarch64.txt
+│   └── validation/                # Reproducibility and smoke-test record
 └── smoke_test/
     ├── test_npu_smoke.py          # Standalone hardware diagnostic script
     ├── conv2d.tflite              # Validated INT8 test tensor model (51 KB)

@@ -1,0 +1,20 @@
+# Reference SHA256SUMS for the Mesa 26.0.8 Teflon / VIP9000 bundle.
+#
+# Bundle files
+1f0328db874e2f7f556a0e9b16da2455ffa3da4ffdd16305dc76b1c19f6d99f4  PLAN.json
+f8ccf7c564b586a5f65e5b9d5d3e239bdd9ee0f31fda8e46f377a4b5d7b3569a  scripts/make_allwinner_hwdb.py
+4dc3145cacab87730dc30af20a46a37bc6fa4b17c10d867c51a0a42b6ee40d49  scripts/patch_tfl_device.py
+869ae05b3d043b73e229c1a173860f2710ffa691f03594e52acfdbf8642eca64  build/cross_aarch64.txt
+cacbd76e26c9e573d4f2b07378ae2784e6593fe22733306f38fc41175a936531  patches/mesa-26.0.8-vip9000-teflon.patch
+3cb1bc096c6da1ed167a47811d3fdbe03af30535cfd3acceeef4ef5d67b0f1ff  patches/STAT.txt
+
+# Reference artifacts (Orange Pi 4A T527 VIP9000 stack)
+# ../lib/libteflon.so (repo, unstripped; identical to the proxmox build tree)
+10bd3eae0d08427fecd47527fed8e796aaed2ae75c6d5fa21ad8c8574b009576  lib/libteflon.so
+# Byte-identical rebuild from pristine Mesa 26.0.8 + this patch
+# (non-git tree, no libudev, original generated encode.h reused)
+10bd3eae0d08427fecd47527fed8e796aaed2ae75c6d5fa21ad8c8574b009576  libteflon.so.rebuilt
+# strip --strip-all applied to the repo library (debug info removed)
+66436c5010c9612b137afdcf5b318d54baa5be865a0902bbcce3d7daed82fe15  libteflon.so.strip --strip-all
+# Historical older stripped artifact, /root/builds/teflon_opi4a/libteflon.so
+1fb0b72e07e266d9a92a158e4dc3d260e3d963b0cb24a4d347ccc1fb4543e7aa  libteflon.so.stripped.published

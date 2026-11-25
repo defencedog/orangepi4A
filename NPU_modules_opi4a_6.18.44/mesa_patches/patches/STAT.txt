@@ -1,0 +1,11 @@
+ src/etnaviv/hwdb/allwinner/gc_feature_database.h   | 2275 ++++++++++++++++++++
+ src/etnaviv/hwdb/hwdb.h.py                         |   23 +
+ src/etnaviv/hwdb/meson.build                       |    1 +
+ src/gallium/drivers/etnaviv/etnaviv_compiler.c     |    2 +
+ src/gallium/drivers/etnaviv/etnaviv_ml.c           |  232 +-
+ src/gallium/drivers/etnaviv/etnaviv_ml_nn.c        |   50 +-
+ src/gallium/drivers/etnaviv/etnaviv_ml_nn_v8.c     |   54 +-
+ src/gallium/drivers/etnaviv/etnaviv_screen.c       |    3 +-
+ src/gallium/frontends/teflon/tfl_device.c          |   45 +-
+ .../winsys/etnaviv/drm/etnaviv_drm_winsys.c        |    2 +-
+ 10 files changed, 2569 insertions(+), 118 deletions(-)

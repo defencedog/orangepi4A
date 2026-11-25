@@ -1,0 +1,173 @@
+{
+  "plan_id": "mesa-26.0.8-vip9000-teflon-patch-bundle",
+  "created": "2026-11-25",
+  "owner": "ukhan",
+  "objective": "Package the Mesa 26.0.8 Teflon/VIP9000 source changes, which currently exist only as a patched source tree on the proxmox build host and as a prebuilt libteflon.so in the orangepi4A repo, into a small, reviewable source patch bundle. Publish the bundle inside NPU_modules_opi4a_6.18.44 and validate that the patch reproduces the shipped libteflon.so and that the rebuilt delegate still runs the Allwinner T527 VIP9000 NPU on the Orange Pi 4A.",
+
+  "deliverable": {
+    "repo_path": "/home/ukhan/orangepi4A/NPU_modules_opi4a_6.18.44/mesa_patches",
+    "bundle_layout": [
+      "README.md",
+      "PLAN.json",
+      "MANIFEST.json",
+      "patches/mesa-26.0.8-vip9000-teflon.patch",
+      "patches/STAT.txt",
+      "scripts/make_allwinner_hwdb.py",
+      "scripts/patch_tfl_device.py",
+      "build/build.sh",
+      "build/cross_aarch64.txt",
+      "validation/VALIDATION.md",
+      "validation/EXPECTED_SHA256SUMS"
+    ],
+    "not_committed": [
+      "Full Mesa 26.0.8 source tree (~200 MB) - unnecessary and too large for GitHub",
+      "Build directories, object files, ninja logs",
+      "*.bak and __pycache__ files from the patched tree"
+    ]
+  },
+
+  "source_of_truth": {
+    "host": "proxmox (ukhan-ai, x86_64 Ubuntu, root)",
+    "patched_mesa_tree": "/root/builds/mesa-26.0.8",
+    "pristine_mesa_tarball": "/root/builds/mesa_src/mesa_26.0.8.orig.tar.xz",
+    "partial_pristine_tree": "/root/builds/mesa_src/mesa-26.0.8",
+    "cross_file": "/root/builds/orangepi4a/cross_aarch64.txt",
+    "helper_scripts": [
+      "/root/builds/make_allwinner_hwdb.py",
+      "/root/builds/patch_tfl_device.py"
+    ],
+    "published_unstripped_artifact": "/root/builds/mesa-26.0.8/build/src/gallium/targets/teflon/libteflon.so",
+    "published_stripped_artifact": "/root/builds/teflon_opi4a/libteflon.so",
+    "repo_artifact": "/home/ukhan/orangepi4A/NPU_modules_opi4a_6.18.44/lib/libteflon.so",
+    "kernel_source_already_in_repo": "/home/ukhan/orangepi4A/NPU_modules_opi4a_6.18.44/kernel/src"
+  },
+
+  "mesa_change_set": {
+    "modified": [
+      "src/gallium/drivers/etnaviv/etnaviv_ml.c",
+      "src/gallium/drivers/etnaviv/etnaviv_ml_nn.c",
+      "src/gallium/drivers/etnaviv/etnaviv_ml_nn_v8.c",
+      "src/gallium/drivers/etnaviv/etnaviv_compiler.c",
+      "src/gallium/drivers/etnaviv/etnaviv_screen.c",
+      "src/gallium/frontends/teflon/tfl_device.c",
+      "src/etnaviv/hwdb/hwdb.h.py",
+      "src/etnaviv/hwdb/meson.build",
+      "src/gallium/winsys/etnaviv/drm/etnaviv_drm_winsys.c"
+    ],
+    "new": [
+      "src/etnaviv/hwdb/allwinner/gc_feature_database.h"
+    ],
+    "excluded_from_patch": [
+      "src/gallium/drivers/etnaviv/etnaviv_ml.c.bak_m15",
+      "src/gallium/drivers/etnaviv/etnaviv_ml_nn_v8.c.bak",
+      "src/gallium/frontends/teflon/tfl_device.c.bak",
+      "**/__pycache__/**",
+      "build/**",
+      "subprojects/**"
+    ],
+    "change_themes": [
+      "VIP9000 multi-core (multi-VIP) sync/stall emission gated behind ETNA_ENABLE_STALL",
+      "VIP9000 init_npu() register programming (NN/TP debug, USC control, icache, SRAM remap)",
+      "Skip 3D transposes and 3D-only registers for non-3D tensors (model 0x9000)",
+      "Kernel-facing NPU detection/softpin fixes in etnaviv_screen.c and etnaviv_drm_winsys.c",
+      "Allwinner T527 VIP9000 HWDB entry (ChipID 0x9000, ProductID 0x5090009) and HWDB lookup fallbacks",
+      "Teflon tfl_device.c reshape handling and error-path hardening",
+      "Experimental env overrides: ETNA_ENABLE_STALL, ETNA_NN_TOKEN, ETNA_NN_CORES, ETNA_NN_CONFIG, ETNA_NN_LAYER_TYPE, ETNA_NN_NO_Z_OFFSET, ETNA_NN_LAYER_FLUSH, ETNA_NN_NO_FLUSH, ETNA_NN_SUPERBLOCKS, ETNA_NN_SRAM_CACHE, ETNA_NN_10A4, ETNA_NN_10A8, ETNA_MAX_OPS, ETNA_START_OP, ETNA_ALWAYS_INIT"
+    ]
+  },
+
+  "patch_generation": {
+    "method": "temporary git repository on proxmox: extract pristine tarball, git init/commit baseline, overlay modified tree excluding build artifacts, then git diff --cached",
+    "apply_command": "cd mesa-26.0.8 && git apply ../patches/mesa-26.0.8-vip9000-teflon.patch",
+    "fallback_apply_command": "patch -p1 < patches/mesa-26.0.8-vip9000-teflon.patch",
+    "verification": [
+      "git diff --cached --stat matches the 10-file change set",
+      "patch applies cleanly with --check",
+      "no .bak/__pycache__/build/subprojects entries in the patch"
+    ]
+  },
+
+  "build_reproduction": {
+    "host": "proxmox (cross-compile x86_64 -> aarch64)",
+    "toolchain": "aarch64-linux-gnu-gcc 11.4.0 (Ubuntu 22.04 cross), binutils 2.38, meson 1.12.0",
+    "meson_options": [
+      "-Dbuildtype=release",
+      "-Dgallium-drivers=etnaviv",
+      "-Dteflon=true",
+      "-Dvulkan-drivers=",
+      "-Dplatforms=",
+      "-Dglx=disabled",
+      "-Dgbm=disabled",
+      "-Degl=disabled",
+      "-Dgles1=disabled",
+      "-Dgles2=disabled",
+      "-Dopengl=false",
+      "-Dshared-glapi=disabled",
+      "-Dllvm=disabled",
+      "--cross-file=/root/builds/orangepi4a/cross_aarch64.txt"
+    ],
+    "target": "src/gallium/targets/teflon/libteflon.so",
+    "command": "meson setup build <options> && ninja -C build src/gallium/targets/teflon/libteflon.so"
+  },
+
+  "validation": {
+    "level_1_patch_integrity": [
+      "Extract pristine mesa_26.0.8.orig.tar.xz to a clean directory",
+      "Apply patch; confirm exit 0 and git apply --check passes",
+      "Confirm resulting tree byte-matches /root/builds/mesa-26.0.8 for the 10 changed files"
+    ],
+    "level_2_binary_reproduction": [
+      "Cross-rebuild libteflon.so from pristine+patch on proxmox",
+      "Match the original environment: non-git source tree (empty MESA_GIT_SHA1) and no libudev detection",
+      "Result: byte-for-byte identical to the shipped lib/libteflon.so (sha256 10bd3eae...)",
+      "The only nondeterminism is the ordering inside Mesa's generated src/etnaviv/isa/encode.h; reusing the original generated header yields the identical binary"
+    ],
+    "level_3_functional_on_orange_pi": [
+      "Ensure NPU driver enabled (NPU_enable.sh / etnaviv on /dev/dri/renderD129)",
+      "Run smoke_test/test_npu_smoke.py with repo libteflon.so and capture result",
+      "Install rebuilt libteflon.so to /usr/local/lib (with backup), run smoke test again",
+      "Compare pass/fail, initialization time, and inference result; restore original lib"
+    ],
+    "level_4_native_rebuild_optional": [
+      "Install libdrm-dev and any missing build deps on the Orange Pi 4A",
+      "Native meson/ninja build of the Teflon target (limit parallelism to avoid OOM)",
+      "Run smoke test with the natively built delegate"
+    ],
+    "acceptance_criteria": [
+      "Patch applies cleanly to pristine Mesa 26.0.8",
+      "Rebuilt delegate loads and executes conv2d.tflite on VIP9000",
+      "Smoke test result matches the shipped artifact",
+      "No regression in the published kernel/driver stack"
+    ]
+  },
+
+  "risks": [
+    "Byte-identical reproduction was achieved, but only after matching two environment details (empty MESA_GIT_SHA1, no libudev) and reusing the original generated encode.h; a fresh build with a random Python hash seed can reorder that generated header.",
+    "The Orange Pi 4A has 3.7 GB RAM and ~1.5 GB free; native Mesa builds can OOM. Use -j2/-j4 or rely on the proxmox cross-build.",
+    "Several changes are experimental and env-var gated; upstream reviewers may want them split into separate patches.",
+    "The repo lib/libteflon.so is unstripped; /root/builds/teflon_opi4a/libteflon.so is an older stripped artifact. Compare against the repo artifact, not the old stripped one."
+  ],
+
+  "repo_and_commit": {
+    "decision": "Yes - commit the patch bundle (small, reviewable) to NPU_modules_opi4a_6.18.44/mesa_patches; do NOT commit full Mesa source.",
+    "files_to_stage": [
+      "NPU_modules_opi4a_6.18.44/mesa_patches/**"
+    ],
+    "files_to_leave_untouched": [
+      "NPU_modules_opi4a_6.18.44/lib/libteflon.so",
+      "NPU_modules_opi4a_6.18.44/kernel/**"
+    ],
+    "commit_message": "Add Mesa 26.0.8 Teflon/VIP9000 source patches (mesa_patches)",
+    "push": "git push origin main"
+  },
+
+  "rollback": [
+    "git rm -r NPU_modules_opi4a_6.18.44/mesa_patches and commit",
+    "On proxmox: remove /tmp/opencode/mesa-patch build directories"
+  ],
+
+  "open_questions": [
+    "Should the kernel-side etnaviv patches also be regenerated as patches against Linux 6.18.44 and added to the bundle?",
+    "Should the experimental env-gated changes be split into separate reviewable commits for the upstream Mesa MR?"
+  ]
+}
