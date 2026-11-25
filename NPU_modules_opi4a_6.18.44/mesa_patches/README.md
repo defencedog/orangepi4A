@@ -124,6 +124,25 @@ Summary:
 > isaspec generator; reusing the original generated header (or an equivalent
 > ordering) gives the identical binary. See `validation/VALIDATION.md`.
 
+## Upstreaming notes (Mesa MR 45078)
+
+The patch is a single combined diff so it can be applied and reproduced as one
+unit. For review, it splits naturally into four changes:
+
+1. **HWDB**: `src/etnaviv/hwdb/hwdb.h.py`, `meson.build`, and the new
+   `allwinner/gc_feature_database.h`.
+2. **Teflon frontend**: `src/gallium/frontends/teflon/tfl_device.c`.
+3. **etnaviv winsys/screen**: `etnaviv_screen.c`, `etnaviv_drm_winsys.c`,
+   `etnaviv_compiler.c`.
+4. **VIP9000 ML/NN**: `etnaviv_ml.c`, `etnaviv_ml_nn.c`,
+   `etnaviv_ml_nn_v8.c`.
+
+Before sending upstream, decide whether to keep the bring-up overrides
+(`ETNA_NN_*`, `ETNA_MAX_OPS`, `ETNA_START_OP`, `ETNA_ALWAYS_INIT`), the
+`NN_CONFIG_DEBUG` print, and the commented-out
+`etna_cmd_stream_emit(stream, 0x0)` lines. They are useful for debugging this
+silicon but are not required for the functional fix.
+
 ## License and credits
 
 - Mesa is MIT-licensed; the new HWDB file carries the Vivante MIT header.

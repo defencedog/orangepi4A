@@ -14,7 +14,13 @@ Host: Orange Pi 4A (Allwinner T527, aarch64, Ubuntu 26.04) + proxmox (x86_64,
 | Unwanted entries (`.bak`, `__pycache__`, `build/`, `subprojects/`) | none |
 
 The reference patched tree is `/root/builds/mesa-26.0.8` on proxmox; the
-pristine baseline is `/root/builds/mesa_src/mesa_26.0.8.orig.tar.xz`.
+pristine baseline is `/root/builds/mesa_src/mesa_26.0.8.orig.tar.xz`
+(sha256 `caf1c0061a68e88dfa74967a7e780c0e85d65b6c4e334cd69095a5dc54ad78bc`).
+
+The same patch was applied locally on the Orange Pi 4A against a fresh
+extraction of that tarball: `patch -p1 --dry-run` and the real apply both
+succeeded with no rejects, and all 10 resulting files matched the proxmox
+reference hashes exactly.
 
 Per-file comparison after applying the patch to a fresh extraction:
 
