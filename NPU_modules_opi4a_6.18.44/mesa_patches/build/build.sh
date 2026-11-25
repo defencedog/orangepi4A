@@ -18,6 +18,10 @@
 # Native example (on the Orange Pi 4A):
 #   tar -xf mesa_26.0.8.orig.tar.xz
 #   ./build.sh ./mesa-26.0.8 --native
+#
+# Note: Mesa's isaspec generator (src/etnaviv/isa/encode.h) can order some
+# declarations differently between runs. The resulting binary is functionally
+# identical; set PYTHONHASHSEED if you need deterministic byte output.
 
 set -euo pipefail
 

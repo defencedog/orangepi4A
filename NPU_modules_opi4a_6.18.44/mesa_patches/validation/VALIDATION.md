@@ -104,7 +104,7 @@ already validated on the T527 VIP9000 (`conv2d.tflite`, sysfs active-time delta,
 clean autosuspend). A fresh run can be repeated with:
 
 ```bash
-cd ..
+cd /home/ukhan/orangepi4A/NPU_modules_opi4a_6.18.44
 sudo ./NPU_enable.sh enable
 ~/venv_npu/bin/python3 smoke_test/test_npu_smoke.py
 # optional: swap in a rebuilt library and repeat

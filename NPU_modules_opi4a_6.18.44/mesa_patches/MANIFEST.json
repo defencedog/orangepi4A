@@ -18,8 +18,8 @@
     },
     {
       "path": "build/build.sh",
-      "size": 3074,
-      "sha256": "5fc3c5bb4dc22b93e9152edc948ddfe9ff8705d2f10476f22416dc01b0de52c3"
+      "size": 3300,
+      "sha256": "d28657f3270753ec7cabcdb1e5d3f96132f940cd0aa65cbd8258fa085df4287e"
     },
     {
       "path": "build/cross_aarch64.txt",
@@ -53,8 +53,8 @@
     },
     {
       "path": "validation/VALIDATION.md",
-      "size": 6114,
-      "sha256": "863e7b84ad36a96b4429c4f8cf8327b87a799ab361196f376591b3ed40f7f5bc"
+      "size": 6160,
+      "sha256": "3d73124488ab25916ad2cdf573e72ef8de85efa62283a2e865eb72e1702d51aa"
     }
   ],
   "reference_artifacts": {
