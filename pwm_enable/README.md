@@ -55,6 +55,8 @@ pwm_enable/
 │       └── Kbuild
 └── scripts/
     ├── opi4a-fan-pwm.sh                      # Sysfs PWM fan control daemon (/usr/local/bin/)
+    ├── test_fan_holding.sh                   # Two-phase fan calibration script (decrement + increment)
+    ├── test_fan_holding.md                   # Usage & argument guide for test_fan_holding.sh
     └── test_pwm_pin7.sh                      # Live Pin 7 (PB4 / PWM8) hardware verification script
 ```
 
@@ -150,10 +152,12 @@ Default settings for 20 kHz (`PERIOD_NS=50000`), `POLARITY=normal` (NPN transist
 | Max Sensor Temp (`thermal_zone*`) | Duty Cycle (ns) | Fan Speed | Notes |
 | --- | --- | --- | --- |
 | `< 55 °C` (step-down `< 52 °C`) | `0` | `0%` (Off) | 3 °C hysteresis |
-| `>= 55 °C` | `20000` | `40%` | 2 s `30000` ns (60%) kick-start from `0%` |
-| `>= 65 °C` | `30000` | `60%` | Medium cooling |
-| `>= 73 °C` | `40000` | `80%` | High cooling |
-| `>= 80 °C` | `50000` | `100%` | Full speed |
+| `>= 55 °C` | `30000` | `60%` | 2 s `45000` ns (90%) kick-start from `0%` |
+| `>= 65 °C` | `35000` | `70%` | Medium cooling (2 s 90% kick-start from `0%`) |
+| `>= 73 °C` | `42500` | `85%` | High cooling (2 s 90% kick-start from `0%`) |
+| `>= 80 °C` | `47500` | `95%` | Top speed (capped below 100%) |
+
+See [scripts/test_fan_holding.md](./scripts/test_fan_holding.md) for calibrating holding and startup thresholds on your fan.
 
 Edit `/etc/default/opi4a-fan-pwm` and restart the service to adjust thresholds:
 
