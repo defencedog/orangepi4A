@@ -135,6 +135,17 @@ if grep -qE '5440000\.g2d|g2d' /proc/interrupts 2>/dev/null; then
     prev_g2d_irqs=$(awk '/5440000\.g2d|g2d/{for(i=2;i<=NF;i++){if($i~/^[0-9]+$/){s+=$i}else break};print s+0}' /proc/interrupts)
 fi
 
+# FAN (Allwinner T527 Hardware PWM8 on 2000c00.pwm / Pin 7 PB4)
+# Driver + thermal service: ../pwm_enable/ (pwm-sun55i-t527.ko, opi4a-fan-pwm.service)
+FAN_PWM_CHIP=""
+for p in /sys/class/pwm/pwmchip*; do
+    [ -e "$p" ] || continue
+    if [[ "$(readlink -f "$p" 2>/dev/null)" == *"2000c00.pwm"* ]]; then
+        FAN_PWM_CHIP="$p"
+        break
+    fi
+done
+
 # Hide cursor during run, restore on exit
 trap 'printf "\033[?25h\n"; exit 0' INT TERM EXIT
 printf "\033[?25l\033[2J\033[H"
@@ -277,6 +288,52 @@ while true; do
         fi
     fi
 
+    # 4d. FAN (Allwinner T527 Hardware PWM8 / Pin 7 PB4 + max thermal zone)
+    fan_online=false
+    fan_pct=0
+    fan_freq_str="IDLE"
+    raw_max_temp=0
+    for z in /sys/class/thermal/thermal_zone*; do
+        [ -r "$z/temp" ] || continue
+        read -r z_raw < "$z/temp" 2>/dev/null || z_raw=0
+        if [ -n "$z_raw" ] && [ "$z_raw" -gt "$raw_max_temp" ] 2>/dev/null; then
+            raw_max_temp="$z_raw"
+        fi
+    done
+
+    if [ -n "$FAN_PWM_CHIP" ] && [ -d "$FAN_PWM_CHIP" ]; then
+        fan_online=true
+        fan_ch_dir="${FAN_PWM_CHIP}/pwm8"
+        if [ -d "$fan_ch_dir" ]; then
+            read -r fan_en < "${fan_ch_dir}/enable" 2>/dev/null || fan_en=0
+            read -r fan_per < "${fan_ch_dir}/period" 2>/dev/null || fan_per=0
+            read -r fan_duty < "${fan_ch_dir}/duty_cycle" 2>/dev/null || fan_duty=0
+            read -r fan_pol < "${fan_ch_dir}/polarity" 2>/dev/null || fan_pol="normal"
+            if [ "$fan_en" -eq 1 ] 2>/dev/null && [ "$fan_per" -gt 0 ] 2>/dev/null; then
+                if [ "$fan_pol" = "inversed" ]; then
+                    fan_eff=$((fan_per - fan_duty))
+                else
+                    fan_eff="$fan_duty"
+                fi
+                fan_pct=$(( (fan_eff * 100) / fan_per ))
+                [ "$fan_pct" -gt 100 ] && fan_pct=100
+                [ "$fan_pct" -lt 0 ] && fan_pct=0
+                fan_hz=$((1000000000 / fan_per))
+                if [ "$fan_hz" -ge 1000 ]; then
+                    fan_freq_str="$((fan_hz / 1000))kHz"
+                else
+                    fan_freq_str="${fan_hz}Hz"
+                fi
+            else
+                fan_pct=0
+                fan_freq_str="OFF"
+            fi
+        else
+            fan_pct=0
+            fan_freq_str="IDLE"
+        fi
+    fi
+
     # 5. Memory (RAM & Swap)
     mem_total_kb=0
     mem_avail_kb=0
@@ -365,6 +422,17 @@ while true; do
         printf " ${BOLD}${CYAN}G2D${RESET} ${DIM}OFF ${RESET} "
         draw_bar 0
         printf " ${DIM}OFFLINE${RESET}\n"
+    fi
+
+    # FAN Line: Name(4) %(5) Bar(12) MaxTemp(7) Freq(6) = 36 cols
+    if [ "$fan_online" = true ]; then
+        printf " ${BOLD}${WHITE}FAN${RESET} %3d%% " "$fan_pct"
+        draw_bar "$fan_pct"
+        printf " %b  ${DIM}%-6s${RESET}\n" "$(format_temp "$raw_max_temp")" "$fan_freq_str"
+    else
+        printf " ${BOLD}${WHITE}FAN${RESET} ${DIM}OFF ${RESET} "
+        draw_bar 0
+        printf " %b  ${DIM}OFFLINE${RESET}\n" "$(format_temp "$raw_max_temp")"
     fi
 
     # RAM Line: Name(4) %(5) Bar(12) Used/Tot(9) Free(6) = 36 cols

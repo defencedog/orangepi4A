@@ -1,6 +1,6 @@
 # `opi-mon` — Hardware Telemetry & NPU Load Measurement Guide
 
-`opi-mon` is an ultra-lightweight, 37-column mobile/SSH-optimized terminal dashboard designed specifically for the **Orange Pi 4A (Allwinner T527 Octa-Core SoC)**. It monitors and renders real-time telemetry across CPU, NPU (VeriSilicon VIP9000), GPU (ARM Mali-G57), RAM, and Swap with 1-second refresh intervals.
+`opi-mon` is an ultra-lightweight, 37-column mobile/SSH-optimized terminal dashboard designed specifically for the **Orange Pi 4A (Allwinner T527 Octa-Core SoC)**. It monitors and renders real-time telemetry across CPU, NPU (VeriSilicon VIP9000), GPU (ARM Mali-G57), VPU (Allwinner cedar video engine), RAM, and Swap with 1-second refresh intervals.
 
 ---
 
@@ -13,8 +13,9 @@
  CPU  26% [██░░░░░░░░] 40.4°C  1.80GHz
  NPU 100% [██████████] 38.6°C  2 TOPS
  GPU   0% [░░░░░░░░░░] 38.6°C   150MHz
- VPU   0% [░░░░░░░░░░]     0/s  cedar
- G2D  24% [██░░░░░░░░]    29/s  sunxi
+ VPU 100% [██████████]    31/s  cedar
+ G2D   0% [░░░░░░░░░░]     0/s  sunxi
+ FAN  60% [██████░░░░] 56.2°C  20kHz
  RAM  38% [███░░░░░░░] 1.4/3.7G 2367M free
  SWP   0% [░░░░░░░░░░] 0.0/1.9G
 ─────────────────────────────────────
@@ -57,6 +58,45 @@ When `vipcore.ko` is active (`sudo npu vipcore`), the vendor runtime bypasses DR
 1. **GICv3 Hardware Interrupts:** Tracks interrupts on `vipcore_0` in `/proc/interrupts` (IRQ 491/496). Each neural network execution job triggers completion interrupts.
 2. **Device Handle Monitoring:** Verifies active process bindings on `/dev/vipcore` using `fuser`.
 - When an inference workload runs on the VIP9000 NPU, `opi-mon` lights up `NPU 100% [██████████] 2 TOPS` in real time.
+
+### 2.3 VPU (Allwinner cedar Video Engine)
+The T527 video engine (`1c0e000.video-engine`, exposed to userspace as the
+`cedar_dev` character device `/dev/cedar_dev`) is driven by the `libcedarc`
+user libraries and the GStreamer OMX plugin (`omxh264dec`, `omxvp9videodec`, …).
+It is used for hardware video decode (e.g. when the Clapper/FreeTube pipeline
+plays 720p H.264 at ~20% CPU instead of software decoding).
+
+`opi-mon` tracks it through two kernel interfaces:
+
+- **Runtime PM active time:**
+  `/sys/devices/platform/soc/1c0e000.video-engine/power/runtime_active_time`
+  and `.../runtime_status` (`active` / `suspended`). While the decoder is
+  running the engine stays powered on, so the delta tracks the fraction of the
+  interval the VPU was active:
+  $$\text{VPU Load (\%)} = \min\left(100, \frac{\Delta t_{\text{active}} \times 100}{\text{INTERVAL} \times 1000}\right)$$
+- **GICv3 interrupts:** the `cedar_dev` line in `/proc/interrupts` counts
+  decoder completion interrupts. `opi-mon` prints the summed IRQ rate
+  (**irq/s**) as a device-activity indicator (measured ~31/s while decoding,
+  roughly resolution-independent at ~0/s when idle).
+
+> Unlike the NPU there is no VPU devfreq node and no dedicated VPU thermal zone
+> on this board, so the engine tag (`cedar`) is shown instead of a frequency.
+> When the engine is idle it runtime-suspends, giving `VPU 0% [░░░░░░░░░░] 0/s`.
+
+The line lights up in real time as soon as a hardware-decoded video plays, e.g.
+`VPU 100% [██████████] 31/s cedar`.
+
+### 2.4 FAN (Hardware PWM8 Cooling Fan Telemetry)
+When the `pwm-sun55i-t527.ko` hardware PWM driver (`2000c00.pwm`) is active, `opi-mon` monitors Physical Pin 7 (`PB4` / `PWM8`) via `/sys/class/pwm/pwmchip*/pwm8/{enable,period,duty_cycle,polarity}` and displays:
+- **Duty Cycle % & Bar:** Effective PWM duty (`duty_cycle / period`, accounting for `polarity`).
+- **Max Board Temperature:** Maximum temperature across all `/sys/class/thermal/thermal_zone*` sensors (matching the thermal input tracked by `opi4a-fan-pwm.service`).
+- **Switching Frequency:** Derived from `1,000,000,000 / period` (e.g., `20kHz`, or `IDLE` / `OFF` / `OFFLINE` when unexported, disabled, or driver unloaded).
+
+> **Fan control suite:** the out-of-tree `pwm-sun55i-t527.ko` driver, the G2D +
+> PWM8 Device Tree, and the `opi4a-fan-pwm.service` thermal daemon are provided
+> by the [`pwm_enable/`](../pwm_enable) suite — see
+> [`pwm_enable/README.md`](../pwm_enable/README.md) for installation, thresholds,
+> the 20 kHz duty curve, and fan calibration.
 
 ---
 
