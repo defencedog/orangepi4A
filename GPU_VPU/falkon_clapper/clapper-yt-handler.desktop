@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Clapper YouTube Handler
+Comment=Open YouTube videos in Clapper for cedar VPU playback
+Exec=clapper-yt-handler %u
+Icon=com.github.rafostar.Clapper
+Terminal=false
+NoDisplay=true
+StartupNotify=false
+MimeType=x-scheme-handler/clapper;
+Categories=AudioVideo;Player;

@@ -55,6 +55,8 @@ Video information can be retrieved via `gst-discoverer-1.0 <video>`
 - Command line player with very absolutely no GUI is `gst123` More about its usage [read here](https://www.systutorials.com/docs/linux/man/1-gst123/)
 - Clapper a headache to build can be installed via this [ppa](https://launchpad.net/~liujianfeng1994/+archive/ubuntu/rockchip-multimedia/)
 At its launch navigate _Preferences>Tweaks>Plugin Ranking_ Scroll down to _omx_ & enable all; a default ranking of 257 will be shown. Restart Clapper
+
+> **Ubuntu 26.04 / kernel 6.18.44:** the Clapper PPA above is the 22.04 / 5.15 route. On the current 26.04 image, install `clapper` from the `universe` archive and follow [`falkon_clapper/README.md`](./falkon_clapper/README.md) for the Falkon → Clapper single-window Cedar handoff, including the `omxavsvideodec` plugin-ranking step.
 - `totem` is another good choice, available in default repos
 - Currently unable to build [Glide](https://github.com/philn/glide/issues/134)
 - `parole` player gave me _Segmentation fault_ when installed from official repos. I was able to build & run it via
@@ -69,3 +71,25 @@ meson install -C build
 Navigate to _Preferences>Display_ & choose _X11/XShm/Xv_ After restart of `parole` it uses HW-acceleration but video windows is separated from main GUI?? It has no wayland support yet I believe
 
 If video player is using hardware acceleration you can check it by `sudo journalctl -f | grep cedar`
+
+## Falkon → Clapper single-window VPU handoff (Ubuntu 26.04 / kernel 6.18.44)
+
+[`falkon_clapper/`](./falkon_clapper) contains a Falkon 25.12.3 GreaseMonkey
+userscript plus a `clapper://` handler that sends YouTube `/watch` and `/shorts`
+pages to **one** Clapper window for Cedar VPU playback.
+
+- Validated on **Ubuntu 26.04 LTS (Resolute Raccoon) aarch64**, Kubuntu/Plasma 6,
+  kernel **`6.18.44-g61025ec85b88`**, with Clapper 0.8.0, GStreamer 1.28.2,
+  vendor `gst-omx` 1.20.1, `libcedarc` 1.0, and Falkon 25.12.3.
+- Requires the 26.04 Clapper/GStreamer/gst-omx/libcedarc stack; it does **not**
+  use the jammy (22.04) debs listed above.
+- Clapper must have the VPU decoder selected via
+  _Preferences → Tweaks → Plugin ranking_, and Falkon's **GreaseMonkey**
+  extension must be enabled. Both are covered in
+  [`falkon_clapper/README.md`](./falkon_clapper/README.md), which also lists the
+  exact packages, `/dev/cedar_dev` checks, install/verify steps, and the
+  single-instance design (`clapper <watch-url>` with no `--new-window`).
+
+The YouTube tab stays open; Clapper reuses its active window and replaces the
+current video instead of starting a second player.
+
